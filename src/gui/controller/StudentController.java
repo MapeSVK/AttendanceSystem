@@ -24,12 +24,11 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class StudentController implements Initializable {
 
+    Day days;
     ModelManager manager = new ModelManager();
     @FXML
     private AnchorPane pane;
@@ -83,11 +82,22 @@ public class StudentController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         date.setCellValueFactory(new PropertyValueFactory("date"));
         attendance.setCellValueFactory(new PropertyValueFactory("attendance"));
-
         fill();
+        try {
+            updateAttendance();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        changeLabel();
+        try {
+            checkForSubmission();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void logOut(ActionEvent event) throws IOException {
@@ -96,7 +106,7 @@ public class StudentController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LogInView.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Student");
+        stage.setTitle("Log Out");
         stage.setMaxWidth(265);
         stage.setMaxHeight(375);
         stage.setMinWidth(265);
@@ -104,11 +114,28 @@ public class StudentController implements Initializable {
         stage.show();
     }
 
-    public void changeAttendance(ActionEvent event)
-    {
+    public void changeAttendance(ActionEvent event) throws IOException {
+        List<Day> myList = new ArrayList();
         submisionLabel.setText("Present");
         submisionLabel.setStyle("-fx-text-fill : limegreen");
-        attendanceButton.setDisable(true);
+       attendanceButton.setDisable(true);
+        DateFormat dateFormatter2 = new SimpleDateFormat("MM");
+        int month = Integer.parseInt(dateFormatter2.format(new Date()));
+        for(Day day : manager.getDays(months[month-1]))
+        {
+            if(day.getAttendance().equals("not submitted"))
+            {
+                day.setAttendance("true");
+                myList.add(day);
+
+            }
+            else
+            {
+                myList.add(day);
+            }
+        }
+        manager.updateMonth(myList,months[month-1]);
+        changeLabel();
     }
     public void rightM(MouseEvent event){
         if(t<11) {
@@ -154,8 +181,6 @@ public class StudentController implements Initializable {
         months[10]="November";
         months[11]="December";
         monthName.setText(months[t]);
-       changeLabel();
-
     }
 
     private ObservableList<Day> filterDate(String month) throws IOException {
@@ -172,6 +197,7 @@ public class StudentController implements Initializable {
 
                 if(dayOfWeek!=7 && dayOfWeek!=1)
                 {
+
                     allDays++;
                     if(day.getAttendance().equals("true"))
                     {
@@ -186,6 +212,11 @@ public class StudentController implements Initializable {
                     else if (day.getAttendance().equals("false"))
                     {
                         day.setAttendance("absent");
+                        days.add(day);
+                    }
+                    else if (day.getAttendance().equals("not submitted"))
+                    {
+                        day.setAttendance("not submitted");
                         days.add(day);
                     }
                 }
@@ -222,5 +253,44 @@ public class StudentController implements Initializable {
         caa.setTime(curentdate);
         int dWeek = caa.get(Calendar.WEEK_OF_YEAR);
         return dWeek;
+    }
+    private void updateAttendance() throws IOException, ParseException {
+        List<Day> iLikeToSing = new ArrayList();
+        List<Day> iLikeToDance = new ArrayList();
+        iLikeToSing.addAll(manager.getDays(months[t]));
+        iLikeToDance.addAll(manager.getDays(months[t]));
+        DateFormat dateFormatter = new SimpleDateFormat("dd");
+        DateFormat dateFormatter2 = new SimpleDateFormat("MM");
+        DateFormat dateFormatter3 = new SimpleDateFormat("YYYY");
+        Date date = new Date();
+        String newDate = dateFormatter2.format(date);
+        String newDate2 = dateFormatter3.format(date);
+
+        Date lastDate = dateFormatter.parse(iLikeToSing.get(iLikeToSing.size()-1).getDate());
+        int currentDate = Integer.parseInt(dateFormatter.format(date));
+        int listDate = Integer.parseInt(dateFormatter.format(lastDate));
+        if(listDate<currentDate) {
+            for (int i = listDate + 1; i < currentDate; i++) {
+                Day day = new Day(i + "/" + newDate + "/" + newDate2, "false");
+                iLikeToDance.add(day);
+
+            }
+            iLikeToDance.add(new Day(currentDate + "/" + newDate + "/" + newDate2, "not submitted"));
+            manager.updateMonth(iLikeToDance, months[t]);
+        }
+    }
+
+    private void checkForSubmission() throws IOException {
+        for(Day day : filterDate(months[t]))
+        {
+            if(day.getAttendance().equals("not submitted"))
+            {
+                attendanceButton.setDisable(false);
+            }
+            else
+            {
+                attendanceButton.setDisable(true);
+            }
+        }
     }
 }

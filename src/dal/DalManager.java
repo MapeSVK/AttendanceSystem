@@ -4,6 +4,7 @@ import be.Day;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.io.*;
+import java.util.List;
 import java.util.Scanner;
 
 public class DalManager {
@@ -41,5 +42,19 @@ String kanapka = (String)ois.readObject();
             }
         }
         return days;
+    }
+
+    public void updateMonth(List<Day> dayList, String file) throws IOException {
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter("fakeDB/"+file+".csv")))
+        {
+            bw.write("Date, Attendance");
+            bw.newLine();
+            for (Day days : dayList) {
+                bw.write(days.getDate() + ","
+                        + days.getAttendance());
+                        bw.newLine();
+            }
+
+        }
     }
 }
