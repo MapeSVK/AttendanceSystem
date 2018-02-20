@@ -1,6 +1,7 @@
 package bll;
 
 import be.Day;
+import be.Student;
 import dal.DalManager;
 import javafx.collections.ObservableList;
 
@@ -23,8 +24,18 @@ public class BllManager {
     {
         return manager.getDays(month);
     }
+
     public void updateMonth(List<Day> dayList, String file) throws IOException{
         manager.updateMonth(dayList, file);
+    }
 
+    public void updateStudent(List<Student> studentList, String file) throws IOException
+    {
+        manager.updateStudent(studentList,file);
+    }
+
+    public ObservableList<Student> getStudents() throws IOException
+    {
+        return  manager.getStudents();
     }
 }

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="596.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.StudentController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="251.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.StudentController">
    <children>
       <JFXButton fx:id="attendanceButton" layoutX="47.0" layoutY="168.0" onAction="#changeAttendance" prefHeight="59.0" prefWidth="159.0" ripplerFill="#8d2828" text="Commit attendance" />
       <JFXButton layoutX="176.0" layoutY="297.0" onAction="#logOut" text="Log out" />

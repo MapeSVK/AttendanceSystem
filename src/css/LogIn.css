@@ -1,0 +1,9 @@
+.button{
+-fx-border-image-width: 1;
+    -fx-border-color: black;
+}
+.label
+{
+    -fx-border-image-width: 1;
+    -fx-border-color: black;
+}
