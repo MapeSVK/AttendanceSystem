@@ -93,7 +93,9 @@ public class StudentController implements Initializable {
             date.setCellValueFactory(new PropertyValueFactory("date"));
             attendance.setCellValueFactory(new PropertyValueFactory("attendance"));
 
-            fill();
+            manager.fill(months);
+            monthName.setText(months[t]);
+            t=Integer.parseInt(dateFormatterMonth.format(currentDate))-1;
 
             updateAttendance();
             changeLabel();
@@ -166,23 +168,6 @@ public class StudentController implements Initializable {
         changeLabel();
     }
 
-    private void fill()
-    {
-        t=Integer.parseInt(dateFormatterMonth.format(currentDate))-1;
-        months[0]="January";
-        months[1]="February";
-        months[2]="March";
-        months[3]="April";
-        months[4]="May";
-        months[5]="June";
-        months[6]="July";
-        months[7]="August";
-        months[8]="September";
-        months[9]="October";
-        months[10]="November";
-        months[11]="December";
-        monthName.setText(months[t]);
-    }
 
     private void setDaysInWeek()
     {

@@ -4,13 +4,10 @@ import be.Day;
 import be.Student;
 import gui.model.ModelManager;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
-
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+
 
 public class SelectedStudentControler {
 
@@ -46,6 +43,7 @@ public class SelectedStudentControler {
      private int takenLessonsLabel;
      private String nameLabel="";
      private String skippedDayLabel="";
+    private String[] months = new String[12];
 
     public void setStudentId(String studentId) throws IOException {
 
@@ -53,7 +51,7 @@ public class SelectedStudentControler {
 
         setInformation();
         fillLabels();
-
+        manager.fill(months);
     }
 
     private void setInformation() throws IOException {
@@ -78,6 +76,7 @@ public class SelectedStudentControler {
         skuppedDay.setText(skippedDayLabel);
         takenL.setText(""+takenLessonsLabel+"/5");
     }
+
 
 
 }
