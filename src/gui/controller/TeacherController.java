@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package gui.controller;
 
 import be.Student;
@@ -5,6 +10,12 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import gui.model.ModelManager;
+import java.io.IOException;
+import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,42 +30,35 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.ResourceBundle;
-
+/**
+ * FXML Controller class
+ *
+ * @author Pepe15224
+ */
 public class TeacherController implements Initializable {
 
     @FXML
     private TableView<Student> studentsTable;
-
     @FXML
     private TableColumn<Student, String> nameColumn;
-
     @FXML
     private TableColumn<Student, String> attendanceColumn;
-
     @FXML
     private TableColumn<Student, String> percentageColumn;
-
     @FXML
     private TableColumn<Student, String> takenLessonsColumn;
-
-    @FXML
-    private JFXButton logOutButton;
-
-    @FXML
-    private JFXComboBox<String> classBox;
-
     @FXML
     private Label dateLabel;
-
+    @FXML
+    private JFXButton logOutButton;
+    @FXML
+    private JFXComboBox<String> classBox;
     @FXML
     private JFXTextField searchField;
 
+    /**
+     * Initializes the controller class.
+     */
     ModelManager manager = new ModelManager();
 
     Date currentDate = new Date();

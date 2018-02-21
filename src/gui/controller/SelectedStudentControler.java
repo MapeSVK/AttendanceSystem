@@ -1,41 +1,53 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package gui.controller;
 
-import be.Day;
 import be.Student;
 import gui.model.ModelManager;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
-import java.io.IOException;
 
-
-public class SelectedStudentControler {
+/**
+ * FXML Controller class
+ *
+ * @author Pepe15224
+ */
+public class SelectedStudentControler implements Initializable {
 
     @FXML
-    private TableColumn<Day, String> dateColumn;
-
+    private TableColumn<Student, String> dateColumn;
     @FXML
-    private TableColumn<Day, String> attendanceColumn;
-
+    private TableColumn<Student, String> attendanceColumn;
     @FXML
     private TableColumn<?, ?> changeAttendanceColumn;
-
     @FXML
     private Label name;
-
     @FXML
     private Label month;
-
-    @FXML
-    private Label takenL;
-
     @FXML
     private Label percentage;
-
+    @FXML
+    private Label takenL;
     @FXML
     private Label skuppedDay;
 
-     private String studentIde="";
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }    
+    
+    private String studentIde="";
 
      ModelManager manager = new ModelManager();
 
@@ -76,7 +88,5 @@ public class SelectedStudentControler {
         skuppedDay.setText(skippedDayLabel);
         takenL.setText(""+takenLessonsLabel+"/5");
     }
-
-
 
 }

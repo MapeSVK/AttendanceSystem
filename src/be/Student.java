@@ -1,7 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package be;
 
+/**
+ *
+ * @author Pepe15224
+ */
 public class Student {
-
+    
     private String name;
     private String attendance;
     private String percentage;
@@ -17,6 +26,8 @@ public class Student {
         this.skippedDay = skippedDay;
         this.months = months;
     }
+
+    
 
     public String getName() {
         return name;

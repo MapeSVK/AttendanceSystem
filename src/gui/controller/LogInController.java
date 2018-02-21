@@ -1,10 +1,17 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package gui.controller;
-
 
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import gui.model.ModelManager;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -16,26 +23,27 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
+
+
+
+
+/**
+ *
+ * @author Pepe15224
+ */
 public class LogInController implements Initializable {
-
-    private ModelManager manager = new ModelManager();
 
     @FXML
     private JFXTextField loginField;
-
-    @FXML
-    private Label inLabel;
-
     @FXML
     private JFXPasswordField passwordField;
-
     @FXML
     private JFXCheckBox rememberCheck;
+    @FXML
+    private Label inLabel;
+    
+    private ModelManager manager = new ModelManager();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -93,5 +101,4 @@ public class LogInController implements Initializable {
         stage.setTitle(view);
         stage.show();
     }
-    }
-
+}

@@ -1,9 +1,24 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package gui.controller;
 
 import be.Day;
 import be.Student;
 import com.jfoenix.controls.JFXButton;
 import gui.model.ModelManager;
+import java.io.IOException;
+import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,41 +35,37 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.net.URL;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
+/**
+ * FXML Controller class
+ *
+ * @author Pepe15224
+ */
 public class StudentController implements Initializable {
 
-    ModelManager manager = new ModelManager();
-
+    @FXML
+    private AnchorPane pane;
     @FXML
     private Label submisionLabel;
-
+    @FXML
+    private TableView<Day> studentTable;
+    @FXML
+    private TableColumn<Day, String> date;
+    @FXML
+    private TableColumn<Day, String> attendance;
     @FXML
     private Label takenL;
-
+    @FXML
+    private Label percentage;
+    @FXML
+    private Label monthName;
     @FXML
     private JFXButton attendanceButton;
 
-    @FXML
-    private Label percentage;
-
-    @FXML
-    private Label monthName;
-
-    @FXML
-    private TableView<Day> studentTable;
-
-    @FXML
-    private TableColumn<Day, String> date;
-
-    @FXML
-    private TableColumn<Day, String> attendance;
-
+    /**
+     * Initializes the controller class.
+     */
+    ModelManager manager = new ModelManager();
     private String[] months = new String[12];
     private int t;
     private int present=0;
@@ -71,6 +82,7 @@ public class StudentController implements Initializable {
     String skippedDayResult="";
 
     public void fakeAnimation(MouseEvent event) throws InterruptedException, IOException {
+        
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         if(fake==false) {

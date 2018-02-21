@@ -1,19 +1,28 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package bll;
 
 import be.Day;
 import be.Student;
 import dal.DalManager;
-import javafx.collections.ObservableList;
-
 import java.io.IOException;
 import java.util.List;
+import javafx.collections.ObservableList;
 
+
+/**
+ *
+ * @author Pepe15224
+ */
 public class BllManager {
-
+    
     private DalManager manager = new DalManager();
 
     public void saveUsername(String username) throws IOException {
-        manager.saveUsername(username);
+        
     }
 
     public String readUsername() throws IOException, ClassNotFoundException {
