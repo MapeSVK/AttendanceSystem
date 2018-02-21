@@ -104,15 +104,14 @@ public class StudentController implements Initializable {
 
             date.setCellValueFactory(new PropertyValueFactory("date"));
             attendance.setCellValueFactory(new PropertyValueFactory("attendance"));
-
-            manager.fill(months);
-            monthName.setText(months[t]);
-            t=Integer.parseInt(dateFormatterMonth.format(currentDate))-1;
-
+           
+            fill();
             updateAttendance();
             changeLabel();
             checkForSubmission();
             updateStudent();
+            leftM();
+            rightM();
 
         } catch (IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
@@ -152,9 +151,29 @@ public class StudentController implements Initializable {
         updateStudent();
         changeLabel();
         changeLabel();
+
+    }
+    public void fill()
+    {
+        
+            t=Integer.parseInt(dateFormatterMonth.format(currentDate))-1;
+        months[0]="January";
+        months[1]="February";
+        months[2]="March";
+        months[3]="April";
+        months[4]="May";
+        months[5]="June";
+        months[6]="July";
+        months[7]="August";
+        months[8]="September";
+        months[9]="October";
+        months[10]="November";
+        months[11]="December";
+        monthName.setText(months[t]);
+        changeLabel();
     }
 
-    public void rightM(MouseEvent event){
+    public void rightM(){
         if(t<11) {
             t++;
             monthName.setText(months[t]);
@@ -356,8 +375,8 @@ public class StudentController implements Initializable {
             if(studente.getName().equals("Tomasz Plesniak"))
             {
                 studente.setAttendance(currentAttendance);
-                studente.setPercentage(""+(present*100)/allDays);
-                studente.setTakenLessons(""+weekOfYeat);
+                studente.setPercentage(""+(present*100)/allDays+"%");
+                studente.setTakenLessons(""+weekOfYeat+"/5");
                 studente.setSkippedDay(skippedDayResult);
                 studente.setMonths("T");
             }
