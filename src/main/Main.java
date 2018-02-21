@@ -24,6 +24,7 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
         System.out.println("Marin suck dick");
+        System.out.println("Yes he does");
     }
 
     /**
