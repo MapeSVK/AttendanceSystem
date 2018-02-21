@@ -26,6 +26,4 @@ public class Day {
     public void setAttendance(String attendance) {
         this.attendance = attendance;
     }
-
-
 }
