@@ -1,10 +1,12 @@
 package gui.model;
 
 import be.Day;
+import be.Student;
 import bll.BllManager;
 import javafx.collections.ObservableList;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ModelManager {
 
@@ -21,5 +23,18 @@ public class ModelManager {
     public ObservableList<Day> getDays(String month) throws IOException
     {
         return manager.getDays(month);
+    }
+
+    public void updateMonth(List<Day> dayList, String file) throws IOException{
+        manager.updateMonth(dayList, file);
+    }
+
+    public void updateStudent(List<Student> studentList, String file) throws IOException
+    {
+        manager.updateStudent(studentList,file);
+    }
+    public ObservableList<Student> getStudents() throws IOException
+    {
+        return manager.getStudents();
     }
 }

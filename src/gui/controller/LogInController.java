@@ -65,49 +65,33 @@ public class LogInController implements Initializable {
         login(event);
     }
 
-    private void login(Event event) throws IOException  {
-        if(loginField.getText().equals("Tomek")&&passwordField.getText().equals("qwerty"))
+    private void login(Event event) throws IOException {
+        if(loginField.getText().equals("Student")&&passwordField.getText().equals("qwerty"))
         {
-            if(rememberCheck.isSelected()==true)
-                manager.saveUsername(loginField.getText());
-            else
-                manager.saveUsername(null);
-
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/StudentView.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("Student");
-            stage.setMaxWidth(265);
-            stage.setMaxHeight(375);
-            stage.setMinWidth(265);
-            stage.setMinHeight(375);
-            stage.show();
+            changeScene("Student",event);
         }
-        else if(loginField.getText().equals("Jeppe")&&passwordField.getText().equals("qwerty"))
+        else if(loginField.getText().equals("Teacher")&&passwordField.getText().equals("qwerty"))
         {
-            if(rememberCheck.isSelected()==true)
-                manager.saveUsername(loginField.getText());
-            else
-                manager.saveUsername(null);
-
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/TeacherView.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("Teacher");
-            stage.setMaxWidth(265);
-            stage.setMaxHeight(375);
-            stage.setMinWidth(265);
-            stage.setMinHeight(375);
-            stage.show();
+            changeScene("Teacher",event);
         }
         else
         {
             inLabel.setVisible(true);
         }
+    }
+    private void changeScene(String view,Event event) throws IOException {
+        if(rememberCheck.isSelected()==true)
+            manager.saveUsername(loginField.getText());
+        else
+            manager.saveUsername(null);
+
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/"+view+"View.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle(view);
+        stage.show();
     }
     }
 

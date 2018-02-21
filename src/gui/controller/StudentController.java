@@ -1,6 +1,7 @@
 package gui.controller;
 
 import be.Day;
+import be.Student;
 import com.jfoenix.controls.JFXButton;
 import gui.model.ModelManager;
 import javafx.beans.value.ChangeListener;
@@ -29,15 +30,11 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class StudentController implements Initializable {
 
     ModelManager manager = new ModelManager();
-    @FXML
-    private AnchorPane pane;
 
     @FXML
     private Label submisionLabel;
@@ -69,13 +66,25 @@ public class StudentController implements Initializable {
     private int allDays=0;
     private int weekOfYeat=0;
     private boolean fake = false;
+    Date currentDate = new Date();
+    DateFormat dateFormatterMonth = new SimpleDateFormat("MM");
+    DateFormat dateFormatterFull = new SimpleDateFormat("dd/MM/yyyy");
+    int month = Integer.parseInt(dateFormatterMonth.format(currentDate));
+    int[] daysInWeek = new int[5];
+    String[] skippedDay= new String[5];
+    int max=0;
+    String skippedDayResult="";
 
     public void fakeAnimation(MouseEvent event) throws InterruptedException, IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         if(fake==false) {
+<<<<<<< HEAD
             stage.setMinWidth(631);
             stage.setMaxWidth(631);
+=======
+            stage.setMaxWidth(596);
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
             fake=true;
         }
         else
@@ -89,6 +98,7 @@ public class StudentController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+<<<<<<< HEAD
         studentTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
 
@@ -99,6 +109,23 @@ public class StudentController implements Initializable {
         fill();
 
 
+=======
+        try {
+
+            date.setCellValueFactory(new PropertyValueFactory("date"));
+            attendance.setCellValueFactory(new PropertyValueFactory("attendance"));
+
+            fill();
+
+            updateAttendance();
+            changeLabel();
+            checkForSubmission();
+            updateStudent();
+
+        } catch (IOException e) { e.printStackTrace(); }
+        catch (ParseException e) { e.printStackTrace();}
+
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
     }
 
     public void logOut(ActionEvent event) throws IOException {
@@ -107,21 +134,41 @@ public class StudentController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LogInView.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Student");
-        stage.setMaxWidth(265);
-        stage.setMaxHeight(375);
-        stage.setMinWidth(265);
-        stage.setMinHeight(375);
+        stage.setTitle("Log Out");
         stage.show();
     }
 
-    public void changeAttendance(ActionEvent event)
-    {
+    public void changeAttendance(ActionEvent event) throws IOException {
+        List<Day> myList = new ArrayList();
         submisionLabel.setText("Present");
+<<<<<<< HEAD
         submisionLabel.setStyle("-fx-text-fill : #4cc417");
         attendanceButton.setDisable(true);
         attendanceButton.setStyle("-fx-background-color: #908c8c");
+=======
+        submisionLabel.setStyle("-fx-text-fill : limegreen");
+       attendanceButton.setDisable(true);
+
+        for(Day day : manager.getDays(months[month-1]))
+        {
+            if(day.getAttendance().equals("not submitted"))
+            {
+                day.setAttendance("true");
+                myList.add(day);
+
+            }
+            else
+            {
+                myList.add(day);
+            }
+        }
+        manager.updateMonth(myList,months[month-1]);
+        updateStudent();
+        changeLabel();
+        changeLabel();
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
     }
+
     public void rightM(MouseEvent event){
         if(t<11) {
             t++;
@@ -150,9 +197,7 @@ public class StudentController implements Initializable {
 
     private void fill()
     {
-        DateFormat dateFormat = new SimpleDateFormat("MM");
-        Date date = new Date();
-        t=Integer.parseInt(dateFormat.format(date))-1;
+        t=Integer.parseInt(dateFormatterMonth.format(currentDate))-1;
         months[0]="January";
         months[1]="February";
         months[2]="March";
@@ -166,17 +211,53 @@ public class StudentController implements Initializable {
         months[10]="November";
         months[11]="December";
         monthName.setText(months[t]);
-       changeLabel();
-
     }
 
+    private void setDaysInWeek()
+    {
+        skippedDay[0]="Monday";
+        skippedDay[1]="Tuesday";
+        skippedDay[2]="Wednesday";
+        skippedDay[3]="Thursday";
+        skippedDay[4]="Friday";
+        max=0;
+        for(int i=0;i<5;i++)
+        {
+            daysInWeek[i]=0;
+        }
+    }
+    private void checkForSkippedDay(int dayNumber)
+    {
+
+        if(dayNumber==2)
+            daysInWeek[0]++;
+        else if(dayNumber==3)
+            daysInWeek[1]++;
+        else if(dayNumber==4)
+            daysInWeek[2]++;
+        else if(dayNumber==5)
+            daysInWeek[3]++;
+        else if(dayNumber==6)
+            daysInWeek[4]++;
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (daysInWeek[i] > max)
+            {
+                max =daysInWeek[i];
+            }
+        }
+        skippedDayResult = skippedDay[max];
+    }
     private ObservableList<Day> filterDate(String month) throws IOException {
         ObservableList<Day> days = FXCollections.observableArrayList();
+
+        setDaysInWeek();
+
         for(Day day : manager.getDays(month))
         {
             try {
-                DateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
-                Date dateW = dateFormatter.parse(day.getDate());
+                Date dateW = dateFormatterFull.parse(day.getDate());
                 Calendar c = Calendar.getInstance();
                 c.setTime(dateW);
                 int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
@@ -184,6 +265,7 @@ public class StudentController implements Initializable {
 
                 if(dayOfWeek!=7 && dayOfWeek!=1)
                 {
+
                     allDays++;
                     if(day.getAttendance().equals("true"))
                     {
@@ -198,6 +280,12 @@ public class StudentController implements Initializable {
                     else if (day.getAttendance().equals("false"))
                     {
                         day.setAttendance("absent");
+                        days.add(day);
+                        checkForSkippedDay(dayOfWeek);
+                    }
+                    else if (day.getAttendance().equals("not submitted"))
+                    {
+                        day.setAttendance("not submitted");
                         days.add(day);
                     }
                 }
@@ -231,12 +319,85 @@ public class StudentController implements Initializable {
 
     private int getWeekInt()
     {
-        DateFormat dateFormatte2r = new SimpleDateFormat("dd/MM/yyyy");
-        Date curentdate = new Date();
-        dateFormatte2r.format(curentdate);
+        dateFormatterFull.format(currentDate);
         Calendar caa = Calendar.getInstance();
-        caa.setTime(curentdate);
+        caa.setTime(currentDate);
         int dWeek = caa.get(Calendar.WEEK_OF_YEAR);
         return dWeek;
+    }
+
+    private void updateAttendance() throws IOException, ParseException {
+
+        List<Day> iLikeToSing = new ArrayList();
+        List<Day> iLikeToDance = new ArrayList();
+
+        iLikeToSing.addAll(manager.getDays(months[t]));
+        iLikeToDance.addAll(manager.getDays(months[t]));
+
+        DateFormat dateFormatterDay = new SimpleDateFormat("dd");
+        DateFormat dateFormatterYear = new SimpleDateFormat("YYYY");
+
+        String newDateMonth = dateFormatterMonth.format(currentDate);
+        String newDateYear = dateFormatterYear.format(currentDate);
+
+        Date lastDate = dateFormatterDay.parse(iLikeToSing.get(iLikeToSing.size()-1).getDate());
+
+        int currentDay = Integer.parseInt(dateFormatterDay.format(currentDate));
+        int lastDateDay = Integer.parseInt(dateFormatterDay.format(lastDate));
+
+        String newDate = "/" + newDateMonth + "/" + newDateYear;
+
+        if(lastDateDay<currentDay) {
+
+            for (int i = lastDateDay + 1; i < currentDay; i++) {
+                Day day = new Day(i + newDate, "false");
+                iLikeToDance.add(day);
+
+            }
+
+            iLikeToDance.add(new Day(currentDay + newDate, "not submitted"));
+
+            manager.updateMonth(iLikeToDance, months[t]);
+        }
+    }
+
+    private void checkForSubmission() throws IOException {
+        for(Day day : filterDate(months[t]))
+        {
+            if(day.getAttendance().equals("not submitted"))
+            {
+                attendanceButton.setDisable(false);
+            }
+            else
+            {
+                attendanceButton.setDisable(true);
+            }
+        }
+    }
+
+    private void updateStudent() throws IOException {
+        List<Student> studentList = new ArrayList();
+        studentList.addAll(manager.getStudents());
+        String currentAttendance="";
+
+        for(Day day : manager.getDays(months[month-1]))
+        {
+            if(day.getDate().equals(dateFormatterFull.format(currentDate)))
+            {
+                 currentAttendance = day.getAttendance();
+            }
+        }
+        for(Student studente : studentList)
+        {
+            if(studente.getName().equals("Tomasz Plesniak"))
+            {
+                studente.setAttendance(currentAttendance);
+                studente.setPercentage(""+(present*100)/allDays);
+                studente.setTakenLessons(""+weekOfYeat);
+                studente.setSkippedDay(skippedDayResult);
+                studente.setMonths("T");
+            }
+        }
+        manager.updateStudent(studentList,"Students");
     }
 }

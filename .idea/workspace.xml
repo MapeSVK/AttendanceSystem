@@ -80,6 +80,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -102,17 +103,42 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="DalManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dal/DalManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <folding />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BllManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bll/BllManager.java">
+      <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/gui/controller/StudentController.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="330">
               <caret line="22" column="36" lean-forward="false" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+=======
+            <state relative-caret-position="-126">
+              <caret line="153" column="5" lean-forward="true" selection-start-line="153" selection-start-column="5" selection-end-line="153" selection-end-column="5" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#fakeAnimation#0;class#StudentController#0" expanded="false" />
+                <element signature="method#initialize#0;class#StudentController#0" expanded="false" />
+                <element signature="method#logOut#0;class#StudentController#0" expanded="false" />
+                <element signature="method#rightM#0;class#StudentController#0" expanded="false" />
+                <element signature="method#leftM#0;class#StudentController#0" expanded="false" />
+                <element signature="method#setDaysInWeek#0;class#StudentController#0" expanded="false" />
+                <element signature="method#checkForSkippedDay#0;class#StudentController#0" expanded="false" />
+                <element signature="method#filterDate#0;class#StudentController#0" expanded="false" />
+                <element signature="method#changeLabel#0;class#StudentController#0" expanded="false" />
+                <element signature="method#getWeekInt#0;class#StudentController#0" expanded="false" />
+                <element signature="method#updateAttendance#0;class#StudentController#0" expanded="false" />
+                <element signature="method#checkForSubmission#0;class#StudentController#0" expanded="false" />
+                <element signature="method#updateStudent#0;class#StudentController#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -121,27 +147,40 @@
       <file leaf-file-name="ModelManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/model/ModelManager.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="330">
               <caret line="22" column="38" lean-forward="false" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+=======
+            <state relative-caret-position="482">
+              <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#readUsername#0;class#ModelManager#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/controller/StudentController.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="-618">
               <caret line="113" column="32" lean-forward="false" selection-start-line="113" selection-start-column="32" selection-end-line="113" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="128">
+              <caret line="12" column="88" lean-forward="false" selection-start-line="12" selection-start-column="88" selection-end-line="12" selection-end-column="88" />
+              <folding />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/view/Main.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -167,32 +206,60 @@
                 <element signature="e#459#460#0" expanded="true" />
                 <element signature="e#503#504#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="TeacherView.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/view/TeacherView.fxml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="24" column="73" lean-forward="false" selection-start-line="24" selection-start-column="73" selection-end-line="24" selection-end-column="73" />
+              <folding />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogInController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/controller/LogInController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="85" column="25" lean-forward="false" selection-start-line="75" selection-start-column="11" selection-end-line="85" selection-end-column="25" />
-              <folding>
-                <element signature="method#enterButton#0;class#LogInController#0" expanded="false" />
-              </folding>
-            </state>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="TeacherController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/controller/TeacherController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
+<<<<<<< HEAD
+            <state relative-caret-position="915">
+              <caret line="85" column="25" lean-forward="false" selection-start-line="75" selection-start-column="11" selection-end-line="85" selection-end-column="25" />
+=======
+            <state relative-caret-position="306">
+              <caret line="103" column="65" lean-forward="true" selection-start-line="103" selection-start-column="65" selection-end-line="103" selection-end-column="65" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="TeacherController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/controller/TeacherController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+=======
+      <file leaf-file-name="SelectedStudentView.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/view/SelectedStudentView.fxml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="StudentView.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/view/StudentView.fxml">
           <provider selected="true" editor-type-id="text-editor">
@@ -202,6 +269,42 @@
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder">
+=======
+      <file leaf-file-name="SelectedStudentControler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/controller/SelectedStudentControler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#setInformation#0;class#SelectedStudentControler#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogInController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/controller/LogInController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="473">
+              <caret line="93" column="21" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="93" selection-end-column="21" />
+              <folding>
+                <element signature="method#enterButton#0;class#LogInController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentView.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/view/StudentView.fxml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="13" column="111" lean-forward="false" selection-start-line="13" selection-start-column="111" selection-end-line="13" selection-end-column="111" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
             <state />
           </provider>
         </entry>
@@ -211,6 +314,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
         <option value="CSS File" />
@@ -218,6 +322,7 @@
     </option>
   </component>
   <component name="FindInProjectRecents">
+<<<<<<< HEAD
     <findStrings>
       <find>attendanceButton</find>
       <find>submisionLabel</find>
@@ -225,6 +330,11 @@
       <find>date</find>
       <find>attendance</find>
     </findStrings>
+=======
+    <dirStrings>
+      <dir>C:\Users\Pepe15224\Desktop\100\AttendanceSystem</dir>
+    </dirStrings>
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -246,6 +356,7 @@
         <option value="$PROJECT_DIR$/src/gui/Controller.java" />
         <option value="$PROJECT_DIR$/src/gui/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/gui/view/sample.fxml" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/gui/view/TeacherView.fxml" />
         <option value="$PROJECT_DIR$/src/gui/view/LogInView.fxml" />
         <option value="$PROJECT_DIR$/src/gui/controller/LogInController.java" />
@@ -255,7 +366,24 @@
         <option value="$PROJECT_DIR$/src/gui/view/Main.css" />
         <option value="$PROJECT_DIR$/src/gui/view/StudentView.fxml" />
         <option value="$PROJECT_DIR$/src/be/Day.java" />
+=======
+        <option value="$PROJECT_DIR$/src/be/Day.java" />
+        <option value="$PROJECT_DIR$/src/CSS/LogIn.css" />
+        <option value="$PROJECT_DIR$/src/gui/view/LogInView.fxml" />
+        <option value="$PROJECT_DIR$/src/css/LogIn.css" />
+        <option value="$PROJECT_DIR$/src/gui/view/StudentView.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/controller/LogInController.java" />
+        <option value="$PROJECT_DIR$/src/be/Student.java" />
+        <option value="$PROJECT_DIR$/src/bll/BllManager.java" />
+        <option value="$PROJECT_DIR$/src/dal/DalManager.java" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
         <option value="$PROJECT_DIR$/src/main/Main.java" />
+        <option value="$PROJECT_DIR$/src/gui/view/SelectedStudent.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/view/TeacherView.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/controller/TeacherController.java" />
+        <option value="$PROJECT_DIR$/src/gui/view/SelectedStudentView.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/controller/SelectedStudentControler.java" />
+        <option value="$PROJECT_DIR$/src/gui/model/ModelManager.java" />
         <option value="$PROJECT_DIR$/src/gui/controller/StudentController.java" />
       </list>
     </option>
@@ -267,10 +395,18 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+<<<<<<< HEAD
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="828" />
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1386" />
+    <option name="height" value="788" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -278,7 +414,7 @@
   </component>
   <component name="ProjectView">
     <navigator currentView="PackagesPane" proportions="" version="1">
-      <flattenPackages />
+      <flattenPackages PackagesPane="true" />
       <showMembers />
       <showModules />
       <showLibraryContents />
@@ -291,7 +427,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="AndroidView" />
+=======
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -317,19 +456,17 @@
             <path>
               <item name="AttendanceSystem" type="58d84e3e:PackageViewProjectNode" />
               <item name="AttendanceSystem" type="616d4139:PackageViewModuleNode" />
-              <item name="gui" type="1f31426a:PackageElementNode" />
+              <item name="gui.controller" type="1f31426a:PackageElementNode" />
             </path>
             <path>
               <item name="AttendanceSystem" type="58d84e3e:PackageViewProjectNode" />
               <item name="AttendanceSystem" type="616d4139:PackageViewModuleNode" />
-              <item name="gui" type="1f31426a:PackageElementNode" />
-              <item name="controller" type="1f31426a:PackageElementNode" />
+              <item name="gui.model" type="1f31426a:PackageElementNode" />
             </path>
             <path>
               <item name="AttendanceSystem" type="58d84e3e:PackageViewProjectNode" />
               <item name="AttendanceSystem" type="616d4139:PackageViewModuleNode" />
-              <item name="gui" type="1f31426a:PackageElementNode" />
-              <item name="model" type="1f31426a:PackageElementNode" />
+              <item name="gui.view" type="1f31426a:PackageElementNode" />
             </path>
             <path>
               <item name="AttendanceSystem" type="58d84e3e:PackageViewProjectNode" />
@@ -349,6 +486,9 @@
       <pane id="ProjectPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -363,10 +503,17 @@
     <property name="dynamic.classpath" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
+=======
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../GitHub Desktop.lnk" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
@@ -519,16 +666,34 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
+<<<<<<< HEAD
       <workItem from="1518461133044" duration="52203000" />
       <workItem from="1518979170724" duration="14652000" />
+=======
+      <workItem from="1518461133044" duration="52298000" />
+      <workItem from="1518813333915" duration="28514000" />
+      <workItem from="1519028063894" duration="1379000" />
+      <workItem from="1519032541546" duration="13137000" />
+      <workItem from="1519120993870" duration="15672000" />
+      <workItem from="1519149775052" duration="4362000" />
+      <workItem from="1519154189443" duration="12025000" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="68157000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="828" extended-state="0" />
+=======
+    <option name="totallyTimeSpent" value="128730000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -538,6 +703,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35510203" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -545,12 +711,26 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16452074" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32300162" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18381241" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -610,7 +790,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/gui/controller/StudentController.java</url>
+          <line>223</line>
+          <properties />
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="41" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -619,18 +807,44 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/be/Day.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="135">
           <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#938#939#0" expanded="true" />
             <element signature="e#966#967#0" expanded="true" />
+=======
+        <state relative-caret-position="128">
+          <caret line="8" column="44" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/LogInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="70" column="21" lean-forward="false" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
+          <folding>
+            <element signature="method#enterButton#0;class#LogInController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/TeacherController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/dal/DalManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -647,10 +861,53 @@
           <caret line="22" column="36" lean-forward="false" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/gui/view/LogInView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="161" lean-forward="false" selection-start-line="12" selection-start-column="156" selection-end-line="12" selection-end-column="161" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/StudentView.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="133" lean-forward="false" selection-start-line="13" selection-start-column="133" selection-end-line="13" selection-end-column="133" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/StudentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="31" column="46" lean-forward="false" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+          <folding>
+            <element signature="method#fakeAnimation#0;class#StudentController#0" expanded="false" />
+            <element signature="method#initialize#0;class#StudentController#0" expanded="false" />
+            <element signature="method#logOut#0;class#StudentController#0" expanded="false" />
+            <element signature="method#rightM#0;class#StudentController#0" expanded="false" />
+            <element signature="method#leftM#0;class#StudentController#0" expanded="false" />
+            <element signature="method#setDaysInWeek#0;class#StudentController#0" expanded="false" />
+            <element signature="method#checkForSkippedDay#0;class#StudentController#0" expanded="false" />
+            <element signature="method#filterDate#0;class#StudentController#0" expanded="false" />
+            <element signature="method#changeLabel#0;class#StudentController#0" expanded="false" />
+            <element signature="method#getWeekInt#0;class#StudentController#0" expanded="false" />
+            <element signature="method#updateAttendance#0;class#StudentController#0" expanded="false" />
+            <element signature="method#checkForSubmission#0;class#StudentController#0" expanded="false" />
+            <element signature="method#updateStudent#0;class#StudentController#0" expanded="false" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/gui/model/ModelManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -675,19 +932,41 @@
             <element signature="e#459#460#0" expanded="true" />
             <element signature="e#503#504#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/src/dal/DalManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/controller/LogInController.java">
+    <entry file="file://$PROJECT_DIR$/src/bll/BllManager.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="915">
           <caret line="85" column="25" lean-forward="true" selection-start-line="75" selection-start-column="11" selection-end-line="85" selection-end-column="25" />
+=======
+        <state relative-caret-position="416">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/model/ModelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
           <folding>
-            <element signature="method#enterButton#0;class#LogInController#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#readUsername#0;class#ModelManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/gui/controller/TeacherController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -700,6 +979,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="161" lean-forward="false" selection-start-line="12" selection-start-column="156" selection-end-line="12" selection-end-column="161" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/StudentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+          <folding>
+            <element signature="method#fakeAnimation#0;class#StudentController#0" expanded="false" />
+            <element signature="method#initialize#0;class#StudentController#0" expanded="false" />
+            <element signature="method#logOut#0;class#StudentController#0" expanded="false" />
+            <element signature="method#rightM#0;class#StudentController#0" expanded="false" />
+            <element signature="method#leftM#0;class#StudentController#0" expanded="false" />
+            <element signature="method#setDaysInWeek#0;class#StudentController#0" expanded="false" />
+            <element signature="method#checkForSkippedDay#0;class#StudentController#0" expanded="false" />
+            <element signature="method#filterDate#0;class#StudentController#0" expanded="false" />
+            <element signature="method#changeLabel#0;class#StudentController#0" expanded="false" />
+            <element signature="method#getWeekInt#0;class#StudentController#0" expanded="false" />
+            <element signature="method#updateAttendance#0;class#StudentController#0" expanded="false" />
+            <element signature="method#checkForSubmission#0;class#StudentController#0" expanded="false" />
+            <element signature="method#updateStudent#0;class#StudentController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/TeacherView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="47" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
           <folding />
         </state>
       </provider>
@@ -707,10 +1014,17 @@
         <state />
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/gui/view/StudentView.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="146" lean-forward="false" selection-start-line="13" selection-start-column="146" selection-end-line="13" selection-end-column="146" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/be/Day.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="44" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="44" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
           <folding />
         </state>
       </provider>
@@ -740,6 +1054,243 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/LogInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="70" column="21" lean-forward="false" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
+          <folding>
+            <element signature="method#enterButton#0;class#LogInController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/LogInView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="112">
+          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+=======
+        <state relative-caret-position="192">
+          <caret line="12" column="161" lean-forward="false" selection-start-line="12" selection-start-column="156" selection-end-line="12" selection-end-column="161" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/LogInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+=======
+    <entry file="file://$PROJECT_DIR$/src/gui/view/StudentView.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="146" lean-forward="false" selection-start-line="13" selection-start-column="146" selection-end-line="13" selection-end-column="146" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/TeacherController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/LogInView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/LogInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
+        <state relative-caret-position="64">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="method#enterButton#0;class#LogInController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dal/Username.ser" />
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/gui/view/TeacherView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="47" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/LogInView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="161" lean-forward="false" selection-start-line="12" selection-start-column="156" selection-end-line="12" selection-end-column="161" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+<<<<<<< HEAD
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/LogInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="85" column="25" lean-forward="false" selection-start-line="75" selection-start-column="11" selection-end-line="85" selection-end-column="25" />
+=======
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/be/Day.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="44" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/model/ModelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#readUsername#0;class#ModelManager#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bll/BllManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dal/DalManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/LogInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="70" column="21" lean-forward="false" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
+          <folding>
+            <element signature="method#enterButton#0;class#LogInController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/gui/view/LogInView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="12" column="161" lean-forward="false" selection-start-line="12" selection-start-column="156" selection-end-line="12" selection-end-column="161" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/TeacherController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/TeacherController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/StudentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="method#fakeAnimation#0;class#StudentController#0" expanded="false" />
+            <element signature="method#initialize#0;class#StudentController#0" expanded="false" />
+            <element signature="method#logOut#0;class#StudentController#0" expanded="false" />
+            <element signature="method#rightM#0;class#StudentController#0" expanded="false" />
+            <element signature="method#leftM#0;class#StudentController#0" expanded="false" />
+            <element signature="method#setDaysInWeek#0;class#StudentController#0" expanded="false" />
+            <element signature="method#checkForSkippedDay#0;class#StudentController#0" expanded="false" />
+            <element signature="method#filterDate#0;class#StudentController#0" expanded="false" />
+            <element signature="method#changeLabel#0;class#StudentController#0" expanded="false" />
+            <element signature="method#getWeekInt#0;class#StudentController#0" expanded="false" />
+            <element signature="method#updateAttendance#0;class#StudentController#0" expanded="false" />
+            <element signature="method#checkForSubmission#0;class#StudentController#0" expanded="false" />
+            <element signature="method#updateStudent#0;class#StudentController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/StudentView.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="133" lean-forward="false" selection-start-line="13" selection-start-column="133" selection-end-line="13" selection-end-column="133" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/TeacherView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/view/LogInView.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -762,58 +1313,83 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dal/Username.ser" />
-    <entry file="file://$PROJECT_DIR$/src/gui/view/TeacherView.fxml">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/javafx-src.zip!/javafx/fxml/Initializable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/controller/LogInController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="85" column="25" lean-forward="false" selection-start-line="75" selection-start-column="11" selection-end-line="85" selection-end-column="25" />
-          <folding>
-            <element signature="method#enterButton#0;class#LogInController#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="304">
+          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/view/LogInView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="192">
           <caret line="12" column="161" lean-forward="false" selection-start-line="12" selection-start-column="156" selection-end-line="12" selection-end-column="161" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/controller/TeacherController.java">
+    <entry file="file://$PROJECT_DIR$/src/css/LogIn.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="112">
+          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dal/DalManager.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="258">
           <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
+=======
+        <state relative-caret-position="128">
+          <caret line="8" column="44" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/be/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="40" column="36" lean-forward="false" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+          <folding>
+            <element signature="e#590#591#0" expanded="false" />
+            <element signature="e#617#618#0" expanded="false" />
+            <element signature="e#657#658#0" expanded="false" />
+            <element signature="e#689#690#0" expanded="false" />
+            <element signature="e#726#727#0" expanded="false" />
+            <element signature="e#759#760#0" expanded="false" />
+            <element signature="e#811#812#0" expanded="false" />
+            <element signature="e#855#856#0" expanded="false" />
+            <element signature="e#892#893#0" expanded="false" />
+            <element signature="e#925#926#0" expanded="false" />
+            <element signature="e#977#978#0" expanded="false" />
+            <element signature="e#1021#1022#0" expanded="false" />
+            <element signature="e#1060#1061#0" expanded="false" />
+            <element signature="e#1095#1096#0" expanded="false" />
+            <element signature="e#1151#1152#0" expanded="false" />
+            <element signature="e#1199#1200#0" expanded="false" />
+            <element signature="e#1236#1237#0" expanded="false" />
+            <element signature="e#1269#1270#0" expanded="false" />
+            <element signature="e#1321#1322#0" expanded="false" />
+            <element signature="e#1365#1366#0" expanded="false" />
+            <element signature="e#1398#1399#0" expanded="false" />
+            <element signature="e#1427#1428#0" expanded="false" />
+            <element signature="e#1471#1472#0" expanded="false" />
+            <element signature="e#1507#1508#0" expanded="false" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/model/ModelManager.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="330">
           <caret line="22" column="38" lean-forward="false" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
           <folding>
@@ -836,6 +1412,66 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+=======
+        <state relative-caret-position="140">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dal/DalManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="12" column="88" lean-forward="false" selection-start-line="12" selection-start-column="88" selection-end-line="12" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/StudentView.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="111" lean-forward="false" selection-start-line="13" selection-start-column="111" selection-end-line="13" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/TeacherView.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" column="73" lean-forward="false" selection-start-line="24" selection-start-column="73" selection-end-line="24" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/LogInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="93" column="21" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="93" selection-end-column="21" />
+          <folding>
+            <element signature="method#enterButton#0;class#LogInController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/TeacherController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="103" column="65" lean-forward="true" selection-start-line="103" selection-start-column="65" selection-end-line="103" selection-end-column="65" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
           <folding>
             <element signature="e#238#239#0" expanded="true" />
             <element signature="e#265#266#0" expanded="true" />
@@ -849,6 +1485,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -857,10 +1494,31 @@
             <element signature="imports" expanded="true" />
             <element signature="e#938#939#0" expanded="true" />
             <element signature="e#966#967#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/gui/view/SelectedStudentView.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/SelectedStudentControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setInformation#0;class#SelectedStudentControler#0" expanded="false" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/gui/view/Main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
@@ -874,6 +1532,16 @@
         <state relative-caret-position="225">
           <caret line="15" column="174" lean-forward="false" selection-start-line="15" selection-start-column="174" selection-end-line="15" selection-end-column="174" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/src/gui/model/ModelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#readUsername#0;class#ModelManager#0" expanded="false" />
+          </folding>
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -882,10 +1550,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/controller/StudentController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-618">
           <caret line="113" column="32" lean-forward="false" selection-start-line="113" selection-start-column="32" selection-end-line="113" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
+=======
+        <state relative-caret-position="-126">
+          <caret line="153" column="5" lean-forward="true" selection-start-line="153" selection-start-column="5" selection-end-line="153" selection-end-column="5" />
+          <folding>
+            <element signature="method#fakeAnimation#0;class#StudentController#0" expanded="false" />
+            <element signature="method#initialize#0;class#StudentController#0" expanded="false" />
+            <element signature="method#logOut#0;class#StudentController#0" expanded="false" />
+            <element signature="method#rightM#0;class#StudentController#0" expanded="false" />
+            <element signature="method#leftM#0;class#StudentController#0" expanded="false" />
+            <element signature="method#setDaysInWeek#0;class#StudentController#0" expanded="false" />
+            <element signature="method#checkForSkippedDay#0;class#StudentController#0" expanded="false" />
+            <element signature="method#filterDate#0;class#StudentController#0" expanded="false" />
+            <element signature="method#changeLabel#0;class#StudentController#0" expanded="false" />
+            <element signature="method#getWeekInt#0;class#StudentController#0" expanded="false" />
+            <element signature="method#updateAttendance#0;class#StudentController#0" expanded="false" />
+            <element signature="method#checkForSubmission#0;class#StudentController#0" expanded="false" />
+            <element signature="method#updateStudent#0;class#StudentController#0" expanded="false" />
+>>>>>>> 91fc6bca10423823546eb6c1b6fdc253659175b7
           </folding>
         </state>
       </provider>
