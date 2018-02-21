@@ -3,9 +3,11 @@ package gui.controller;
 import be.Day;
 import com.jfoenix.controls.JFXButton;
 import gui.model.ModelManager;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,7 +19,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -69,8 +74,8 @@ public class StudentController implements Initializable {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         if(fake==false) {
-            stage.setMinWidth(596);
-            stage.setMaxWidth(596);
+            stage.setMinWidth(631);
+            stage.setMaxWidth(631);
             fake=true;
         }
         else
@@ -84,10 +89,16 @@ public class StudentController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        studentTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+
+
         date.setCellValueFactory(new PropertyValueFactory("date"));
         attendance.setCellValueFactory(new PropertyValueFactory("attendance"));
 
         fill();
+
+
     }
 
     public void logOut(ActionEvent event) throws IOException {
@@ -107,8 +118,9 @@ public class StudentController implements Initializable {
     public void changeAttendance(ActionEvent event)
     {
         submisionLabel.setText("Present");
-        submisionLabel.setStyle("-fx-text-fill : limegreen");
+        submisionLabel.setStyle("-fx-text-fill : #4cc417");
         attendanceButton.setDisable(true);
+        attendanceButton.setStyle("-fx-background-color: #908c8c");
     }
     public void rightM(MouseEvent event){
         if(t<11) {
@@ -189,12 +201,16 @@ public class StudentController implements Initializable {
                         days.add(day);
                     }
                 }
+
+
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         }
         return days;
     }
+
+
 
     private void changeLabel()
     {
