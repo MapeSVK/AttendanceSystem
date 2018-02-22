@@ -7,31 +7,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="558.0" style="-fx-background-color: #fff;" stylesheets="@TeacherCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.SelectedStudentControler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="574.0" style="-fx-background-color: #fff;" stylesheets="@TeacherCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.SelectedStudentControler">
    <children>
-<<<<<<< HEAD
-      <TableView fx:id="studentTable" layoutY="189.0" prefHeight="411.0" prefWidth="559.0">
-=======
-      <TableView fx:id="studentTable" layoutY="82.0" onMouseClicked="#changeAttendance" prefHeight="318.0" prefWidth="486.0">
->>>>>>> dd83a592d916460590a65e57f9e8b7ced2c76339
+
+      
+      <TableView fx:id="studentTable" layoutY="187.0" onMouseClicked="#changeAttendance" prefHeight="413.0" prefWidth="574.0">
         <columns>
-          <TableColumn fx:id="dateColumn" prefWidth="287.0" text="Date" />
-          <TableColumn fx:id="attendanceColumn" prefWidth="271.0" text="Attendance" />
+          <TableColumn fx:id="dateColumn" prefWidth="274.0" text="Date" />
+          <TableColumn fx:id="attendanceColumn" prefWidth="284.0" text="Attendance" />
         </columns>
       </TableView>
-      <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="14.0" prefHeight="33.0" prefWidth="558.0" text="Name" textFill="#4059a9">
+      <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="33.0" prefWidth="566.0" text="Name" textFill="#4059a9">
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font></Label>
-      <Label layoutX="214.0" layoutY="102.0" onMouseClicked="#leftM" text="&lt;">
+      <Label layoutX="222.0" layoutY="102.0" onMouseClicked="#leftM" text="&lt;">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></Label>
-      <Label fx:id="month" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" layoutY="102.0" prefHeight="16.0" prefWidth="91.0" text="February">
+      <Label fx:id="month" alignment="CENTER" contentDisplay="CENTER" layoutX="236.0" layoutY="102.0" prefHeight="16.0" prefWidth="91.0" text="February">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></Label>
-      <Label layoutX="323.0" layoutY="102.0" onMouseClicked="#rightM" text="&gt;">
+      <Label layoutX="331.0" layoutY="102.0" onMouseClicked="#rightM" text="&gt;">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></Label>
@@ -39,11 +37,8 @@
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="percentage" layoutX="409.0" layoutY="102.0" text="percentage :">
-         <font>
-            <Font name="Arial Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="369.0" layoutY="127.0" text="most skipped day :">
+      
+      <Label layoutX="369.0" layoutY="127.0" text="Most skipped day :">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Label>
@@ -51,7 +46,7 @@
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="percentage" layoutX="482.0" layoutY="103.0" text="percentage">
+      <Label fx:id="percentage" layoutX="482.0" layoutY="103.0" text="per">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Label>
@@ -67,6 +62,11 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="116.0" layoutY="167.0" prefHeight="17.0" prefWidth="328.0" text="Double-click on date to change attendance" textFill="#cccccc">
          <font>
             <Font size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="403.0" layoutY="102.0" text="Percentage:">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
    </children>

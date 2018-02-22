@@ -124,7 +124,7 @@ public class StudentController implements Initializable {
 
             date.setCellValueFactory(new PropertyValueFactory("date"));
             attendance.setCellValueFactory(new PropertyValueFactory("attendance"));
-            
+            calendarImg.setImage(img_plus);
            
             fill();
             updateAttendance();

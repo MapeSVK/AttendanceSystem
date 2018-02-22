@@ -45,8 +45,7 @@ public class SelectedStudentControler implements Initializable {
     private TableColumn<Day, String> dateColumn;
     @FXML
     private TableColumn<Day, String> attendanceColumn;
-    @FXML
-    private TableColumn<?, ?> changeAttendanceColumn;
+    
     @FXML
     private Label name;
     @FXML
@@ -286,7 +285,6 @@ this.studentIde=studentId;
     }
 
     @FXML
-<<<<<<< HEAD
     private void backButtonClick(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
@@ -299,7 +297,8 @@ this.studentIde=studentId;
         stage.setScene(scene);
         stage.setTitle("Teacher View");
         stage.show();
-=======
+    }
+    @FXML
     private void changeAttendance(MouseEvent event) throws IOException {
          Day selectedDay = studentTable.getSelectionModel().getSelectedItem();
         List<Day> justList = new ArrayList();
@@ -363,6 +362,5 @@ this.studentIde=studentId;
 
             manager.updateMonth(iLikeToDance, "T"+months[t]);
         }
->>>>>>> dd83a592d916460590a65e57f9e8b7ced2c76339
     }
 }

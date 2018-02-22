@@ -87,6 +87,8 @@ public class TeacherController implements Initializable {
         Stage stage = (Stage) node.getScene().getWindow();
         stage.setMinWidth(251);
         stage.setMaxWidth(251);
+        stage.setMinHeight(356);
+        stage.setMaxHeight(356);
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LogInView.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -142,6 +144,10 @@ public class TeacherController implements Initializable {
             Stage stage = (Stage) node.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setMinWidth(574);
+            stage.setMaxWidth(574);
+            stage.setMinHeight(600);
+            stage.setMaxHeight(600);
             stage.setTitle("SelectedStudent");
             stage.show();
 
