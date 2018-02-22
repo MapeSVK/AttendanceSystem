@@ -5,19 +5,19 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="334.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.SelectedStudentControler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.SelectedStudentControler">
    <children>
-      <TableView fx:id="studentTable" layoutY="82.0" prefHeight="318.0" prefWidth="333.0">
+      <TableView fx:id="studentTable" layoutY="82.0" prefHeight="318.0" prefWidth="486.0">
         <columns>
-          <TableColumn fx:id="dateColumn" prefWidth="108.0" />
-          <TableColumn fx:id="attendanceColumn" prefWidth="117.0" />
-            <TableColumn fx:id="changeAttendanceColumn" prefWidth="107.0" />
+          <TableColumn fx:id="dateColumn" prefWidth="179.0" />
+          <TableColumn fx:id="attendanceColumn" prefWidth="132.0" />
+            <TableColumn fx:id="changeAttendanceColumn" prefWidth="174.0" />
         </columns>
       </TableView>
       <Label fx:id="name" layoutX="35.0" layoutY="57.0" />
-      <Label layoutX="14.0" layoutY="14.0" onMouseClicked="#leftM" text="Label" />
-      <Label fx:id="month" layoutX="49.0" layoutY="14.0" text="Label" />
-      <Label layoutX="85.0" layoutY="14.0" onMouseClicked="#rightM" text="Label" />
+      <Label layoutX="14.0" layoutY="14.0" onMouseClicked="#leftM" text="&lt;" />
+      <Label fx:id="month" layoutX="49.0" layoutY="14.0" text="February" />
+      <Label layoutX="104.0" layoutY="14.0" onMouseClicked="#rightM" text="&gt;" />
       <Label layoutX="167.0" layoutY="14.0" text="Taken lessons :" />
       <Label fx:id="percentage" layoutX="181.0" layoutY="40.0" text="percentage :" />
       <Label layoutX="142.0" layoutY="65.0" text="most skipped day :" />

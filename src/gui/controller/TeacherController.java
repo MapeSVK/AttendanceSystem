@@ -6,7 +6,6 @@
 package gui.controller;
 
 import be.Student;
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import gui.model.ModelManager;
@@ -16,8 +15,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -52,8 +49,6 @@ public class TeacherController implements Initializable {
     @FXML
     private Label dateLabel;
     @FXML
-    private JFXButton logOutButton;
-    @FXML
     private JFXComboBox<String> classBox;
     @FXML
     private JFXTextField searchField;
@@ -84,7 +79,16 @@ public class TeacherController implements Initializable {
     }
 
     @FXML
-    void logOut(ActionEvent event) {
+    void logOut(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setMinWidth(251);
+        stage.setMaxWidth(251);
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LogInView.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Log Out");
+        stage.show();
     }
 
     private void fillBoxAndSetDate()
@@ -120,6 +124,7 @@ public class TeacherController implements Initializable {
         }
     }
 
+    @FXML
     public void clickStudent(MouseEvent event) throws IOException {
         Student selectedStudent = studentsTable.getSelectionModel().getSelectedItem();
 

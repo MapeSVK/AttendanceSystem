@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="356.0" prefWidth="251.0" style="-fx-background-color: #fff;" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.StudentController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="356.0" prefWidth="251.0" style="-fx-background-color: #fff;" stylesheets="@StudentCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.StudentController">
    <children>
       <JFXButton fx:id="attendanceButton" alignment="CENTER" contentDisplay="CENTER" layoutX="46.0" layoutY="166.0" onAction="#changeAttendance" prefHeight="59.0" prefWidth="159.0" style="-fx-background-color: #347C17;" text="Commit attendance" textFill="WHITE">
          <font>
