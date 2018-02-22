@@ -13,8 +13,10 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -78,12 +80,13 @@ public class SelectedStudentControler implements Initializable {
     DateFormat dateFormatterMonth = new SimpleDateFormat("MM");
 
     public void setStudentId(String studentId) throws IOException {
-
+this.studentIde=studentId;
         dateColumn.setCellValueFactory(new PropertyValueFactory("date"));
         attendanceColumn.setCellValueFactory(new PropertyValueFactory("attendance"));
-            
-        this.studentIde=studentId;
-        changeLabel();     
+           fill(); 
+        changeLabel();
+        setName();
+        updateStudent();
     }
     public void fill()
     {
@@ -149,6 +152,14 @@ public class SelectedStudentControler implements Initializable {
         return dWeek;
     }
     
+    private void setName() throws IOException
+    {
+        for(Student student : manager.getStudents())
+        {
+           if(student.getMonths().equals(studentIde)) 
+           name.setText(student.getName());
+        }
+    }
     private void changeLabel()
     {
 
@@ -239,5 +250,31 @@ public class SelectedStudentControler implements Initializable {
             month.setText(months[t]);
         }
      changeLabel();
+    }
+    
+    private void updateStudent() throws IOException {
+        List<Student> studentList = new ArrayList();
+        studentList.addAll(manager.getStudents());
+        String currentAttendance="";
+
+        for(Day day : manager.getDays(studentIde+months[t]))
+        {
+            if(day.getDate().equals(dateFormatterFull.format(currentDate)))
+            {
+                 currentAttendance = day.getAttendance();
+            }
+        }
+        for(Student studente : studentList)
+        {
+            if(studente.getName().equals(name.getText()))
+            {
+                studente.setAttendance(currentAttendance);
+                studente.setPercentage(""+percentage.getText());
+                studente.setTakenLessons(takenL.getText());
+                studente.setSkippedDay(skippedDayResult);
+                studente.setMonths(studentIde);
+            }
+        }
+        manager.updateStudent(studentList,"Students");
     }
 }
