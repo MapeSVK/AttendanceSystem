@@ -31,20 +31,28 @@ public class DalManager {
  
     
 public void saveUsername(String username) throws IOException {
-    ObjectOutputStream oos =
-            new ObjectOutputStream(
-                    new FileOutputStream("fakeDB/Username.ser")
-            );
-    oos.writeObject(username);
+          try(BufferedWriter bw = new BufferedWriter(new FileWriter("fakeDB/Username.csv")))
+        {
+            bw.write("Username");
+            bw.newLine();
+            bw.write(username);
+        }
 }
 
 public String readUsername() throws IOException, ClassNotFoundException {
-    ObjectInputStream ois =
-            new ObjectInputStream(
-                    new FileInputStream("fakeDB/Username.ser")
-            );
-String kanapka = (String)ois.readObject();
-    return kanapka;
+   String username="";
+        try(BufferedReader br = new BufferedReader(new FileReader("fakeDB/Username.csv")))
+        {
+            Scanner scanner = new Scanner(br);
+            scanner.nextLine();
+            while(scanner.hasNext())
+            {
+                String line = scanner.nextLine();
+                String[] fields = line.split(",");
+                 username = fields[0];
+            }
+        }
+        return username;
 }
     public ObservableList<Day> getDays(String month) throws IOException
     {

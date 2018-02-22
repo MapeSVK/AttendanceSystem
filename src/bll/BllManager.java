@@ -22,7 +22,7 @@ public class BllManager {
     private DalManager manager = new DalManager();
 
     public void saveUsername(String username) throws IOException {
-        
+        manager.saveUsername(username);
     }
 
     public String readUsername() throws IOException, ClassNotFoundException {

@@ -49,25 +49,20 @@ public class LogInController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+       
         try {
-            //        try {
-//            if(manager.readUsername()==null){}
-//            else
-//            {
-//                loginField.setText(manager.readUsername());
-//                rememberCheck.setSelected(true);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-System.out.println(manager.readUsername());
+            if(manager.readUsername().equals("non")){}
+            else
+            {
+                loginField.setText(manager.readUsername());
+                rememberCheck.setSelected(true);
+            }
         } catch (IOException ex) {
             Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     public void enterButton(javafx.scene.input.KeyEvent key) throws IOException {
@@ -83,16 +78,15 @@ System.out.println(manager.readUsername());
     }
 
     private void login(Event event) throws IOException {
+        
         if(loginField.getText().equals("Student")&&passwordField.getText().equals("qwerty"))
         {
-            manager.saveUsername("Student");
-            changeScene("Student",event);
+            changeScene("Student",event); 
             
         }
         else if(loginField.getText().equals("Teacher")&&passwordField.getText().equals("qwerty"))
         {
-            manager.saveUsername("Teacher");
-            changeScene("Teacher",event);
+            changeScene("Teacher",event);    
         }
         else
         {
@@ -104,7 +98,7 @@ System.out.println(manager.readUsername());
         if(rememberCheck.isSelected()==true)
             manager.saveUsername(loginField.getText());
         else
-            manager.saveUsername(null);
+            manager.saveUsername("non");
 
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
