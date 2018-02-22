@@ -22,10 +22,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LogInView.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setMinWidth(251);
-        stage.setMaxWidth(251);
-        stage.setMinHeight(356);
-        stage.setMaxHeight(356);
+        
         stage.show();
         System.out.println("Marin suck dick");
         System.out.println("Yes he does");
