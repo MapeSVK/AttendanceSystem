@@ -93,6 +93,7 @@ this.studentIde=studentId;
         changeLabel();
         setName();
         updateStudent();
+        month.setText(months[t]);
     }
     public void fill()
     {
@@ -285,6 +286,7 @@ this.studentIde=studentId;
     }
 
     @FXML
+<<<<<<< HEAD
     private void backButtonClick(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
@@ -297,5 +299,70 @@ this.studentIde=studentId;
         stage.setScene(scene);
         stage.setTitle("Teacher View");
         stage.show();
+=======
+    private void changeAttendance(MouseEvent event) throws IOException {
+         Day selectedDay = studentTable.getSelectionModel().getSelectedItem();
+        List<Day> justList = new ArrayList();
+       if (event.getClickCount() == 2 && !event.isConsumed() && selectedDay!=null)
+       {
+           for(Day day : manager.getDays(studentIde+months[t]))
+           {
+               if(day.getDate().equals(selectedDay.getDate()))
+               {
+                 if(day.getAttendance().equals("false"))  
+                 {
+                   day.setAttendance("true");
+                    justList.add(day);
+                 }
+                 else if(day.getAttendance().equals("true"))
+                 {
+                    day.setAttendance("false");
+                     justList.add(day);
+                 }
+           }
+               else
+               {
+                  justList.add(day); 
+               }
+       }
+           manager.updateMonth(justList,studentIde+months[t]);
+           changeLabel();
+           updateStudent();
+    }
+    }
+    private void updateAttendance() throws IOException, ParseException {
+
+        List<Day> iLikeToSing = new ArrayList();
+        List<Day> iLikeToDance = new ArrayList();
+
+        iLikeToSing.addAll(manager.getDays("T"+months[t]));
+        iLikeToDance.addAll(manager.getDays("T"+months[t]));
+
+        DateFormat dateFormatterDay = new SimpleDateFormat("dd");
+        DateFormat dateFormatterYear = new SimpleDateFormat("YYYY");
+
+        String newDateMonth = dateFormatterMonth.format(currentDate);
+        String newDateYear = dateFormatterYear.format(currentDate);
+
+        Date lastDate = dateFormatterDay.parse(iLikeToSing.get(iLikeToSing.size()-1).getDate());
+
+        int currentDay = Integer.parseInt(dateFormatterDay.format(currentDate));
+        int lastDateDay = Integer.parseInt(dateFormatterDay.format(lastDate));
+
+        String newDate = "/" + newDateMonth + "/" + newDateYear;
+
+        if(lastDateDay<currentDay) {
+
+            for (int i = lastDateDay + 1; i < currentDay; i++) {
+                Day day = new Day(i + newDate, "false");
+                iLikeToDance.add(day);
+
+            }
+
+            iLikeToDance.add(new Day(currentDay + newDate, "not submitted"));
+
+            manager.updateMonth(iLikeToDance, "T"+months[t]);
+        }
+>>>>>>> dd83a592d916460590a65e57f9e8b7ced2c76339
     }
 }
