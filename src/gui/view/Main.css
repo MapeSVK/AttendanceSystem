@@ -43,6 +43,23 @@
     -fx-background-color: transparent;
 }
 
+.table-row-cell:selected {
+    -fx-background-color: #808080;
+    
+}
+.table-row-cell:selected {
+    -fx-background-color: #808080;
+}
+
+.table-view{
+   -fx-background-color: #fff;
+   
+}
+
+.table-view:focused{
+    -fx-background-color: transparent;
+}
+
 
 
 

@@ -40,10 +40,10 @@
          </image>
       </ImageView>
       <Separator layoutX="254.0" orientation="VERTICAL" prefHeight="336.0" prefWidth="9.0" AnchorPane.leftAnchor="249.0" />
-      <TableView fx:id="studentTable" layoutX="252.0" layoutY="56.0" prefHeight="279.0" prefWidth="461.0">
+      <TableView fx:id="studentTable" layoutX="253.0" layoutY="56.0" maxHeight="279.0" maxWidth="461.0" minHeight="279.0" minWidth="461.0" prefHeight="279.0" prefWidth="461.0">
         <columns>
-          <TableColumn fx:id="date" prefWidth="227.0" />
-          <TableColumn fx:id="attendance" prefWidth="233.0" />
+          <TableColumn fx:id="date" maxWidth="227.0" minWidth="227.0" prefWidth="227.0" />
+          <TableColumn fx:id="attendance" maxWidth="233.0" minWidth="233.0" prefWidth="233.0" />
         </columns>
          
       </TableView>

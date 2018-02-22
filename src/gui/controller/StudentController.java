@@ -64,7 +64,9 @@ public class StudentController implements Initializable {
     @FXML
     private JFXButton attendanceButton;
     
-   
+    private final Image img_minus = new Image("file:images/calendar-minus.png");
+    private final Image img_plus = new Image("file:images/calendar-plus.png");
+
     
 
     /**
@@ -76,7 +78,7 @@ public class StudentController implements Initializable {
     private int present=0;
     private int allDays=0;
     private int weekOfYeat=0;
-    private boolean fake = false;
+    private boolean fake = true;
     Date currentDate = new Date();
     DateFormat dateFormatterMonth = new SimpleDateFormat("MM");
     DateFormat dateFormatterFull = new SimpleDateFormat("dd/MM/yyyy");
@@ -94,15 +96,21 @@ public class StudentController implements Initializable {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         if(fake==false) {
-            stage.setMaxWidth(596);
+            calendarImg.setImage(img_plus);
+            stage.setMinWidth(251);
+            stage.setMaxWidth(251);
             fake=true;
+            
         }
         else
         {
+            calendarImg.setImage(img_minus);
             stage.setMinWidth(700);
             stage.setMaxWidth(700);
             fake=false;
         }
+        
+        
  }
 
     @Override
@@ -121,16 +129,28 @@ public class StudentController implements Initializable {
             updateStudent();
             leftM();
             rightM();
+            
+            
+      
+            
+           
+            
+            
 
         } catch (IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
 
     }
+    
+    
+    
 
     @FXML
     public void logOut(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
+        stage.setMinWidth(251);
+        stage.setMaxWidth(251);
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LogInView.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -366,12 +386,24 @@ public class StudentController implements Initializable {
                 submisionLabel.setText("not submitted");
                 submisionLabel.setStyle("-fx-text-fill : grey");    
             }
-            else
+            
+            else if (day.getAttendance().equals("present"))
             {
                 attendanceButton.setDisable(true);
                 submisionLabel.setText("Present");
-                submisionLabel.setStyle("-fx-text-fill :  #347C17");          
+                submisionLabel.setStyle("-fx-text-fill :  #347C17"); 
+                
             }
+            else
+            {
+                attendanceButton.setDisable(true);
+                submisionLabel.setText("Absent");
+                submisionLabel.setStyle("-fx-text-fill :  red"); 
+               
+                
+            }
+            
+            
         }
     }
 
