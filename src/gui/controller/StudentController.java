@@ -165,7 +165,7 @@ public class StudentController implements Initializable {
         submisionLabel.setStyle("-fx-text-fill :#347C17");
        attendanceButton.setDisable(true);
 
-        for(Day day : manager.getDays(months[month-1]))
+        for(Day day : manager.getDays("T"+months[month-1]))
         {
             if(day.getAttendance().equals("not submitted"))
             {
@@ -178,7 +178,7 @@ public class StudentController implements Initializable {
                 myList.add(day);
             }
         }
-        manager.updateMonth(myList,months[month-1]);
+        manager.updateMonth(myList,"T"+months[month-1]);
         changeLabel();
         changeLabel();
         updateStudent();
@@ -274,7 +274,7 @@ public class StudentController implements Initializable {
 
         setDaysInWeek();
 
-        for(Day day : manager.getDays(month))
+        for(Day day : manager.getDays("T"+month))
         {
             try {
                 Date dateW = dateFormatterFull.parse(day.getDate());
@@ -347,8 +347,8 @@ public class StudentController implements Initializable {
         List<Day> iLikeToSing = new ArrayList();
         List<Day> iLikeToDance = new ArrayList();
 
-        iLikeToSing.addAll(manager.getDays(months[t]));
-        iLikeToDance.addAll(manager.getDays(months[t]));
+        iLikeToSing.addAll(manager.getDays("T"+months[t]));
+        iLikeToDance.addAll(manager.getDays("T"+months[t]));
 
         DateFormat dateFormatterDay = new SimpleDateFormat("dd");
         DateFormat dateFormatterYear = new SimpleDateFormat("YYYY");
@@ -373,7 +373,7 @@ public class StudentController implements Initializable {
 
             iLikeToDance.add(new Day(currentDay + newDate, "not submitted"));
 
-            manager.updateMonth(iLikeToDance, months[t]);
+            manager.updateMonth(iLikeToDance, "T"+months[t]);
         }
     }
 
@@ -412,7 +412,7 @@ public class StudentController implements Initializable {
         studentList.addAll(manager.getStudents());
         String currentAttendance="";
 
-        for(Day day : manager.getDays(months[month-1]))
+        for(Day day : manager.getDays("T"+months[month-1]))
         {
             if(day.getDate().equals(dateFormatterFull.format(currentDate)))
             {
