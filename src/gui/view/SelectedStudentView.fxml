@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.SelectedStudentControler">
    <children>
-      <TableView fx:id="studentTable" layoutY="82.0" prefHeight="318.0" prefWidth="486.0">
+      <TableView fx:id="studentTable" layoutY="82.0" onMouseClicked="#changeAttendance" prefHeight="318.0" prefWidth="486.0">
         <columns>
           <TableColumn fx:id="dateColumn" prefWidth="179.0" />
           <TableColumn fx:id="attendanceColumn" prefWidth="132.0" />
