@@ -26,6 +26,7 @@ public class Main extends Application {
         stage.show();
         System.out.println("Marin suck dick");
         System.out.println("Yes he does");
+        System.out.println("I do");
     }
 
     /**

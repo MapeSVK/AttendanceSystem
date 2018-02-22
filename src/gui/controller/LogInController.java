@@ -12,6 +12,8 @@ import gui.model.ModelManager;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -48,16 +50,23 @@ public class LogInController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            if(manager.readUsername()==null){}
-            else
-            {
-                loginField.setText(manager.readUsername());
-                rememberCheck.setSelected(true);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            //        try {
+//            if(manager.readUsername()==null){}
+//            else
+//            {
+//                loginField.setText(manager.readUsername());
+//                rememberCheck.setSelected(true);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+System.out.println(manager.readUsername());
+        } catch (IOException ex) {
+            Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -76,15 +85,19 @@ public class LogInController implements Initializable {
     private void login(Event event) throws IOException {
         if(loginField.getText().equals("Student")&&passwordField.getText().equals("qwerty"))
         {
+            manager.saveUsername("Student");
             changeScene("Student",event);
+            
         }
         else if(loginField.getText().equals("Teacher")&&passwordField.getText().equals("qwerty"))
         {
+            manager.saveUsername("Teacher");
             changeScene("Teacher",event);
         }
         else
         {
             inLabel.setVisible(true);
+            
         }
     }
     private void changeScene(String view,Event event) throws IOException {
