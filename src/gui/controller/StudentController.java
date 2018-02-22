@@ -363,6 +363,8 @@ public class StudentController implements Initializable {
             if(day.getAttendance().equals("not submitted"))
             {
                 attendanceButton.setDisable(false);
+                submisionLabel.setText("not submitted");
+                submisionLabel.setStyle("-fx-text-fill : grey");    
             }
             else
             {
