@@ -32,6 +32,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -61,6 +63,10 @@ public class StudentController implements Initializable {
     private Label monthName;
     @FXML
     private JFXButton attendanceButton;
+    
+    private final Image img_plus = new Image("file:images/calendar-plus.png");
+    private final Image img_minus = new Image("file:images/calendar-minus.png");
+    
 
     /**
      * Initializes the controller class.
@@ -80,7 +86,10 @@ public class StudentController implements Initializable {
     String[] skippedDay= new String[5];
     int max=0;
     String skippedDayResult="";
+    @FXML
+    private ImageView calendarImg;
 
+    @FXML
     public void fakeAnimation(MouseEvent event) throws InterruptedException, IOException {
         
         Node node = (Node) event.getSource();
@@ -91,8 +100,8 @@ public class StudentController implements Initializable {
         }
         else
         {
-            stage.setMinWidth(265);
-            stage.setMaxWidth(265);
+            stage.setMinWidth(700);
+            stage.setMaxWidth(700);
             fake=false;
         }
  }
@@ -104,6 +113,7 @@ public class StudentController implements Initializable {
 
             date.setCellValueFactory(new PropertyValueFactory("date"));
             attendance.setCellValueFactory(new PropertyValueFactory("attendance"));
+            calendarImg.setImage(img_plus);
            
             fill();
             updateAttendance();
@@ -118,6 +128,7 @@ public class StudentController implements Initializable {
 
     }
 
+    @FXML
     public void logOut(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
@@ -128,10 +139,11 @@ public class StudentController implements Initializable {
         stage.show();
     }
 
+    @FXML
     public void changeAttendance(ActionEvent event) throws IOException {
         List<Day> myList = new ArrayList();
         submisionLabel.setText("Present");
-        submisionLabel.setStyle("-fx-text-fill : limegreen");
+        submisionLabel.setStyle("-fx-text-fill :  #347C17");
        attendanceButton.setDisable(true);
 
         for(Day day : manager.getDays(months[month-1]))
@@ -173,6 +185,7 @@ public class StudentController implements Initializable {
         changeLabel();
     }
 
+    @FXML
     public void rightM(){
         if(t<11) {
             t++;
@@ -186,6 +199,7 @@ public class StudentController implements Initializable {
      changeLabel();
     }
 
+    @FXML
     public void leftM(){
         if(t>0) {
             t--;
