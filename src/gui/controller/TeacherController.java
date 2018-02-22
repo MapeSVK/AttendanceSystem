@@ -16,6 +16,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,6 +80,7 @@ public class TeacherController implements Initializable {
             e.printStackTrace();
         }
         fillBoxAndSetDate();
+        searchStudent();
     }
 
     @FXML
@@ -92,8 +95,29 @@ public class TeacherController implements Initializable {
         dateLabel.setText(" "+dateFormatterFull.format(currentDate));
     }
 
+    private void ifAttendance(Student student)
+    {
+        if(student.getAttendance().equals("false"))
+            {
+                student.setAttendance("absent");
+                studentsTable.getItems().add(student);
+            }
+            else if(student.getAttendance().equals("true"))
+                    {
+                     student.setAttendance("present");
+                studentsTable.getItems().add(student);   
+                    }
+            else
+            {
+             studentsTable.getItems().add(student);   
+            }
+    }
     private void loadStudents() throws IOException {
-        studentsTable.setItems(manager.getStudents());
+        studentsTable.getItems().clear();
+        for(Student student : manager.getStudents())
+        {
+            ifAttendance(student);
+        }
     }
 
     public void clickStudent(MouseEvent event) throws IOException {
@@ -115,5 +139,23 @@ public class TeacherController implements Initializable {
 
 
         }
+    }
+    
+    private void searchStudent()
+    {
+        searchField.textProperty().addListener(e->{
+            studentsTable.getItems().clear();
+            try {
+                for(Student student : manager.getStudents())
+                {
+                    if(student.getName().contains(searchField.getText().toLowerCase())                    
+                            ||student.getName().contains(searchField.getText().toUpperCase()))
+                    {
+                        ifAttendance(student);
+                    }
+                }
+            } catch (IOException ex) {
+            }
+        });
     }
 }

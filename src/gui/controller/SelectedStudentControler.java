@@ -215,9 +215,29 @@ public class SelectedStudentControler implements Initializable {
 
     @FXML
     private void leftM(MouseEvent event) {
+        if(t>0) {
+            t--;
+            month.setText(months[t]);
+        }
+        else
+        {
+            t=11;
+            month.setText(months[t]);
+        }
+        changeLabel();
     }
 
     @FXML
     private void rightM(MouseEvent event) {
+        if(t<11) {
+            t++;
+            month.setText(months[t]);
+        }
+        else
+        {
+            t=0;
+            month.setText(months[t]);
+        }
+     changeLabel();
     }
 }

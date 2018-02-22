@@ -148,9 +148,9 @@ public class StudentController implements Initializable {
             }
         }
         manager.updateMonth(myList,months[month-1]);
+        changeLabel();
+        changeLabel();
         updateStudent();
-        changeLabel();
-        changeLabel();
 
     }
     public void fill()
@@ -354,6 +354,8 @@ public class StudentController implements Initializable {
             else
             {
                 attendanceButton.setDisable(true);
+                submisionLabel.setText("Present");
+                submisionLabel.setStyle("-fx-text-fill : limegreen");          
             }
         }
     }
@@ -375,7 +377,7 @@ public class StudentController implements Initializable {
             if(studente.getName().equals("Tomasz Plesniak"))
             {
                 studente.setAttendance(currentAttendance);
-                studente.setPercentage(""+(present*100)/allDays+"%");
+                studente.setPercentage(""+percentage.getText());
                 studente.setTakenLessons(""+weekOfYeat+"/5");
                 studente.setSkippedDay(skippedDayResult);
                 studente.setMonths("T");
