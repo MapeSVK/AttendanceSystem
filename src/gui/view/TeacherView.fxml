@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="458.0" prefWidth="464.0" style="-fx-background-color: #fff;" stylesheets="@TeacherCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.TeacherController">
+<AnchorPane maxHeight="600.0" maxWidth="544.0" minHeight="600.0" minWidth="544.0" prefHeight="600.0" prefWidth="544.0" style="-fx-background-color: #fff;" stylesheets="@TeacherCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.TeacherController">
    <children>
-      <TableView fx:id="studentsTable" layoutY="101.0" onMouseClicked="#clickStudent" prefHeight="449.0" prefWidth="544.0">
+      <TableView fx:id="studentsTable" layoutY="101.0" maxHeight="449.0" maxWidth="544.0" minHeight="449.0" minWidth="544.0" onMouseClicked="#clickStudent" prefHeight="449.0" prefWidth="544.0">
         <columns>
           <TableColumn fx:id="nameColumn" maxWidth="188.0" minWidth="188.0" prefWidth="188.0" text="Name" />
           <TableColumn fx:id="attendanceColumn" maxWidth="127.0" minWidth="127.0" prefWidth="127.0" text="Attendance" />

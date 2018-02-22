@@ -1,28 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.SelectedStudentControler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="558.0" style="-fx-background-color: #fff;" stylesheets="@TeacherCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.SelectedStudentControler">
    <children>
-      <TableView fx:id="studentTable" layoutY="82.0" prefHeight="318.0" prefWidth="486.0">
+      <TableView fx:id="studentTable" layoutY="189.0" prefHeight="411.0" prefWidth="559.0">
         <columns>
-          <TableColumn fx:id="dateColumn" prefWidth="179.0" />
-          <TableColumn fx:id="attendanceColumn" prefWidth="132.0" />
-            <TableColumn fx:id="changeAttendanceColumn" prefWidth="174.0" />
+          <TableColumn fx:id="dateColumn" prefWidth="287.0" text="Date" />
+          <TableColumn fx:id="attendanceColumn" prefWidth="271.0" text="Attendance" />
         </columns>
       </TableView>
-      <Label fx:id="name" layoutX="35.0" layoutY="57.0" />
-      <Label layoutX="14.0" layoutY="14.0" onMouseClicked="#leftM" text="&lt;" />
-      <Label fx:id="month" layoutX="49.0" layoutY="14.0" text="February" />
-      <Label layoutX="104.0" layoutY="14.0" onMouseClicked="#rightM" text="&gt;" />
-      <Label layoutX="167.0" layoutY="14.0" text="Taken lessons :" />
-      <Label fx:id="percentage" layoutX="181.0" layoutY="40.0" text="percentage :" />
-      <Label layoutX="142.0" layoutY="65.0" text="most skipped day :" />
-      <Label fx:id="takenL" layoutX="252.0" layoutY="14.0" />
-      <Label fx:id="percentage" layoutX="252.0" layoutY="40.0" />
-      <Label fx:id="skuppedDay" layoutX="252.0" layoutY="65.0" />
+      <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="14.0" prefHeight="33.0" prefWidth="558.0" text="Name" textFill="#4059a9">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font></Label>
+      <Label layoutX="214.0" layoutY="102.0" onMouseClicked="#leftM" text="&lt;">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font></Label>
+      <Label fx:id="month" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" layoutY="102.0" prefHeight="16.0" prefWidth="91.0" text="February">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="323.0" layoutY="102.0" onMouseClicked="#rightM" text="&gt;">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="389.0" layoutY="76.0" text="Taken lessons :">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="percentage" layoutX="409.0" layoutY="102.0" text="percentage :">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="369.0" layoutY="127.0" text="most skipped day :">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="takenL" layoutX="482.0" layoutY="77.0" text="lessons">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="percentage" layoutX="482.0" layoutY="103.0" text="percentage">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="skuppedDay" layoutX="482.0" layoutY="128.0" text="skipped day">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+      <Button layoutX="28.0" layoutY="96.0" mnemonicParsing="false" onAction="#backButtonClick" style="-fx-background-color: #808080;" text="&lt;  Back" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="11.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="116.0" layoutY="167.0" prefHeight="17.0" prefWidth="328.0" text="Double-click on date to change attendance" textFill="#cccccc">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

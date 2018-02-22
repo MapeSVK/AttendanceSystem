@@ -68,6 +68,9 @@ public class TeacherController implements Initializable {
         attendanceColumn.setCellValueFactory(new PropertyValueFactory("attendance"));
         percentageColumn.setCellValueFactory(new PropertyValueFactory("percentage"));
         takenLessonsColumn.setCellValueFactory(new PropertyValueFactory("takenLessons"));
+        
+        
+        
 
         try {
             loadStudents();
