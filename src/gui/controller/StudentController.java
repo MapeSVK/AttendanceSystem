@@ -64,8 +64,7 @@ public class StudentController implements Initializable {
     @FXML
     private JFXButton attendanceButton;
     
-    private final Image img_plus = new Image("file:images/calendar-plus.png");
-    private final Image img_minus = new Image("file:images/calendar-minus.png");
+   
     
 
     /**
@@ -113,7 +112,7 @@ public class StudentController implements Initializable {
 
             date.setCellValueFactory(new PropertyValueFactory("date"));
             attendance.setCellValueFactory(new PropertyValueFactory("attendance"));
-            calendarImg.setImage(img_plus);
+            
            
             fill();
             updateAttendance();
@@ -143,7 +142,7 @@ public class StudentController implements Initializable {
     public void changeAttendance(ActionEvent event) throws IOException {
         List<Day> myList = new ArrayList();
         submisionLabel.setText("Present");
-        submisionLabel.setStyle("-fx-text-fill :  #347C17");
+        submisionLabel.setStyle("-fx-text-fill :#347C17");
        attendanceButton.setDisable(true);
 
         for(Day day : manager.getDays(months[month-1]))
@@ -369,7 +368,7 @@ public class StudentController implements Initializable {
             {
                 attendanceButton.setDisable(true);
                 submisionLabel.setText("Present");
-                submisionLabel.setStyle("-fx-text-fill : limegreen");          
+                submisionLabel.setStyle("-fx-text-fill :  #347C17");          
             }
         }
     }

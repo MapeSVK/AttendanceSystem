@@ -36,7 +36,7 @@
       </Label>
       <ImageView fx:id="calendarImg" accessibleRole="BUTTON" fitHeight="38.0" fitWidth="43.0" layoutX="204.0" layoutY="19.0" onMouseClicked="#fakeAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/calendar-plus.png" />
+            <Image url="@../../images/calendar-plus.png" />
          </image>
       </ImageView>
       <Separator layoutX="254.0" orientation="VERTICAL" prefHeight="336.0" prefWidth="9.0" AnchorPane.leftAnchor="249.0" />
