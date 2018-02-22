@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="251.0" style="-fx-background-color: #fff;" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.StudentController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="356.0" prefWidth="251.0" style="-fx-background-color: #fff;" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.StudentController">
    <children>
       <JFXButton fx:id="attendanceButton" alignment="CENTER" contentDisplay="CENTER" layoutX="46.0" layoutY="166.0" onAction="#changeAttendance" prefHeight="59.0" prefWidth="159.0" style="-fx-background-color: #347C17;" text="Commit attendance" textFill="WHITE">
          <font>
@@ -40,7 +40,7 @@
          </image>
       </ImageView>
       <Separator layoutX="254.0" orientation="VERTICAL" prefHeight="336.0" prefWidth="9.0" AnchorPane.leftAnchor="249.0" />
-      <TableView fx:id="studentTable" layoutX="253.0" layoutY="56.0" maxHeight="279.0" maxWidth="461.0" minHeight="279.0" minWidth="461.0" prefHeight="279.0" prefWidth="461.0">
+      <TableView fx:id="studentTable" layoutX="253.0" layoutY="56.0" maxHeight="301.0" maxWidth="461.0" minHeight="301.0" minWidth="461.0" prefHeight="301.0" prefWidth="461.0">
         <columns>
           <TableColumn fx:id="date" maxWidth="227.0" minWidth="227.0" prefWidth="227.0" />
           <TableColumn fx:id="attendance" maxWidth="233.0" minWidth="233.0" prefWidth="233.0" />
