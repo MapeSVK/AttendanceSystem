@@ -99,6 +99,8 @@ public class StudentController implements Initializable {
             calendarImg.setImage(img_plus);
             stage.setMinWidth(251);
             stage.setMaxWidth(251);
+            stage.setMinHeight(356);
+            stage.setMaxHeight(356);
             fake=true;
             
         }
@@ -107,6 +109,8 @@ public class StudentController implements Initializable {
             calendarImg.setImage(img_minus);
             stage.setMinWidth(700);
             stage.setMaxWidth(700);
+            stage.setMinHeight(356);
+            stage.setMaxHeight(356);
             fake=false;
         }
         
