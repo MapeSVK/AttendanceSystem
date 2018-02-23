@@ -79,7 +79,7 @@ public class TeacherController implements Initializable {
         }
         fillBoxAndSetDate();
         searchStudent();
-        colorChange();
+        
     }
 
     @FXML
@@ -156,8 +156,8 @@ public class TeacherController implements Initializable {
             try {
                 for(Student student : manager.getStudents())
                 {
-                    if(student.getName().contains(searchField.getText().toLowerCase())                    
-                            ||student.getName().contains(searchField.getText().toUpperCase()))
+                    if(student.getName().toLowerCase().contains(searchField.getText().toLowerCase())                    
+                            )
                     {
                         ifAttendance(student);
                     }
@@ -178,27 +178,5 @@ public class TeacherController implements Initializable {
         }
         }
     }
-    private void colorChange()
-    {
-        studentsTable.setRowFactory(row -> new TableRow<Student>(){
-    @Override
-    public void updateItem(Student item, boolean empty){
-        super.updateItem(item, empty);
-
-        if (item == null || empty) {
-            setStyle("");
-        } else {
-            //Now 'item' has all the info of the Person in this row
-            if (item.getPercentage().equals("38 %")) {
-                //We apply now the changes in all the cells of the row
-                for(int i=0; i<getChildren().size();i++){
-                   // ((Labeled) getChildren().get(i)).setTextFill();
-                    ((Labeled) getChildren().get(i)).setStyle("-fx-background-color: yellow");
-                }                        
-            } 
-            }
-        
-    }
-});
-    }  
+    
 }
