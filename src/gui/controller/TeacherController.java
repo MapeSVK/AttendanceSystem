@@ -9,6 +9,7 @@ import be.Student;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import gui.model.ModelManager;
+import java.awt.Color;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -23,7 +24,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -68,17 +72,14 @@ public class TeacherController implements Initializable {
         attendanceColumn.setCellValueFactory(new PropertyValueFactory("attendance"));
         percentageColumn.setCellValueFactory(new PropertyValueFactory("percentage"));
         takenLessonsColumn.setCellValueFactory(new PropertyValueFactory("takenLessons"));
-        
-        
-        
-
         try {
-            loadStudents();
+            sort();
         } catch (IOException e) {
             e.printStackTrace();
         }
         fillBoxAndSetDate();
         searchStudent();
+        colorChange();
     }
 
     @FXML
@@ -120,13 +121,6 @@ public class TeacherController implements Initializable {
             {
              studentsTable.getItems().add(student);   
             }
-    }
-    private void loadStudents() throws IOException {
-        studentsTable.getItems().clear();
-        for(Student student : manager.getStudents())
-        {
-            ifAttendance(student);
-        }
     }
 
     @FXML
@@ -172,4 +166,39 @@ public class TeacherController implements Initializable {
             }
         });
     }
+    private void sort() throws IOException           
+    {
+        studentsTable.getItems().clear();
+        for(int i=0;i<=100; i++)
+        {
+        for(Student student : manager.getStudents())
+        {
+            if(student.getPercentage().equals(i+" %"))
+                ifAttendance(student);
+        }
+        }
+    }
+    private void colorChange()
+    {
+        studentsTable.setRowFactory(row -> new TableRow<Student>(){
+    @Override
+    public void updateItem(Student item, boolean empty){
+        super.updateItem(item, empty);
+
+        if (item == null || empty) {
+            setStyle("");
+        } else {
+            //Now 'item' has all the info of the Person in this row
+            if (item.getPercentage().equals("38 %")) {
+                //We apply now the changes in all the cells of the row
+                for(int i=0; i<getChildren().size();i++){
+                   // ((Labeled) getChildren().get(i)).setTextFill();
+                    ((Labeled) getChildren().get(i)).setStyle("-fx-background-color: yellow");
+                }                        
+            } 
+            }
+        
+    }
+});
+    }  
 }
