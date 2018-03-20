@@ -1,5 +1,6 @@
 package gui.controller;
 
+import be.Attendance;
 import com.jfoenix.controls.JFXButton;
 import gui.model.ModelManager;
 import java.io.IOException;

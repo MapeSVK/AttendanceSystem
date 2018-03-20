@@ -2,6 +2,7 @@
 package gui.controller;
 
 import gui.model.ModelManager;
+import be.Attendance;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,7 +19,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-
 
 
 public class SelectedStudentControler implements Initializable {
@@ -56,12 +56,12 @@ public class SelectedStudentControler implements Initializable {
     
     public void showChangeAttendanceButton() {
         studentTable.setRowFactory(tableView -> {
-        final TableRow<Day> row = new TableRow<>();
+        final TableRow<Attendance> row = new TableRow<>();
 
             row.hoverProperty().addListener((observable) -> {
-                final Day day = row.getItem();
+                final Attendance attendance = row.getItem();
 
-                if (row.isHover() && day != null) {
+                if (row.isHover() && attendance != null) {
 //                    row.getStyleClass().clear();
 //                    row.getStyleClass().add("");
                     

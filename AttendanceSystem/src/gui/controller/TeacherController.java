@@ -1,44 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gui.controller;
 
 import be.Student;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import gui.model.ModelManager;
-import java.awt.Color;
-import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Pepe15224
- */
+
+
+
 public class TeacherController implements Initializable {
 
     @FXML
@@ -63,7 +42,7 @@ public class TeacherController implements Initializable {
     
     
     Date currentDate = new Date();
-    DateFormat dateFormatterFull = new SimpleDateFormat("dd/MM/yyyy");
+    //DateFormat dateFormatterFull = new SimpleDateFormat("dd/MM/yyyy");
     
     
     @Override
@@ -73,11 +52,7 @@ public class TeacherController implements Initializable {
         attendanceColumn.setCellValueFactory(new PropertyValueFactory("attendance"));
         percentageColumn.setCellValueFactory(new PropertyValueFactory("percentage"));
         takenLessonsColumn.setCellValueFactory(new PropertyValueFactory("takenLessons"));
-        try {
-            sort();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        
     }
     
     
@@ -207,7 +182,7 @@ public class TeacherController implements Initializable {
         }
         }
     }
-    /*
+    */
     
-    
+
 }
