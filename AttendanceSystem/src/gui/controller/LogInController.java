@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gui.controller;
 
 import com.jfoenix.controls.JFXCheckBox;
@@ -12,9 +8,6 @@ import gui.model.ModelManager;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,17 +16,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 
 
 
 
-/**
- *
- * @author Pepe15224
- */
 public class LogInController implements Initializable {
 
     @FXML
@@ -46,7 +34,47 @@ public class LogInController implements Initializable {
     private Label inLabel;
     
     private ModelManager manager = new ModelManager();
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    }
+        
+        
+        
+    private void changeScene(String view,Event event) throws IOException {
+        
+        // Here goes method for login automatically and it checks username after start app and figured out if it is 
+        // teacher or student
 
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/"+view+"View.fxml"));
+        if (view == "Student") {
+            stage.setMinWidth(251);
+            stage.setMaxWidth(251);
+            stage.setMinHeight(356);
+            stage.setMaxHeight(356);
+        }
+        else if (view == "Teacher") {
+            stage.setMinWidth(544);
+            stage.setMaxWidth(544);
+            stage.setMinHeight(600);
+            stage.setMaxHeight(600);
+        }
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle(view);
+        stage.show();
+    }
+        
+        
+        
+        
+        
+        
+    /************* PROTOTYPE METHODS **************/    
+        
+    /*
     @Override
     public void initialize(URL location, ResourceBundle resources) {
        
@@ -94,30 +122,6 @@ public class LogInController implements Initializable {
             
         }
     }
-    private void changeScene(String view,Event event) throws IOException {
-        if(rememberCheck.isSelected()==true)
-            manager.saveUsername(loginField.getText());
-        else
-            manager.saveUsername("non");
-
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/"+view+"View.fxml"));
-        if (view == "Student") {
-            stage.setMinWidth(251);
-            stage.setMaxWidth(251);
-            stage.setMinHeight(356);
-            stage.setMaxHeight(356);
-        }
-        else if (view == "Teacher") {
-            stage.setMinWidth(544);
-            stage.setMaxWidth(544);
-            stage.setMinHeight(600);
-            stage.setMaxHeight(600);
-        }
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle(view);
-        stage.show();
-    }
+    
+*/
 }

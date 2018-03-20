@@ -1,12 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gui.controller;
 
-import be.Day;
-import be.Student;
 import com.jfoenix.controls.JFXButton;
 import gui.model.ModelManager;
 import java.io.IOException;
@@ -38,11 +31,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Pepe15224
- */
+
+
 public class StudentController implements Initializable {
 
     @FXML
@@ -50,11 +40,11 @@ public class StudentController implements Initializable {
     @FXML
     private Label submisionLabel;
     @FXML
-    private TableView<Day> studentTable;
+    private TableView<Attendance> studentTable;
     @FXML
-    private TableColumn<Day, String> date;
+    private TableColumn<Attendance, String> date;
     @FXML
-    private TableColumn<Day, String> attendance;
+    private TableColumn<Attendance, String> attendance;
     @FXML
     private Label takenL;
     @FXML
@@ -67,13 +57,38 @@ public class StudentController implements Initializable {
     private final Image img_minus = new Image("file:images/calendar-minus.png");
     private final Image img_plus = new Image("file:images/calendar-plus.png");
 
-    
-
-    /**
-     * Initializes the controller class.
-     */
+  
     ModelManager manager = new ModelManager();
-    private String[] months = new String[12];
+    
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    
+    }
+    
+    
+    
+    @FXML
+    public void logOut(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setMinWidth(251);
+        stage.setMaxWidth(251);
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LogInView.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Log Out");
+        stage.show();
+    }
+    
+    
+    
+    
+    
+    
+   /****************** PROTOTYPE METHODS *****************/
+    
+    /*private String[] months = new String[12];
     private int t;
     private int present=0;
     private int allDays=0;
@@ -149,18 +164,7 @@ public class StudentController implements Initializable {
     
     
 
-    @FXML
-    public void logOut(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.setMinWidth(251);
-        stage.setMaxWidth(251);
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LogInView.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Log Out");
-        stage.show();
-    }
+    
 
     @FXML
     public void changeAttendance(ActionEvent event) throws IOException {
@@ -436,4 +440,5 @@ public class StudentController implements Initializable {
         }
         manager.updateStudent(studentList,"Students");
     }
+*/
 }

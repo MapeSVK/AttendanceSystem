@@ -9,24 +9,16 @@ package be;
  *
  * @author Mape
  */
-public class Student {
+public class Teacher {
     
     private int id;
     private String firstName;
     private String lastName;  
     private String username;
-    private String imageLink;
     private String email;
-    private int classId;
-
     
-    public int getClassId() {
-        return classId;
-    }
 
-    public void setClassId(int classId) {
-        this.classId = classId;
-    }
+
 
 
     public String getEmail() {
@@ -36,16 +28,6 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
-
-
-    public String getImageLink() {
-        return imageLink;
-    }
-
-    public void setImageLink(String imageLink) {
-        this.imageLink = imageLink;
-    }
-
 
     public String getUsername() {
         return username;
@@ -81,6 +63,5 @@ public class Student {
     public void setId(int id) {
         this.id = id;
     }
-
     
 }

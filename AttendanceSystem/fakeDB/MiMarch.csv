@@ -1,10 +1,10 @@
-date,attendance
+Date, Attendance
 02/03/2018,false
 03/03/2018,true
 04/03/2018,true
-07/03/2018,true
+07/03/2018,false
 13/03/2018,true
-14/03/2018,true
+14/03/2018,false
 15/03/2018,true
 16/03/2018,true
 18/03/2018,true

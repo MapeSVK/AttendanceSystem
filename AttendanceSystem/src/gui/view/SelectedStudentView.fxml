@@ -7,14 +7,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="574.0" style="-fx-background-color: #fff;" stylesheets="@TeacherCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.SelectedStudentControler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="574.0" style="-fx-background-color: #fff;" stylesheets="@SelectedStudentCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.SelectedStudentControler">
    <children>
 
       
       <TableView fx:id="studentTable" layoutY="187.0" onMouseClicked="#changeAttendance" prefHeight="413.0" prefWidth="574.0">
         <columns>
-          <TableColumn fx:id="dateColumn" prefWidth="274.0" text="Date" />
-          <TableColumn fx:id="attendanceColumn" prefWidth="284.0" text="Attendance" />
+          <TableColumn fx:id="dateColumn" maxWidth="234.0" minWidth="234.0" prefWidth="234.0" text="Date" />
+            <TableColumn fx:id="changeAttendanceColumn" prefWidth="105.0" />
+          <TableColumn fx:id="attendanceColumn" maxWidth="234.0" minWidth="219.0" prefWidth="234.0" text="Attendance" />
         </columns>
       </TableView>
       <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="33.0" prefWidth="566.0" text="Name" textFill="#4059a9">
@@ -69,5 +70,6 @@
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
+      <Button fx:id="changeAttendanceButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Change" />
    </children>
 </AnchorPane>

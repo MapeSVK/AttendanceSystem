@@ -1,25 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gui.controller;
 
-import be.Day;
-import be.Student;
 import gui.model.ModelManager;
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,24 +12,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Pepe15224
- */
+
+
 public class SelectedStudentControler implements Initializable {
 
     @FXML
-    private TableColumn<Day, String> dateColumn;
+    private TableColumn<Attendance, String> dateColumn;
     @FXML
-    private TableColumn<Day, String> attendanceColumn;
+    private TableColumn<Attendance, String> attendanceColumn;
     
     @FXML
     private Label name;
@@ -57,16 +39,75 @@ public class SelectedStudentControler implements Initializable {
     @FXML
     private Label skuppedDay;
     @FXML
-    private TableView<Day> studentTable;
+    private TableView<Attendance> studentTable;
+    @FXML
+    private TableColumn<?, ?> changeAttendanceColumn;
 
-    /**
-     * Initializes the controller class.
-     */
+    ModelManager manager = new ModelManager();
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        showChangeAttendanceButton();
     }    
     
+    
+    
+    public void showChangeAttendanceButton() {
+        studentTable.setRowFactory(tableView -> {
+        final TableRow<Day> row = new TableRow<>();
+
+            row.hoverProperty().addListener((observable) -> {
+                final Day day = row.getItem();
+
+                if (row.isHover() && day != null) {
+//                    row.getStyleClass().clear();
+//                    row.getStyleClass().add("");
+                    
+                    row.setStyle("-fx-background-color:red;");
+                    Button button2 = new Button("Accept");
+                    
+                    
+                    
+                          
+                    
+                } 
+                else {
+//                    row.getStyleClass().clear();
+                    row.setStyle("-fx-background-color:white;");
+                }
+                
+            });
+            
+
+        return row;
+        });
+    }
+    @FXML
+    private void backButtonClick(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setMinWidth(544);
+        stage.setMaxWidth(544);
+        stage.setMinHeight(600);
+        stage.setMaxHeight(600);
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/TeacherView.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Teacher View");
+        stage.show();
+    }
+    
+    
+    
+    
+    
+    
+    
+ /***************** PROTOTYPE METHODS ******************/
+    
+    /*
     int[] daysInWeek = new int[5];
     String[] skippedDay= new String[5];
     int max=0;
@@ -183,12 +224,12 @@ this.studentIde=studentId;
             takenL.setText("0/5");
         }
     }
-    private ObservableList<Day> filterDate(String month) throws IOException {
-        ObservableList<Day> days = FXCollections.observableArrayList();
+    private ObservableList<Attendance> filterDate(String month) throws IOException {
+        ObservableList<Attendance> days = FXCollections.observableArrayList();
 
         setDaysInWeek();
 
-        for(Day day : manager.getDays(month))
+        for(Attendance day : manager.getDays(month))
         {
             try {
                 Date dateW = dateFormatterFull.parse(day.getDate());
@@ -284,19 +325,7 @@ this.studentIde=studentId;
         manager.updateStudent(studentList,"Students");
     }
 
-    @FXML
-    private void backButtonClick(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.setMinWidth(544);
-        stage.setMaxWidth(544);
-        stage.setMinHeight(600);
-        stage.setMaxHeight(600);
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/TeacherView.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Teacher View");
-        stage.show();
+    
     }
     @FXML
     private void changeAttendance(MouseEvent event) throws IOException {
@@ -363,4 +392,7 @@ this.studentIde=studentId;
             manager.updateMonth(iLikeToDance, "T"+months[t]);
         }
     }
+    */
+    
+    
 }

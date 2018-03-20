@@ -30,6 +30,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -57,14 +58,40 @@ public class TeacherController implements Initializable {
     @FXML
     private JFXTextField searchField;
 
-    /**
-     * Initializes the controller class.
-     */
+    
     ModelManager manager = new ModelManager();
-
+    
+    
     Date currentDate = new Date();
     DateFormat dateFormatterFull = new SimpleDateFormat("dd/MM/yyyy");
+    
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
+        nameColumn.setCellValueFactory(new PropertyValueFactory("name"));
+        attendanceColumn.setCellValueFactory(new PropertyValueFactory("attendance"));
+        percentageColumn.setCellValueFactory(new PropertyValueFactory("percentage"));
+        takenLessonsColumn.setCellValueFactory(new PropertyValueFactory("takenLessons"));
+        try {
+            sort();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /*************** PROTOTYPE METHODS **************/
+    /*
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -81,6 +108,8 @@ public class TeacherController implements Initializable {
         searchStudent();
         
     }
+    
+
 
     @FXML
     void logOut(ActionEvent event) throws IOException {
@@ -178,5 +207,7 @@ public class TeacherController implements Initializable {
         }
         }
     }
+    /*
+    
     
 }
