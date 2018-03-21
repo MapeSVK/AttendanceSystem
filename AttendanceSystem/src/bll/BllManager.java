@@ -8,9 +8,4 @@ import java.util.List;
 public class BllManager {
     
     private DalManager manager = new DalManager();
-    
-    public List<Attendance> getAllAttendance() {
-        manager.getAllMeals();
-    }
-    
 }
