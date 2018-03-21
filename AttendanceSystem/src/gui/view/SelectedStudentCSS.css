@@ -93,6 +93,7 @@
     -fx-text-alignment: center;
     -fx-background-color: #fff;
     -fx-table-cell-border-color:transparent;
+    -fx-text-fill: #000;
 }
 
 .table-view .table-column {

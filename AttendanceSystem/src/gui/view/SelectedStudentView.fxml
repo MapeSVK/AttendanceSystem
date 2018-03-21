@@ -11,7 +11,7 @@
    <children>
 
       
-      <TableView fx:id="studentTable" layoutY="187.0" onMouseClicked="#changeAttendance" prefHeight="413.0" prefWidth="574.0">
+      <TableView fx:id="studentTable" layoutY="187.0" prefHeight="413.0" prefWidth="574.0">
         <columns>
           <TableColumn fx:id="dateColumn" maxWidth="234.0" minWidth="234.0" prefWidth="234.0" text="Date" />
             <TableColumn fx:id="changeAttendanceColumn" prefWidth="105.0" />
@@ -70,6 +70,5 @@
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="changeAttendanceButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Change" />
    </children>
 </AnchorPane>

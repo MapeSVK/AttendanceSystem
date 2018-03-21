@@ -5,7 +5,12 @@ import gui.model.ModelManager;
 import be.Attendance;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,16 +20,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 
 public class SelectedStudentControler implements Initializable {
 
     @FXML
-    private TableColumn<Attendance, String> dateColumn;
+    private TableColumn<Attendance, Date> dateColumn;
     @FXML
     private TableColumn<Attendance, String> attendanceColumn;
     
@@ -41,16 +50,42 @@ public class SelectedStudentControler implements Initializable {
     @FXML
     private TableView<Attendance> studentTable;
     @FXML
-    private TableColumn<?, ?> changeAttendanceColumn;
-
+    private TableColumn<Attendance, String> changeAttendanceColumn;
+    
+    
+    Date currentDate = new Date();
     ModelManager manager = new ModelManager();
+    
+    final ObservableList<Attendance> data = FXCollections.observableArrayList();
+   
     
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) { 
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        attendanceColumn.setCellValueFactory(new PropertyValueFactory<>("status"));      
+        changeAttendanceColumn.setCellValueFactory(new PropertyValueFactory<>("changeAttendanceButton"));
+        
+        
+        // temporary
+        data.addAll(
+                new Attendance(1, currentDate , "absent"),
+                new Attendance(1, currentDate , "absent"),
+                new Attendance(1, currentDate , "absent"),
+                new Attendance(1, currentDate , "absent")
+        );
+        studentTable.setItems(data);
+        
+        
         
         showChangeAttendanceButton();
+        
+            
     }    
+    
+    
+    
+    
     
     
     
@@ -60,30 +95,32 @@ public class SelectedStudentControler implements Initializable {
 
             row.hoverProperty().addListener((observable) -> {
                 final Attendance attendance = row.getItem();
+                
 
                 if (row.isHover() && attendance != null) {
-//                    row.getStyleClass().clear();
-//                    row.getStyleClass().add("");
-                    
-                    row.setStyle("-fx-background-color:red;");
-                    Button button2 = new Button("Accept");
-                    
-                    
-                    
-                          
-                    
+                    //getChangeAttendanceButton().setVisible(true);
+                    row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");                  
                 } 
-                else {
-//                    row.getStyleClass().clear();
+                else {   
+                    //att.getChangeAttendanceButton().setVisible(false);
                     row.setStyle("-fx-background-color:white;");
                 }
                 
             });
-            
-
-        return row;
+       return row;
         });
     }
+    
+    
+    /*public void changeAttendanceButtonCreation() {
+        
+        changeAttendanceColumn.setCellFactory(ActionButtonTableCell.<Attendance>forTableColumn("Remove", (Attendance p) -> {
+        studentTable.getItems().remove(p);
+        return p;
+        }));
+    }*/
+    
+    
     @FXML
     private void backButtonClick(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
@@ -97,6 +134,16 @@ public class SelectedStudentControler implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Teacher View");
         stage.show();
+    }
+
+  
+
+    @FXML
+    private void leftM(MouseEvent event) {
+    }
+
+    @FXML
+    private void rightM(MouseEvent event) {
     }
     
     
