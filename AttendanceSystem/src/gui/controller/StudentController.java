@@ -54,12 +54,17 @@ public class StudentController implements Initializable {
     private Label monthName;
     @FXML
     private JFXButton attendanceButton;
+    @FXML
+    private ImageView calendarImg;
+    
+    
     
     private final Image img_minus = new Image("file:images/calendar-minus.png");
     private final Image img_plus = new Image("file:images/calendar-plus.png");
 
   
     ModelManager manager = new ModelManager();
+    
     
     
     @Override
@@ -80,6 +85,22 @@ public class StudentController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Log Out");
         stage.show();
+    }
+
+    @FXML
+    private void changeAttendance(ActionEvent event) {
+    }
+
+    @FXML
+    private void fakeAnimation(MouseEvent event) {
+    }
+
+    @FXML
+    private void rightM(MouseEvent event) {
+    }
+
+    @FXML
+    private void leftM(MouseEvent event) {
     }
     
     

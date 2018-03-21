@@ -8,6 +8,7 @@ import gui.model.ModelManager;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 
@@ -67,6 +69,38 @@ public class LogInController implements Initializable {
         stage.show();
     }
         
+    public void enterButton(javafx.scene.input.KeyEvent key) throws IOException {
+        if(key.getCode()== KeyCode.ENTER)
+        {
+            login(key);
+        }
+    }
+    
+    public void clickLogIn(ActionEvent event) throws IOException {
+        login(event);
+    }
+    
+     
+        
+    private void login(Event event) throws IOException {
+        
+        if(loginField.getText().equals("Student")&&passwordField.getText().equals("qwerty"))
+        {
+            changeScene("Student",event); 
+            
+        }
+        else if(loginField.getText().equals("Teacher")&&passwordField.getText().equals("qwerty"))
+        {
+            changeScene("Teacher",event);    
+        }
+        else
+        {
+            inLabel.setVisible(true);
+            
+        }
+    }   
+        
+  
         
         
         
@@ -93,35 +127,12 @@ public class LogInController implements Initializable {
         
     }
 
-    public void enterButton(javafx.scene.input.KeyEvent key) throws IOException {
-        if(key.getCode()== KeyCode.ENTER)
-        {
-            login(key);
-        }
+    
 
-    }
+   
 
-    public void clickLogIn(ActionEvent event) throws IOException {
-        login(event);
-    }
-
-    private void login(Event event) throws IOException {
-        
-        if(loginField.getText().equals("Student")&&passwordField.getText().equals("qwerty"))
-        {
-            changeScene("Student",event); 
-            
-        }
-        else if(loginField.getText().equals("Teacher")&&passwordField.getText().equals("qwerty"))
-        {
-            changeScene("Teacher",event);    
-        }
-        else
-        {
-            inLabel.setVisible(true);
-            
-        }
-    }
+    
+  
     
 */
 }
