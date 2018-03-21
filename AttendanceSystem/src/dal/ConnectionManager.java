@@ -5,10 +5,29 @@
  */
 package dal;
 
+import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
+import java.sql.Connection;
+
 /**
  *
  * @author Pepe15224
  */
 public class ConnectionManager {
     
+    private SQLServerDataSource ds = new SQLServerDataSource();
+    
+    public ConnectionManager() {
+        
+        ds.setDatabaseName("AttendanceSystem");
+        ds.setUser("CS2017B_27_java");
+        ds.setPassword("javajava");
+        ds.setPortNumber(1433);
+        ds.setServerName("10.176.111.31");
+    }
+    
+    public Connection getConnection() throws SQLServerException
+    {
+        return ds.getConnection();
+    }    
 }

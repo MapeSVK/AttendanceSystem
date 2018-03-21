@@ -13,12 +13,19 @@ public class Student {
     
     private int id;
     private String firstName;
-    private String lastName;  
-    private String username;
+    private String lastName;
     private String imageLink;
     private String email;
     private int classId;
 
+    public Student(int id, String firstName, String lastName, String imageLink, String email, int classId) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.imageLink = imageLink;
+        this.email = email;
+        this.classId = classId;
+    }
     
     public int getClassId() {
         return classId;
@@ -45,16 +52,6 @@ public class Student {
     public void setImageLink(String imageLink) {
         this.imageLink = imageLink;
     }
-
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
 
     public String getLastName() {
         return lastName;
