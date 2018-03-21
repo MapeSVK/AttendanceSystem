@@ -1,17 +1,17 @@
 package dal;
 
-<<<<<<< HEAD
+
 import be.Attendance;
 import be.Student;
-=======
+
 import be.Student;
 import be.Teacher;
->>>>>>> 540a7e7b4df5c42f1e82a50e06c50df42c649621
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-<<<<<<< HEAD
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -79,12 +79,8 @@ public class DalManager {
           }
         return allStudentsAttendance;
 }
-=======
-
-
-public class DalManager {
-
-    ConnectionManager cm = new ConnectionManager();
+    
+    
     
     public int getUserId(String username, String password)
     {
@@ -167,6 +163,9 @@ public class DalManager {
         } 
        return null;
     }
->>>>>>> 540a7e7b4df5c42f1e82a50e06c50df42c649621
+
+
+
+    
 }
     

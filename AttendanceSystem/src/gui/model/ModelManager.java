@@ -13,7 +13,7 @@ public class ModelManager {
     
     private BllManager manager = new BllManager();
 
-<<<<<<< HEAD
+
     private ObservableList<Attendance> allAttendance = FXCollections.observableArrayList();
     private ObservableList<Attendance> attendanceOfOneStudent = FXCollections.observableArrayList();
     
@@ -43,12 +43,12 @@ public class ModelManager {
     
     
     
-=======
+
     public int getUserId(String username, String password)
     {
         return manager.getUserId(username, password);
     }  
->>>>>>> 540a7e7b4df5c42f1e82a50e06c50df42c649621
+
     
     public Object logIn(int userId)
     {

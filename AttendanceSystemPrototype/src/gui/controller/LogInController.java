@@ -81,12 +81,12 @@ public class LogInController implements Initializable {
         
         if(loginField.getText().equals("Student")&&passwordField.getText().equals("qwerty"))
         {
-            changeScene("Student",event); 
+          //  changeScene("Student",event); 
             
         }
         else if(loginField.getText().equals("Teacher")&&passwordField.getText().equals("qwerty"))
         {
-            changeScene("Teacher",event);    
+          //  changeScene("Teacher",event);    
         }
         else
         {
@@ -94,7 +94,7 @@ public class LogInController implements Initializable {
             
         }
     }
-    private void changeScene(String view,Event event) throws IOException {
+   /* private void changeScene(String view,Event event) throws IOException {
         if(rememberCheck.isSelected()==true)
             manager.saveUsername(loginField.getText());
         else
@@ -122,5 +122,5 @@ public class LogInController implements Initializable {
         stage.setScene(scene);
         stage.setTitle(view);
         stage.show();
-    }
+    }*/
 }
