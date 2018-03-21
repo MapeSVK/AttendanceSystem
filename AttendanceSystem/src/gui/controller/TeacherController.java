@@ -8,12 +8,14 @@ import gui.model.ModelManager;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 
 
@@ -53,6 +55,14 @@ public class TeacherController implements Initializable {
         percentageColumn.setCellValueFactory(new PropertyValueFactory("percentage"));
         takenLessonsColumn.setCellValueFactory(new PropertyValueFactory("takenLessons"));
         
+    }
+
+    @FXML
+    private void clickStudent(MouseEvent event) {
+    }
+
+    @FXML
+    private void logOut(ActionEvent event) {
     }
     
     

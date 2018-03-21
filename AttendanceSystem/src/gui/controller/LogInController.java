@@ -8,6 +8,8 @@ import gui.model.ModelManager;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -39,36 +41,8 @@ public class LogInController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    }
-        
-        
-        
-    private void changeScene(String view,Event event) throws IOException {
-        
-        // Here goes method for login automatically and it checks username after start app and figured out if it is 
-        // teacher or student
-
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/"+view+"View.fxml"));
-        if (view == "Student") {
-            stage.setMinWidth(251);
-            stage.setMaxWidth(251);
-            stage.setMinHeight(356);
-            stage.setMaxHeight(356);
-        }
-        else if (view == "Teacher") {
-            stage.setMinWidth(544);
-            stage.setMaxWidth(544);
-            stage.setMinHeight(600);
-            stage.setMaxHeight(600);
-        }
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle(view);
-        stage.show();
-    }
-        
+    }     
+    
     public void enterButton(javafx.scene.input.KeyEvent key) throws IOException {
         if(key.getCode()== KeyCode.ENTER)
         {
@@ -79,27 +53,35 @@ public class LogInController implements Initializable {
     public void clickLogIn(ActionEvent event) throws IOException {
         login(event);
     }
-    
-     
-        
+   
     private void login(Event event) throws IOException {
         
-        if(loginField.getText().equals("Student")&&passwordField.getText().equals("qwerty"))
-        {
-            changeScene("Student",event); 
-            
-        }
-        else if(loginField.getText().equals("Teacher")&&passwordField.getText().equals("qwerty"))
-        {
-            changeScene("Teacher",event);    
-        }
-        else
-        {
-            inLabel.setVisible(true);
-            
-        }
+       if(manager.getUserId(loginField.getText(), passwordField.getText())!=0)
+               {
+                   if(manager.logIn(manager.getUserId(loginField.getText(), passwordField.getText())).toString().equalsIgnoreCase("Teacher"))
+                   {
+                       changeScene("Teacher", "Teacher window", event);
+                   }
+                   else if(manager.logIn(manager.getUserId(loginField.getText(), passwordField.getText())).toString().equalsIgnoreCase("Student"))
+                   {
+                       changeScene("Student", "Student window", event);
+                   }
+               }
     }   
-        
+        private void changeScene(String window,String title,Event event)
+        {
+        try {
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/"+window+"View.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle(title);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
   
         
         

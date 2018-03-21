@@ -115,6 +115,9 @@ public class LogInController implements Initializable {
             stage.setMinHeight(600);
             stage.setMaxHeight(600);
         }
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/"+view+"View.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle(view);
