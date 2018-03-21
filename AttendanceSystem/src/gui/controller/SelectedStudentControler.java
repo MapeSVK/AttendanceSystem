@@ -3,6 +3,7 @@ package gui.controller;
 
 import gui.model.ModelManager;
 import be.Attendance;
+import be.Student;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -56,38 +57,30 @@ public class SelectedStudentControler implements Initializable {
     Date currentDate = new Date();
     ModelManager manager = new ModelManager();
     
-    final ObservableList<Attendance> data = FXCollections.observableArrayList();
-   
+    int studentFromTeacher=0;
+    SelectedStudentControler(int studentFromTeacher )
+    {
+        this.studentFromTeacher=studentFromTeacher;
+    }
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
+        
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        attendanceColumn.setCellValueFactory(new PropertyValueFactory<>("status"));      
-        changeAttendanceColumn.setCellValueFactory(new PropertyValueFactory<>("changeAttendanceButton"));
+        attendanceColumn.setCellValueFactory(new PropertyValueFactory<>("status"));    
+        changeAttendanceColumn.setCellValueFactory( new PropertyValueFactory<>("changeAttendanceButton"));
         
         
-        // temporary
-        data.addAll(
-                new Attendance(1, currentDate , "absent"),
-                new Attendance(1, currentDate , "absent"),
-                new Attendance(1, currentDate , "absent"),
-                new Attendance(1, currentDate , "absent")
-        );
-        studentTable.setItems(data);
+        manager.loadAllStudentsAttendance();
         
+        studentTable.setItems(manager.getAttandanceOfStudent());
         
         
         showChangeAttendanceButton();
-        
             
     }    
-    
-    
-    
-    
-    
-    
+ 
     
     public void showChangeAttendanceButton() {
         studentTable.setRowFactory(tableView -> {
@@ -95,30 +88,29 @@ public class SelectedStudentControler implements Initializable {
 
             row.hoverProperty().addListener((observable) -> {
                 final Attendance attendance = row.getItem();
+                row.setStyle("-fx-background-color:white;");
                 
-
-                if (row.isHover() && attendance != null) {
-                    //getChangeAttendanceButton().setVisible(true);
-                    row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");                  
-                } 
-                else {   
-                    //att.getChangeAttendanceButton().setVisible(false);
-                    row.setStyle("-fx-background-color:white;");
-                }
-                
+                for (Attendance att : manager.getAllAttendence()) {
+                    
+                    if (row.isHover() && attendance == att) {
+                        
+                        att.getChangeAttendanceButton().setVisible(true);
+                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");                  
+                    } 
+                    else {   
+                        att.getChangeAttendanceButton().setVisible(false);
+                        
+                    }
+                }               
             });
        return row;
         });
     }
     
     
-    /*public void changeAttendanceButtonCreation() {
-        
-        changeAttendanceColumn.setCellFactory(ActionButtonTableCell.<Attendance>forTableColumn("Remove", (Attendance p) -> {
-        studentTable.getItems().remove(p);
-        return p;
-        }));
-    }*/
+    
+    
+
     
     
     @FXML

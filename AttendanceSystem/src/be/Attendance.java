@@ -27,8 +27,11 @@ public class Attendance {
         this.date = date;
         this.status = status;
         this.changeAttendanceButton = new Button("Change!!");
+        this.changeAttendanceButton.setVisible(false);
      
     }
+
+   
 
     public Button getChangeAttendanceButton() {
         return changeAttendanceButton;
