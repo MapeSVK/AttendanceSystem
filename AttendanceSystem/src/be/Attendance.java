@@ -78,8 +78,8 @@ public class Attendance {
                             setText(null);
                         } else { 
                             changeAttendanceButton.setOnAction(event -> {
-                                Attendance person = getTableView().getItems().get(getIndex());
-                                
+                                Attendance attendance = getTableView().getItems().get(getIndex());
+                                System.out.println(attendance);
                             });
                             setGraphic(changeAttendanceButton);
                             setText(null);

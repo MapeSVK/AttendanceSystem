@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="600.0" maxWidth="544.0" minHeight="600.0" minWidth="544.0" prefHeight="600.0" prefWidth="544.0" style="-fx-background-color: #fff;" stylesheets="@TeacherCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.TeacherController">
+<AnchorPane maxHeight="600.0" maxWidth="544.0" minHeight="600.0" minWidth="544.0" prefHeight="600.0" prefWidth="579.0" style="-fx-background-color: #fff;" stylesheets="@TeacherCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.TeacherController">
    <children>
-      <TableView fx:id="studentsTable" layoutY="101.0" maxHeight="449.0" maxWidth="544.0" minHeight="449.0" minWidth="544.0" onMouseClicked="#clickStudent" prefHeight="449.0" prefWidth="544.0">
+      <TableView fx:id="studentsTable" layoutY="144.0" maxHeight="449.0" maxWidth="544.0" minHeight="449.0" minWidth="544.0" onMouseClicked="#clickStudent" prefHeight="449.0" prefWidth="544.0">
         <columns>
-          <TableColumn fx:id="nameColumn" maxWidth="188.0" minWidth="188.0" prefWidth="188.0" text="Name" />
-          <TableColumn fx:id="attendanceColumn" maxWidth="127.0" minWidth="127.0" prefWidth="127.0" text="Attendance" />
-            <TableColumn fx:id="percentageColumn" maxWidth="115.0" minWidth="115.0" prefWidth="115.0" text="Percentage" />
-            <TableColumn fx:id="takenLessonsColumn" maxWidth="113.0" minWidth="113.0" prefWidth="113.0" text="Taken Lessons" />
+            <TableColumn fx:id="photoColumn" prefWidth="75.0" />
+          <TableColumn fx:id="nameColumn" maxWidth="362.0" minWidth="116.0" prefWidth="255.0" text="Name" />
+          <TableColumn fx:id="attendanceColumn" maxWidth="284.0" minWidth="41.0" prefWidth="107.0" text="Attendance" />
+            <TableColumn fx:id="percentageColumn" maxWidth="268.0" minWidth="67.0" prefWidth="105.0" text="Semester %" />
         </columns>
       </TableView>
       <JFXComboBox fx:id="classBox" layoutX="402.0" layoutY="47.0" prefHeight="27.0" prefWidth="121.0" />

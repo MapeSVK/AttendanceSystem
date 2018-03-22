@@ -45,7 +45,7 @@ public class SelectedStudentControler implements Initializable {
     private TableColumn<Attendance, String> changeAttendanceColumn;
     
     
-    Date currentDate = new Date();
+   
     ModelManager manager = new ModelManager();
     
     int studentFromTeacher=0;
@@ -65,10 +65,17 @@ public class SelectedStudentControler implements Initializable {
         
         manager.loadAllStudentsAttendance();
         
+<<<<<<< HEAD
     //    studentTable.setItems(manager.getAttandanceOfStudent());
         
         
 //        showChangeAttendanceButton();
+=======
+       // studentTable.setItems(manager.getAttandanceOfStudent());
+        
+        
+        //showChangeAttendanceButton();
+>>>>>>> 7967dd8a3535bb74f477c6819fd9232714579d6c
             
     }    
  
