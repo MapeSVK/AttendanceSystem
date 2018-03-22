@@ -65,17 +65,14 @@ public class SelectedStudentControler implements Initializable {
         
         manager.loadAllStudentsAttendance();
         
-<<<<<<< HEAD
+
     //    studentTable.setItems(manager.getAttandanceOfStudent());
         
         
 //        showChangeAttendanceButton();
-=======
-       // studentTable.setItems(manager.getAttandanceOfStudent());
-        
-        
-        //showChangeAttendanceButton();
->>>>>>> 7967dd8a3535bb74f477c6819fd9232714579d6c
+
+       
+
             
     }    
  

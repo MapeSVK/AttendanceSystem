@@ -21,12 +21,7 @@ import javafx.scene.input.MouseEvent;
 
 
 public class TeacherController implements Initializable {
-
-    ModelManager model = new ModelManager();
-    
-    Date currentDate = new Date();
-    //DateFormat dateFormatterFull = new SimpleDateFormat("dd/MM/yyyy");
-    
+ 
     @FXML
     private TableView<Student> studentsTable;
     @FXML
@@ -35,36 +30,33 @@ public class TeacherController implements Initializable {
     private TableColumn<Student, String> attendanceColumn;
     @FXML
     private TableColumn<Student, String> percentageColumn;
-    private TableColumn<Student, String> takenLessonsColumn;
+   
     @FXML
     private Label dateLabel;
     @FXML
     private JFXComboBox<String> classBox;
     @FXML
     private JFXTextField searchField;
-<<<<<<< HEAD
- 
-=======
+
     @FXML
     private TableColumn<?, ?> photoColumn;
 
     
-    ModelManager manager = new ModelManager();
+    ModelManager model = new ModelManager();
     
     
     Date currentDate = new Date();
     //DateFormat dateFormatterFull = new SimpleDateFormat("dd/MM/yyyy");
     
     
-    
->>>>>>> 7967dd8a3535bb74f477c6819fd9232714579d6c
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         nameColumn.setCellValueFactory(new PropertyValueFactory("fullName"));
         attendanceColumn.setCellValueFactory(new PropertyValueFactory("status"));
         percentageColumn.setCellValueFactory(new PropertyValueFactory("percentage"));
-        takenLessonsColumn.setCellValueFactory(new PropertyValueFactory("takenLessons"));
+        
         showStudents();
     }
 

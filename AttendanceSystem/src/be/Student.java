@@ -18,16 +18,10 @@ public class Student {
     private String lastName;
     private String imageLink;
     private String email;
-<<<<<<< HEAD
-    private int classId; 
     private String status;
     private String fullName;
-    
-=======
     private int classId;
     
-
->>>>>>> 7967dd8a3535bb74f477c6819fd9232714579d6c
     public Student(int id, String firstName, String lastName, String imageLink, String email, int classId) {
         this.id = id;
         this.firstName = firstName;
