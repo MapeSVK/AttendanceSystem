@@ -22,7 +22,7 @@ public class Teacher {
         this.lastName = lastName;
         this.email = email;
     }
-  
+    
     public String getEmail() {
         return email;
     }
@@ -39,7 +39,6 @@ public class Teacher {
         this.lastName = lastName;
     }
 
-
     public String getFirstName() {
         return firstName;
     }
@@ -47,7 +46,6 @@ public class Teacher {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
 
     public int getId() {
         return id;

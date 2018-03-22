@@ -16,8 +16,10 @@ public class Student {
     private String lastName;
     private String imageLink;
     private String email;
-    private int classId;
-
+    private int classId; 
+    private String status;
+    private String fullName;
+    
     public Student(int id, String firstName, String lastName, String imageLink, String email, int classId) {
         this.id = id;
         this.firstName = firstName;
@@ -25,8 +27,21 @@ public class Student {
         this.imageLink = imageLink;
         this.email = email;
         this.classId = classId;
+        this.fullName=firstName+" "+lastName;
     }
     
+     public String getFullName() {
+        return fullName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+   
     public int getClassId() {
         return classId;
     }
@@ -35,7 +50,6 @@ public class Student {
         this.classId = classId;
     }
 
-
     public String getEmail() {
         return email;
     }
@@ -43,7 +57,6 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
     public String getImageLink() {
         return imageLink;
@@ -61,7 +74,6 @@ public class Student {
         this.lastName = lastName;
     }
 
-
     public String getFirstName() {
         return firstName;
     }
@@ -69,7 +81,6 @@ public class Student {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
 
     public int getId() {
         return id;

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
@@ -29,10 +28,6 @@
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></JFXButton>
-      <JFXCheckBox fx:id="rememberCheck" layoutX="72.0" layoutY="279.0" text="remember me">
-         <font>
-            <Font name="Arial Bold" size="13.0" />
-         </font></JFXCheckBox>
       <Label fx:id="inLabel" layoutX="10.0" layoutY="297.0" prefHeight="25.0" prefWidth="232.0" text="Username or password is incorrect" textFill="#d31717" visible="false">
          <font>
             <Font name="System Bold" size="14.0" />

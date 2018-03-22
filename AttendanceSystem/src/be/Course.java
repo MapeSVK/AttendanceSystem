@@ -15,7 +15,6 @@ public class Course {
         this.name = name;
     }
 
-
     public int getId() {
         return id;
     }

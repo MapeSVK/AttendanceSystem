@@ -22,6 +22,11 @@ import javafx.scene.input.MouseEvent;
 
 public class TeacherController implements Initializable {
 
+    ModelManager model = new ModelManager();
+    
+    Date currentDate = new Date();
+    //DateFormat dateFormatterFull = new SimpleDateFormat("dd/MM/yyyy");
+    
     @FXML
     private TableView<Student> studentsTable;
     @FXML
@@ -38,23 +43,15 @@ public class TeacherController implements Initializable {
     private JFXComboBox<String> classBox;
     @FXML
     private JFXTextField searchField;
-
-    
-    ModelManager manager = new ModelManager();
-    
-    
-    Date currentDate = new Date();
-    //DateFormat dateFormatterFull = new SimpleDateFormat("dd/MM/yyyy");
-    
-    
+ 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        nameColumn.setCellValueFactory(new PropertyValueFactory("name"));
-        attendanceColumn.setCellValueFactory(new PropertyValueFactory("attendance"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory("fullName"));
+        attendanceColumn.setCellValueFactory(new PropertyValueFactory("status"));
         percentageColumn.setCellValueFactory(new PropertyValueFactory("percentage"));
         takenLessonsColumn.setCellValueFactory(new PropertyValueFactory("takenLessons"));
-        
+        showStudents();
     }
 
     @FXML
@@ -63,6 +60,11 @@ public class TeacherController implements Initializable {
 
     @FXML
     private void logOut(ActionEvent event) {
+    }
+    
+    private void showStudents()
+    {
+     studentsTable.setItems(model.getAllStudentsWithStatus());
     }
     
     

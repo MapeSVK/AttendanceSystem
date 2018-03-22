@@ -3,15 +3,10 @@ package gui.controller;
 
 import gui.model.ModelManager;
 import be.Attendance;
-import be.Student;
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,16 +14,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 
 public class SelectedStudentControler implements Initializable {
@@ -74,38 +65,38 @@ public class SelectedStudentControler implements Initializable {
         
         manager.loadAllStudentsAttendance();
         
-        studentTable.setItems(manager.getAttandanceOfStudent());
+    //    studentTable.setItems(manager.getAttandanceOfStudent());
         
         
-        showChangeAttendanceButton();
+//        showChangeAttendanceButton();
             
     }    
  
     
-    public void showChangeAttendanceButton() {
-        studentTable.setRowFactory(tableView -> {
-        final TableRow<Attendance> row = new TableRow<>();
-
-            row.hoverProperty().addListener((observable) -> {
-                final Attendance attendance = row.getItem();
-                row.setStyle("-fx-background-color:white;");
-                
-                for (Attendance att : manager.getAllAttendence()) {
-                    
-                    if (row.isHover() && attendance == att) {
-                        
-                        att.getChangeAttendanceButton().setVisible(true);
-                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");                  
-                    } 
-                    else {   
-                        att.getChangeAttendanceButton().setVisible(false);
-                        
-                    }
-                }               
-            });
-       return row;
-        });
-    }
+//    public void showChangeAttendanceButton() {
+//        studentTable.setRowFactory(tableView -> {
+//        final TableRow<Attendance> row = new TableRow<>();
+//
+//            row.hoverProperty().addListener((observable) -> {
+//                final Attendance attendance = row.getItem();
+//                row.setStyle("-fx-background-color:white;");
+//                
+//                for (Attendance att : manager.getAllAttendence()) {
+//                    
+//                    if (row.isHover() && attendance == att) {
+//                        
+//                        att.getChangeAttendanceButton().setVisible(true);
+//                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");                  
+//                    } 
+//                    else {   
+//                        att.getChangeAttendanceButton().setVisible(false);
+//                        
+//                    }
+//                }               
+//            });
+//       return row;
+//        });
+//    }
     
     
     

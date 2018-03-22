@@ -3,15 +3,11 @@ package dal;
 
 import be.Attendance;
 import be.Student;
-
-import be.Student;
 import be.Teacher;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -20,9 +16,7 @@ import java.util.logging.Logger;
 
 public class DalManager {
     private ConnectionManager cm = new ConnectionManager();
-    
-    
-    
+
     public List<Attendance> getAttandanceOfStudent(int id)
     {
         List<Attendance> attendanceOfStudent = new ArrayList();
@@ -51,10 +45,7 @@ public class DalManager {
           }
         return attendanceOfStudent;
 }
-    
-    
-    
-    
+ 
     public List<Attendance> getAllStudentsAttendance()
     {
         List<Attendance> allStudentsAttendance = new ArrayList();
@@ -79,8 +70,6 @@ public class DalManager {
           }
         return allStudentsAttendance;
 }
-    
-    
     
     public int getUserId(String username, String password)
     {
@@ -157,15 +146,43 @@ public class DalManager {
            ResultSet rs = pstmt.executeQuery();
            
             while (rs.next()) {
-                return new Student(userId, "sada", "sada", "sada", "sada", userId);
+                return new Student(userId, rs.getString("firstName"),
+                        rs.getString("lastName"),
+                        rs.getString("imageLink"),
+                        rs.getString("email"),
+                rs.getInt("classId"));
             } 
         } catch (SQLException ex) {
         } 
        return null;
     }
-
-
-
     
+    public List<Student> getAllStudents()
+    {
+   List<Student> allStudents = new ArrayList();
+        try (Connection con = cm.getConnection())
+        {
+         
+         
+         PreparedStatement pstmt = con.prepareCall("SELECT * FROM Student");
+         ResultSet rs = pstmt.executeQuery();
+            while(rs.next())
+            {
+               Student stu = new Student(rs.getInt("id"),
+                       rs.getString("firstName"),
+                       rs.getString("lastName"),
+                       rs.getString("imageLink"),
+                       rs.getString("email"),
+                       rs.getInt("classId"));
+      
+                allStudents.add(stu);
+            }
+         }
+         catch (SQLException ex) {
+            Logger.getLogger(DalManager.class.getName()).log(
+                    Level.SEVERE, null, ex);
+          }
+        return allStudents; 
+}   
 }
     

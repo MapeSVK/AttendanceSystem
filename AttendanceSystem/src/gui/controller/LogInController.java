@@ -33,8 +33,6 @@ public class LogInController implements Initializable {
     @FXML
     private JFXPasswordField passwordField;
     @FXML
-    private JFXCheckBox rememberCheck;
-    @FXML
     private Label inLabel;
     
     private ModelManager manager = new ModelManager();
@@ -43,6 +41,7 @@ public class LogInController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }     
     
+    @FXML
     public void enterButton(javafx.scene.input.KeyEvent key) throws IOException {
         if(key.getCode()== KeyCode.ENTER)
         {
@@ -50,6 +49,7 @@ public class LogInController implements Initializable {
         }
     }
     
+    @FXML
     public void clickLogIn(ActionEvent event) throws IOException {
         login(event);
     }
@@ -67,7 +67,12 @@ public class LogInController implements Initializable {
                        changeScene("Student", "Student window", event);
                    }
                }
+       else
+       {
+          inLabel.setVisible(true);
+       }
     }   
+    
         private void changeScene(String window,String title,Event event)
         {
         try {

@@ -1,6 +1,7 @@
 package bll;
 
 import be.Attendance;
+import be.Student;
 import dal.DalManager;
 import java.util.List;
 
@@ -8,8 +9,7 @@ import java.util.List;
 public class BllManager {
     
     private DalManager manager = new DalManager();
-
-    
+  
     public List<Attendance> getAttandanceOfStudent(int id)
    {
        return manager.getAttandanceOfStudent(id);
@@ -19,7 +19,6 @@ public class BllManager {
    {
        return manager.getAllStudentsAttendance();
    }
-
 
     public int getUserId(String username, String password)
     {
@@ -31,4 +30,8 @@ public class BllManager {
         return manager.logIn(userId);
     }
 
+    public List<Student> getAllStudents()
+    {
+        return manager.getAllStudents();
+    }
 }

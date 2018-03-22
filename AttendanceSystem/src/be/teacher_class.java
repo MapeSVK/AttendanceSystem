@@ -22,7 +22,6 @@ public class teacher_class {
         this.classId = classId;
     }
 
-
     public int getTeacherId() {
         return teacherId;
     }

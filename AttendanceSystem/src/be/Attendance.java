@@ -31,8 +31,6 @@ public class Attendance {
      
     }
 
-   
-
     public Button getChangeAttendanceButton() {
         return changeAttendanceButton;
     }
@@ -40,8 +38,6 @@ public class Attendance {
     public void setChangeAttendanceButton(Button changeAttendanceButton) {
         this.changeAttendanceButton = changeAttendanceButton;
     }
-    
-    
 
     public String getStatus() {
         return status;
@@ -51,17 +47,13 @@ public class Attendance {
         this.status = status;
     }
 
-    
-
     public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    
+    } 
 
     public int getStudentId() {
         return studentId;
@@ -98,7 +90,5 @@ public class Attendance {
                 return cell;
             }
         };
-    
-
-    
+  
 }
