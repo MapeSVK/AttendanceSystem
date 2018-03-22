@@ -54,7 +54,7 @@ public class SelectedStudentControler implements Initializable {
     private TableColumn<Attendance, String> changeAttendanceColumn;
     
     
-    Date currentDate = new Date();
+   
     ModelManager manager = new ModelManager();
     
     int studentFromTeacher=0;
@@ -74,38 +74,38 @@ public class SelectedStudentControler implements Initializable {
         
         manager.loadAllStudentsAttendance();
         
-        studentTable.setItems(manager.getAttandanceOfStudent());
+       // studentTable.setItems(manager.getAttandanceOfStudent());
         
         
-        showChangeAttendanceButton();
+        //showChangeAttendanceButton();
             
     }    
  
     
-    public void showChangeAttendanceButton() {
-        studentTable.setRowFactory(tableView -> {
-        final TableRow<Attendance> row = new TableRow<>();
-
-            row.hoverProperty().addListener((observable) -> {
-                final Attendance attendance = row.getItem();
-                row.setStyle("-fx-background-color:white;");
-                
-                for (Attendance att : manager.getAllAttendence()) {
-                    
-                    if (row.isHover() && attendance == att) {
-                        
-                        att.getChangeAttendanceButton().setVisible(true);
-                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");                  
-                    } 
-                    else {   
-                        att.getChangeAttendanceButton().setVisible(false);
-                        
-                    }
-                }               
-            });
-       return row;
-        });
-    }
+//    public void showChangeAttendanceButton() {
+//        studentTable.setRowFactory(tableView -> {
+//        final TableRow<Attendance> row = new TableRow<>();
+//
+//            row.hoverProperty().addListener((observable) -> {
+//                final Attendance attendance = row.getItem();
+//                row.setStyle("-fx-background-color:white;");
+//                
+//                for (Attendance att : manager.getAllAttendence()) {
+//                    
+//                    if (row.isHover() && attendance == att) {
+//                        
+//                        att.getChangeAttendanceButton().setVisible(true);
+//                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");                  
+//                    } 
+//                    else {   
+//                        att.getChangeAttendanceButton().setVisible(false);
+//                        
+//                    }
+//                }               
+//            });
+//       return row;
+//        });
+//    }
     
     
     

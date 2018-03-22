@@ -5,6 +5,8 @@
  */
 package be;
 
+import javafx.scene.image.ImageView;
+
 /**
  *
  * @author Mape
@@ -17,6 +19,7 @@ public class Student {
     private String imageLink;
     private String email;
     private int classId;
+    
 
     public Student(int id, String firstName, String lastName, String imageLink, String email, int classId) {
         this.id = id;

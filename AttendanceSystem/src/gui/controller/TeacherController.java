@@ -30,7 +30,6 @@ public class TeacherController implements Initializable {
     private TableColumn<Student, String> attendanceColumn;
     @FXML
     private TableColumn<Student, String> percentageColumn;
-    @FXML
     private TableColumn<Student, String> takenLessonsColumn;
     @FXML
     private Label dateLabel;
@@ -38,6 +37,8 @@ public class TeacherController implements Initializable {
     private JFXComboBox<String> classBox;
     @FXML
     private JFXTextField searchField;
+    @FXML
+    private TableColumn<?, ?> photoColumn;
 
     
     ModelManager manager = new ModelManager();
@@ -45,6 +46,7 @@ public class TeacherController implements Initializable {
     
     Date currentDate = new Date();
     //DateFormat dateFormatterFull = new SimpleDateFormat("dd/MM/yyyy");
+    
     
     
     @Override
