@@ -3,6 +3,7 @@ package gui.controller;
 
 import gui.model.ModelManager;
 import be.Attendance;
+import be.Student;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
@@ -16,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -45,14 +47,10 @@ public class SelectedStudentControler implements Initializable {
     private TableColumn<Attendance, String> changeAttendanceColumn;
     
     
-   
-    ModelManager manager = new ModelManager();
+    private Student student;
+    private ModelManager model;
     
-    int studentFromTeacher=0;
-    SelectedStudentControler(int studentFromTeacher )
-    {
-        this.studentFromTeacher=studentFromTeacher;
-    }
+
     
     
     @Override
@@ -63,44 +61,47 @@ public class SelectedStudentControler implements Initializable {
         changeAttendanceColumn.setCellValueFactory( new PropertyValueFactory<>("changeAttendanceButton"));
         
         
-        manager.loadAllStudentsAttendance();
         
-
-    //    studentTable.setItems(manager.getAttandanceOfStudent());
-        
-        
-//        showChangeAttendanceButton();
-
        
-
-            
     }    
- 
     
-//    public void showChangeAttendanceButton() {
-//        studentTable.setRowFactory(tableView -> {
-//        final TableRow<Attendance> row = new TableRow<>();
-//
-//            row.hoverProperty().addListener((observable) -> {
-//                final Attendance attendance = row.getItem();
-//                row.setStyle("-fx-background-color:white;");
-//                
-//                for (Attendance att : manager.getAllAttendence()) {
-//                    
-//                    if (row.isHover() && attendance == att) {
-//                        
-//                        att.getChangeAttendanceButton().setVisible(true);
-//                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");                  
-//                    } 
-//                    else {   
-//                        att.getChangeAttendanceButton().setVisible(false);
-//                        
-//                    }
-//                }               
-//            });
-//       return row;
-//        });
-//    }
+    public void setStudent(ModelManager model, Student student){
+        this.model = model;
+        this.student = student;
+        getDatesOfSelectedStudent();
+        showChangeAttendanceButton();
+    }
+    
+    public void getDatesOfSelectedStudent() {
+        
+        studentTable.setItems(model.getAttandanceOfStudent(student.getId()));
+    }
+    
+    
+    public void showChangeAttendanceButton() {
+        studentTable.setRowFactory(tableView -> {
+        final TableRow<Attendance> row = new TableRow<>();
+
+            row.hoverProperty().addListener((observable) -> {
+                final Attendance attendance = row.getItem();
+                row.setStyle("-fx-background-color:white;");
+                
+                for (Attendance att : model.getAttendanceOfOneStudent()) {
+                    
+                    if (row.isHover() && attendance == att) {
+                        
+                        att.getChangeAttendanceButton().setVisible(true);
+                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");                  
+                    } 
+                    else {   
+                        att.getChangeAttendanceButton().setVisible(false);
+                        
+                    }
+                }               
+            });
+       return row;
+        });
+    }
     
     
     
