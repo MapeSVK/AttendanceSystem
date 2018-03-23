@@ -62,7 +62,7 @@ public class Attendance {
     public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
-    
+    /*
     Callback<TableColumn<Attendance, String>, TableCell<Attendance, String>> changeAttendanceCallback
                 = //
                 new Callback<TableColumn<Attendance, String>, TableCell<Attendance, String>>() {
@@ -90,5 +90,5 @@ public class Attendance {
                 return cell;
             }
         };
-  
+  */
 }

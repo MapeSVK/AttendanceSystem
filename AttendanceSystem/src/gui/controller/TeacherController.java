@@ -6,17 +6,23 @@ import be.Student;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import gui.model.ModelManager;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 
 
@@ -61,13 +67,7 @@ public class TeacherController implements Initializable {
         showStudents();
     }
 
-    @FXML
-    private void clickStudent(MouseEvent event) {
-    }
-
-    @FXML
-    private void logOut(ActionEvent event) {
-    }
+   
     
     private void showStudents()
     {
@@ -76,9 +76,48 @@ public class TeacherController implements Initializable {
     
     
     
+    @FXML
+    void logOut(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setMinWidth(251);
+        stage.setMaxWidth(251);
+        stage.setMinHeight(356);
+        stage.setMaxHeight(356);
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LogInView.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Log Out");
+        stage.show();
+    }
     
     
-    
+    @FXML
+    public void clickStudent(MouseEvent event) throws IOException {
+        Student selectedStudent = studentsTable.getSelectionModel().getSelectedItem();
+        
+       if (event.getClickCount() == 2 && !event.isConsumed() && selectedStudent!=null)
+       {    
+            
+            Parent root;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/SelectedStudentView.fxml"));
+            root = loader.load();
+            SelectedStudentControler controller = loader.getController();
+            controller.setStudent(model,selectedStudent);
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setMinWidth(574);
+            stage.setMaxWidth(574);
+            stage.setMinHeight(600);
+            stage.setMaxHeight(600);
+            stage.setTitle(selectedStudent.getFullName());
+            stage.show();
+
+
+        }
+    }
     
     
     
@@ -105,20 +144,7 @@ public class TeacherController implements Initializable {
     
 
 
-    @FXML
-    void logOut(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.setMinWidth(251);
-        stage.setMaxWidth(251);
-        stage.setMinHeight(356);
-        stage.setMaxHeight(356);
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LogInView.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Log Out");
-        stage.show();
-    }
+    
 
     private void fillBoxAndSetDate()
     {
@@ -146,31 +172,7 @@ public class TeacherController implements Initializable {
             }
     }
 
-    @FXML
-    public void clickStudent(MouseEvent event) throws IOException {
-        Student selectedStudent = studentsTable.getSelectionModel().getSelectedItem();
-
-       if (event.getClickCount() == 2 && !event.isConsumed() && selectedStudent!=null)
-       {
-            Parent root;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/SelectedStudentView.fxml"));
-            root = loader.load();
-            SelectedStudentControler controller = loader.getController();
-            controller.setStudentId(selectedStudent.getMonths());
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setMinWidth(574);
-            stage.setMaxWidth(574);
-            stage.setMinHeight(600);
-            stage.setMaxHeight(600);
-            stage.setTitle("SelectedStudent");
-            stage.show();
-
-
-        }
-    }
+    
     
     private void searchStudent()
     {
