@@ -5,8 +5,6 @@
  */
 package be;
 
-import javafx.scene.image.ImageView;
-
 /**
  *
  * @author Mape
@@ -20,8 +18,9 @@ public class Student {
     private String email;
     private String status;
     private String fullName;
-    private int classId;
-    
+    private int classId;  
+    private int percentage;
+   
     public Student(int id, String firstName, String lastName, String imageLink, String email, int classId) {
         this.id = id;
         this.firstName = firstName;
@@ -30,6 +29,14 @@ public class Student {
         this.email = email;
         this.classId = classId;
         this.fullName=firstName+" "+lastName;
+    }
+    
+    public int getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(int percentage) {
+        this.percentage = percentage;
     }
     
      public String getFullName() {

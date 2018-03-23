@@ -1,6 +1,7 @@
 
 package gui.controller;
 
+import be.Attendance;
 import be.Student;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;

@@ -62,6 +62,28 @@ public class ModelManager {
      return manager.getAllStudents();
     }
     
+    private int setStudentPercentage(int StudentId)
+    {
+        int absent=0;
+        int present=0;
+        int notSubmitted=0;
+        for(Attendance attendance : getAttandanceOfStudent(StudentId))
+        {
+            if(attendance.getStatus().contains("absent"))
+            {
+                absent++;
+            }
+            else if(attendance.getStatus().contains("present"))
+            {
+                present++;
+            }
+            else{
+                notSubmitted++;
+            }
+        }
+        
+        return (present*100)/(absent+present+notSubmitted);
+    }
     public void getStudentItsCurrentAttendance()
     {
         allStudentsWithStatus.clear();
@@ -73,6 +95,7 @@ public class ModelManager {
                 String dateAttendance = dateFormatterFull.format(attendance.getDate());
                 if(attendance.getStudentId()==student.getId() && dateAttendance.equals(currentDate) )
                 {
+                    student.setPercentage(setStudentPercentage(student.getId()));
                     student.setStatus(attendance.getStatus());
                     allStudentsWithStatus.add(student);
                 }
