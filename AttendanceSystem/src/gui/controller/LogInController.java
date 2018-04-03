@@ -1,7 +1,6 @@
 
 package gui.controller;
 
-import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import gui.model.ModelManager;
@@ -21,10 +20,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
-
-
-
-
 
 public class LogInController implements Initializable {
 
@@ -60,22 +55,25 @@ public class LogInController implements Initializable {
                {
                    if(manager.logIn(manager.getUserId(loginField.getText(), passwordField.getText())).toString().equalsIgnoreCase("Teacher"))
                    {
-                       changeScene("Teacher", "Teacher window", event);
+                       changeScene("Teacher", "Teacher window", event,-1);
                    }
                    else if(manager.logIn(manager.getUserId(loginField.getText(), passwordField.getText())).toString().equalsIgnoreCase("Student"))
                    {
-                       changeScene("Student", "Student window", event);
+                    
+                       changeScene("Student", "Student window", event,manager.getUserId(loginField.getText(), passwordField.getText()));
+                       
                    }
                }
        else
        {
           inLabel.setVisible(true);
        }
-    }   
+    }  
     
-        private void changeScene(String window,String title,Event event)
+        private void changeScene(String window,String title,Event event, int StudentId)
         {
         try {
+<<<<<<< HEAD
             
             Node node = (Node) event.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
@@ -94,6 +92,18 @@ public class LogInController implements Initializable {
             
             
             Parent root = FXMLLoader.load(getClass().getResource("/gui/view/"+window+"View.fxml"));
+=======
+            Parent root;
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/"+window+"View.fxml"));
+            root = loader.load();
+            if(StudentId>-1)
+            {
+            StudentController controller = loader.getController();
+            controller.getStudentId(StudentId);
+            }
+>>>>>>> 7ec3aa53a6d54e392130decc05971e3989b54fa4
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle(title);

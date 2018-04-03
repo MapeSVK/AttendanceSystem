@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -128,7 +129,7 @@ public class DalManager {
         return returnStudent(userId);
     }
     
-    private Object returnStudent(int userId)
+    public Object returnStudent(int userId)
     {
        try (Connection con = cm.getConnection())
         {  
@@ -184,5 +185,33 @@ public class DalManager {
           }
         return allStudents; 
 }   
+    
+    public boolean changeStudentAttendance(Attendance attendance)                 
+    {
+        String status="absent";
+        if(attendance.getStatus().equals("absent")|| attendance.getStatus().equals("not submitted"))
+        {
+            status="present";
+        }
+    try (Connection con = cm.getConnection()) {
+            String sql
+                    = "UPDATE Attendance SET "
+                    + "status=? "
+                    + "WHERE studentId=? AND date=?";
+            PreparedStatement pstmt
+                    = con.prepareStatement(sql);
+            pstmt.setString(1, status);
+            pstmt.setInt(2, attendance.getStudentId());
+            pstmt.setDate(3, (java.sql.Date) attendance.getDate());
+            int affected = pstmt.executeUpdate();
+            if (affected<1)
+                return false;
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(ConnectionManager.class.getName()).log(
+                    Level.SEVERE, null, ex);
+        } 
+    return true;
+    }
 }
     

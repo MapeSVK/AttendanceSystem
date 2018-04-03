@@ -1,10 +1,13 @@
 package gui.controller;
 
 import be.Attendance;
+import be.Student;
 import com.jfoenix.controls.JFXButton;
 import gui.model.ModelManager;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,12 +27,10 @@ import javafx.stage.Stage;
 
 
 
-public class StudentController implements Initializable {
+public class StudentController implements Initializable{
 
     @FXML
     private AnchorPane pane;
-    @FXML
-    private Label submisionLabel;
     @FXML
     private TableView<Attendance> studentTable;
     @FXML
@@ -46,24 +47,30 @@ public class StudentController implements Initializable {
     private JFXButton attendanceButton;
     @FXML
     private ImageView calendarImg;
-    
-    
+    @FXML
+    private Label studentName;
+    private int studentId;
     
     private final Image img_minus = new Image("file:images/calendar-minus.png");
     private final Image img_plus = new Image("file:images/calendar-plus.png");
 
-  
     ModelManager manager = new ModelManager();
     
-    
-    
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-    
+    java.sql.Date currentDate = java.sql.Date.valueOf(LocalDate.now());
+    Attendance currentAttendance;
+    @FXML
+    private Label submissionLabel;
+
+    public void getStudentId(int studentId) {
+        this.studentId = studentId;
+        
+      Student student = (Student) manager.returnStudent(studentId);
+      studentName.setText(student.getFullName());
+      
+       setCurrentAttendanceAndSubmissionLabel();
+       
     }
-    
-    
-    
+     
     @FXML
     public void logOut(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
@@ -79,6 +86,8 @@ public class StudentController implements Initializable {
 
     @FXML
     private void changeAttendance(ActionEvent event) {
+        submissionLabel.setText("present");
+        manager.changeStudentAttendance(currentAttendance);
     }
 
     @FXML
@@ -91,6 +100,43 @@ public class StudentController implements Initializable {
 
     @FXML
     private void leftM(MouseEvent event) {
+    }
+    
+    private void setCurrentAttendanceAndSubmissionLabel()
+    {
+        for(Attendance allAttendance : manager.getAttandanceOfStudent(studentId))
+       {
+           if(allAttendance.getDate().equals(currentDate))
+           {
+               currentAttendance=allAttendance;
+               submissionLabel.setText(currentAttendance.getStatus());
+           }
+       }
+    }
+    
+    private void submissionLabelAndDisableButtonListener()
+    {
+        submissionLabel.textProperty().addListener(e ->{
+            if(submissionLabel.getText().equals("present"))
+            {
+                submissionLabel.setStyle("-fx-text-fill : green");
+               attendanceButton.setDisable(true);
+            }
+            else if(submissionLabel.getText().equals("absent"))
+                    {
+                         submissionLabel.setStyle("-fx-text-fill : red");
+                          attendanceButton.setDisable(true);
+                    }
+        });
+    }
+
+    private void changeCurrentAttendance()
+    {
+        manager.changeStudentAttendance(currentAttendance);
+    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        submissionLabelAndDisableButtonListener();
     }
     
     
