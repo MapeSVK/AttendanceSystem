@@ -34,9 +34,7 @@ public class BllManager {
     {
         return manager.getAllStudents();
     }
-    
-<<<<<<< HEAD
-=======
+
     public Object returnStudent(int userId)
     {
         return manager.returnStudent(userId);
@@ -47,6 +45,6 @@ public class BllManager {
         return manager.changeStudentAttendance(attendance);
     }
     
->>>>>>> 7ec3aa53a6d54e392130decc05971e3989b54fa4
+
     
 }

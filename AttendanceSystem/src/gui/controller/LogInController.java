@@ -73,7 +73,7 @@ public class LogInController implements Initializable {
         private void changeScene(String window,String title,Event event, int StudentId)
         {
         try {
-<<<<<<< HEAD
+
             
             Node node = (Node) event.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
@@ -92,20 +92,9 @@ public class LogInController implements Initializable {
             
             
             Parent root = FXMLLoader.load(getClass().getResource("/gui/view/"+window+"View.fxml"));
-=======
-            Parent root;
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/"+window+"View.fxml"));
-            root = loader.load();
-            if(StudentId>-1)
-            {
-            StudentController controller = loader.getController();
-            controller.getStudentId(StudentId);
-            }
->>>>>>> 7ec3aa53a6d54e392130decc05971e3989b54fa4
             Scene scene = new Scene(root);
             stage.setScene(scene);
+           
             stage.setTitle(title);
             stage.show();
         } catch (IOException ex) {
