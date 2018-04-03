@@ -89,6 +89,7 @@ public class ModelManager {
         
         return (present*100)/(absent+present+notSubmitted);
     }
+    
     public void getStudentItsCurrentAttendance()
     {
         allStudentsWithStatus.clear();
@@ -107,5 +108,15 @@ public class ModelManager {
                 }
             }
         }
+    }
+   
+    public Object returnStudent(int userId)
+    {
+        return manager.returnStudent(userId);
+    }
+    
+    public boolean changeStudentAttendance(Attendance attendance)
+    {
+        return manager.changeStudentAttendance(attendance);
     }
 }

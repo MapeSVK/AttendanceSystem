@@ -34,4 +34,16 @@ public class BllManager {
     {
         return manager.getAllStudents();
     }
+    
+    public Object returnStudent(int userId)
+    {
+        return manager.returnStudent(userId);
+    }
+    
+    public boolean changeStudentAttendance(Attendance attendance)
+    {
+        return manager.changeStudentAttendance(attendance);
+    }
+    
+    
 }
