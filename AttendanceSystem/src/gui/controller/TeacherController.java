@@ -65,6 +65,7 @@ public class TeacherController implements Initializable {
         percentageColumn.setCellValueFactory(new PropertyValueFactory("percentage"));
         
         showStudents();
+        
     }
 
    

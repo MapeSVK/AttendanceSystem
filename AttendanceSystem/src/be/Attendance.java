@@ -9,6 +9,7 @@ import java.util.Date;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 
 /**
@@ -21,6 +22,8 @@ public class Attendance {
     private Date date;
     private String status;
     Button changeAttendanceButton;
+    ImageView attendanceImage;
+    
 
     public Attendance(int studentId, Date date, String status) {
         this.studentId = studentId;
@@ -28,7 +31,18 @@ public class Attendance {
         this.status = status;
         this.changeAttendanceButton = new Button("Change!!");
         this.changeAttendanceButton.setVisible(false);
-     
+        this.attendanceImage = new ImageView();
+        
+    }
+    
+    
+
+    public ImageView getAttendanceImage() {
+        return attendanceImage;
+    }
+
+    public void setAttendanceImage(ImageView attendanceImage) {
+        this.attendanceImage = attendanceImage;
     }
 
     public Button getChangeAttendanceButton() {

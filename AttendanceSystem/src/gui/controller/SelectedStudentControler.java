@@ -4,11 +4,13 @@ package gui.controller;
 import gui.model.ModelManager;
 import be.Attendance;
 import be.Student;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,8 +22,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import main.Main;
 
 
 public class SelectedStudentControler implements Initializable {
@@ -50,31 +54,56 @@ public class SelectedStudentControler implements Initializable {
     private Student student;
     private ModelManager model;
     
+    private final Image present = new Image("file:images/presentImage.png");
+    private final Image absent = new Image("file:images/absentImage.png");
+    
 
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
         
+        
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        attendanceColumn.setCellValueFactory(new PropertyValueFactory<>("status"));    
+        attendanceColumn.setCellValueFactory(new PropertyValueFactory<>("attendanceImage"));    
         changeAttendanceColumn.setCellValueFactory( new PropertyValueFactory<>("changeAttendanceButton"));
         
         
-        
-       
+    
     }    
     
     public void setStudent(ModelManager model, Student student){
         this.model = model;
         this.student = student;
+        
+        
         getDatesOfSelectedStudent();
+        changeStatusToImage();
         showChangeAttendanceButton();
+        studentTable.setSelectionModel(null);
     }
     
     public void getDatesOfSelectedStudent() {
         
         studentTable.setItems(model.getAttandanceOfStudent(student.getId()));
+        
+         
+    }
+    
+    public void changeStatusToImage() {
+        for (Attendance att : model.getAttandanceOfStudent(student.getId())) {
+            if (att.getStatus().equals("absent")) {
+                att.getAttendanceImage().setImage(absent);
+                
+                
+                
+            }
+            else if(att.getStatus().equals("present")) {
+                
+                att.getAttendanceImage().setImage(present);
+                
+            }
+        }
     }
     
     
@@ -88,21 +117,49 @@ public class SelectedStudentControler implements Initializable {
                 
                 for (Attendance att : model.getAttendanceOfOneStudent()) {
                     
+                    att.getChangeAttendanceButton().getStyleClass().clear();
+                    att.getChangeAttendanceButton().getStyleClass().add("changeAttendanceButton");
+
+                    
                     if (row.isHover() && attendance == att) {
                         
                         att.getChangeAttendanceButton().setVisible(true);
                         row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");                  
                     } 
                     else {   
-                        att.getChangeAttendanceButton().setVisible(false);
+                        att.getChangeAttendanceButton().setVisible(false);              
                         
                     }
+                    att.getChangeAttendanceButton().setOnAction((event) -> {
+                        System.out.println(att.getStatus());
+                    });
                 }               
             });
        return row;
         });
+        
+        
     }
     
+    
+//    public void colouredRows() {       
+//        studentTable.setRowFactory(tableView -> new TableRow<Attendance>() {
+//            
+//            @Override
+//            protected void updateItem(Attendance attendance, boolean empty) {
+//                super.updateItem(attendance, empty);
+//                if (empty) {
+//                    setStyle("");
+//                } else if (attendance.getStatus().equals("present")) {
+//                    setStyle("-fx-background-color:green;");
+//                } else if (attendance.getStatus().equals("absent")) {
+//                    setStyle("-fx-background-color:red;");
+//                } else {
+//                    setStyle("-fx-background-color:white;");
+//                }
+//            }
+//        });       
+//    } 
     
     
     

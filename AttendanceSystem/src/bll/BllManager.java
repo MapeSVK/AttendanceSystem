@@ -16,7 +16,7 @@ public class BllManager {
    }
     
     public List<Attendance> getAllStudentsAttendance()
-   {
+   {   
        return manager.getAllStudentsAttendance();
    }
 
@@ -34,4 +34,6 @@ public class BllManager {
     {
         return manager.getAllStudents();
     }
+    
+    
 }
