@@ -71,37 +71,27 @@ public class LogInController implements Initializable {
     }  
     
         private void changeScene(String window,String title,Event event, int StudentId)
-        {
+        {     
         try {
-
-            
+            Parent root;
             Node node = (Node) event.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
-            if (window == "Student") {
-            stage.setMinWidth(251);
-            stage.setMaxWidth(251);
-            stage.setMinHeight(356);
-            stage.setMaxHeight(356);
-        }
-            else if (window == "Teacher") {
-            stage.setMinWidth(544);
-            stage.setMaxWidth(544);
-            stage.setMinHeight(600);
-            stage.setMaxHeight(600);
-        }
-            
-            
-            Parent root = FXMLLoader.load(getClass().getResource("/gui/view/"+window+"View.fxml"));
+           
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/"+window+"View.fxml"));
+            root = loader.load();
+            if(StudentId>-1)
+            {
+                StudentController controller = loader.getController();
+                controller.getStudentId(StudentId);
+            }
             Scene scene = new Scene(root);
             stage.setScene(scene);
-           
             stage.setTitle(title);
-            stage.show();
         } catch (IOException ex) {
             Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
         }
+      
         }
-  
         
         
         
