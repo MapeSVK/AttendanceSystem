@@ -29,7 +29,7 @@ public class Attendance {
         this.studentId = studentId;
         this.date = date;
         this.status = status;
-        this.changeAttendanceButton = new Button("Change!!");
+        this.changeAttendanceButton = new Button("EDIT");
         this.changeAttendanceButton.setVisible(false);
         this.attendanceImage = new ImageView();
         

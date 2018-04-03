@@ -124,7 +124,8 @@ public class SelectedStudentControler implements Initializable {
                     if (row.isHover() && attendance == att) {
                         
                         att.getChangeAttendanceButton().setVisible(true);
-                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");                  
+                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");  
+                        
                     } 
                     else {   
                         att.getChangeAttendanceButton().setVisible(false);              
