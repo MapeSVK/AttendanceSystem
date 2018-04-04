@@ -3,12 +3,15 @@ package gui.controller;
 import be.Attendance;
 import be.Student;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
 import gui.model.ModelManager;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -34,7 +38,7 @@ public class StudentController implements Initializable{
     @FXML
     private TableView<Attendance> studentTable;
     @FXML
-    private TableColumn<Attendance, String> date;
+    private TableColumn<Attendance, Date> date;
     @FXML
     private TableColumn<Attendance, String> attendance;
     @FXML
@@ -42,45 +46,56 @@ public class StudentController implements Initializable{
     @FXML
     private Label percentage;
     @FXML
-    private Label monthName;
-    @FXML
     private JFXButton attendanceButton;
     @FXML
     private ImageView calendarImg;
     @FXML
     private Label studentName;
     private int studentId;
+    private int fakeAnimation=0;
+    private Date fromDate;
+    private Date ToDate;
+    
     
     private final Image img_minus = new Image("file:images/calendar-minus.png");
     private final Image img_plus = new Image("file:images/calendar-plus.png");
 
     ModelManager manager = new ModelManager();
     
+    
     java.sql.Date currentDate = java.sql.Date.valueOf(LocalDate.now());
     Attendance currentAttendance;
     @FXML
     private Label submissionLabel;
+    @FXML
+    private JFXDatePicker dateFrom;
+    @FXML
+    private JFXDatePicker dateTo;
 
     public void getStudentId(int studentId) {
         this.studentId = studentId;
         
       Student student = (Student) manager.returnStudent(studentId);
       studentName.setText(student.getFullName());
-      
        setCurrentAttendanceAndSubmissionLabel();
        
+       setDateFromTo();
+       updateDateFromTo();
+       updatePercentageAndLessons();
     }
      
     @FXML
     public void logOut(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        stage.setMinWidth(251);
-        stage.setMaxWidth(251);
+        if(fakeAnimation==1)
+        {
+            fakeAnimationMethod(stage);
+        }
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LogInView.fxml"));
         Scene scene = new Scene(root);
+        stage.setTitle("log In");
         stage.setScene(scene);
-        stage.setTitle("Log Out");
         stage.show();
     }
 
@@ -88,18 +103,54 @@ public class StudentController implements Initializable{
     private void changeAttendance(ActionEvent event) {
         submissionLabel.setText("present");
         manager.changeStudentAttendance(currentAttendance);
+       
+        manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate);  
+        updatePercentageAndLessons();
     }
 
     @FXML
     private void fakeAnimation(MouseEvent event) {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        fakeAnimationMethod(stage);
     }
 
-    @FXML
-    private void rightM(MouseEvent event) {
-    }
-
-    @FXML
-    private void leftM(MouseEvent event) {
+    private void fakeAnimationMethod(Stage stage)
+    {
+        Service service = new Service() {
+            @Override
+            protected Task createTask() {
+               return new Task() {
+                   @Override
+                   protected Object call() throws Exception {
+                       switch(fakeAnimation)
+                       {
+                           case 0:
+                       for(int i=251;i<720;i=i+2)
+                {
+                       Thread.sleep(2);
+                       updateValue(i);     
+                }
+                       fakeAnimation=1;
+                       break;
+                           case 1:
+                             for(int i=720;i>251;i=i-2)
+                {
+                       Thread.sleep(2);
+                       updateValue(i);     
+                }
+                             fakeAnimation=0;
+                       break;  
+                   }
+                       stage.setMinWidth(251);
+                       return null;
+                   }
+               };
+            }
+        };
+        stage.minWidthProperty().bind(service.valueProperty());
+        stage.maxWidthProperty().bind(service.valueProperty());
+        service.start();
     }
     
     private void setCurrentAttendanceAndSubmissionLabel()
@@ -134,9 +185,42 @@ public class StudentController implements Initializable{
     {
         manager.changeStudentAttendance(currentAttendance);
     }
+    
+    private void setDateFromTo()
+    {
+        dateFrom.setValue(LocalDate.parse("2018-01-01"));
+       dateTo.setValue(LocalDate.parse(currentDate.toString()));
+       fromDate = Date.valueOf(dateFrom.getValue()); 
+       ToDate = Date.valueOf(dateTo.getValue());
+       studentTable.setItems(manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate));
+    }
+    
+    private void updateDateFromTo()
+    {
+        dateFrom.valueProperty().addListener(e ->{
+           fromDate = Date.valueOf(dateFrom.getValue());   
+           studentTable.setItems(manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate));
+     updatePercentageAndLessons();
+        });
+        dateTo.valueProperty().addListener(e ->{
+            ToDate = Date.valueOf(dateTo.getValue());  
+           studentTable.setItems(manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate)); 
+           updatePercentageAndLessons();
+        });
+    }
+    
+    private void updatePercentageAndLessons()
+    {
+        percentage.setText(manager.getStudentPercentageInPeriod());
+        takenL.setText(manager.getStudentTakenLessonsInPeriod());
+    }
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) {  
+        date.setCellValueFactory(new PropertyValueFactory("date"));
+        attendance.setCellValueFactory(new PropertyValueFactory("status"));
+        
         submissionLabelAndDisableButtonListener();
+
     }
     
     

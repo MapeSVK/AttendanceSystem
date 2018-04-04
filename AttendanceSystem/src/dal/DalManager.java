@@ -90,7 +90,7 @@ public class DalManager {
             while(rs.next())
             {
                 Attendance a = new Attendance(rs.getInt("studentId"),
-                       rs.getDate("date"),
+                        rs.getDate("date"),
                         rs.getString("status"));
       
                 allStudentsAttendance.add(a);
@@ -243,6 +243,15 @@ public class DalManager {
                     Level.SEVERE, null, ex);
         } 
     return true;
+    }
+    
+    public List<Attendance> getDateFromTo(Date from, Date to,int sutdentId)
+    {
+        List<Attendance> fromToAttendance = new ArrayList();
+        
+        
+        
+        return fromToAttendance;
     }
 }
     

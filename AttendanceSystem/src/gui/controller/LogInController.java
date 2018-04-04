@@ -87,6 +87,7 @@ public class LogInController implements Initializable {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle(title);
+            
         } catch (IOException ex) {
             Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
         }

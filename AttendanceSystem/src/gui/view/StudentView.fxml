@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="356.0" prefWidth="251.0" style="-fx-background-color: #fff;" stylesheets="@StudentCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.StudentController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="251.0" minHeight="-Infinity" minWidth="251.0" prefWidth="251.0" style="-fx-background-color: #fff;" stylesheets="@StudentCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.StudentController">
    <children>
       <JFXButton fx:id="attendanceButton" alignment="CENTER" contentDisplay="CENTER" layoutX="46.0" layoutY="166.0" onAction="#changeAttendance" prefHeight="59.0" prefWidth="159.0" style="-fx-background-color: #347C17;" text="Commit attendance" textFill="WHITE">
          <font>
@@ -63,20 +64,7 @@
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></Label>
-      <Label layoutX="388.0" layoutY="7.0" onMouseClicked="#rightM" prefHeight="36.0" prefWidth="22.0" text="&gt;">
-         <font>
-            <Font name="Arial Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="271.0" layoutY="7.0" onMouseClicked="#leftM" prefHeight="36.0" prefWidth="22.0" text="&lt;">
-         <font>
-            <Font name="Arial Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="monthName" alignment="CENTER" contentDisplay="CENTER" layoutX="286.0" layoutY="14.0" prefHeight="20.0" prefWidth="95.0" text="February">
-         <font>
-            <Font name="Arial Bold" size="16.0" />
-         </font>
-      </Label>
+      <JFXDatePicker fx:id="dateFrom" layoutX="254.0" layoutY="-1.0" />
+      <JFXDatePicker fx:id="dateTo" layoutX="254.0" layoutY="26.0" />
    </children>
 </AnchorPane>
