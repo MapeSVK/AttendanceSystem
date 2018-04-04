@@ -3,12 +3,15 @@ package gui.controller;
 import be.Attendance;
 import be.Student;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import gui.model.ModelManager;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -54,8 +57,8 @@ public class StudentController implements Initializable{
     private int studentId;
     private int fakeAnimation=0;
     private Date fromDate;
-    private Date ToDate;
-    
+    private Date ToDate;  
+    private Calendar cal = Calendar.getInstance();
     
     private final Image img_minus = new Image("file:images/calendar-minus.png");
     private final Image img_plus = new Image("file:images/calendar-plus.png");
@@ -71,6 +74,8 @@ public class StudentController implements Initializable{
     private JFXDatePicker dateFrom;
     @FXML
     private JFXDatePicker dateTo;
+    @FXML
+    private JFXComboBox<Integer> weekBox;
 
     public void getStudentId(int studentId) {
         this.studentId = studentId;
@@ -82,6 +87,8 @@ public class StudentController implements Initializable{
        setDateFromTo();
        updateDateFromTo();
        updatePercentageAndLessons();
+       fillWeekBox();
+       updateWeek();
     }
      
     @FXML
@@ -204,7 +211,7 @@ public class StudentController implements Initializable{
         });
         dateTo.valueProperty().addListener(e ->{
             ToDate = Date.valueOf(dateTo.getValue());  
-           studentTable.setItems(manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate)); 
+           studentTable.setItems(manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate));
            updatePercentageAndLessons();
         });
     }
@@ -214,13 +221,40 @@ public class StudentController implements Initializable{
         percentage.setText(manager.getStudentPercentageInPeriod());
         takenL.setText(manager.getStudentTakenLessonsInPeriod());
     }
+    
+    private void fillWeekBox()
+    {
+        cal.setTime(currentDate);
+       for(int i=cal.get(Calendar.WEEK_OF_YEAR);i>0;i--)
+       {
+           weekBox.getItems().add(i);
+       }
+    }
+    
+    private void updateWeek() throws NullPointerException
+    {
+try{
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        weekBox.valueProperty().addListener(e ->{
+            cal.set(Calendar.WEEK_OF_YEAR, weekBox.getValue());
+            cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+            dateFrom.setValue(LocalDate.parse(sdf.format(cal.getTime())));
+            cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+            dateTo.setValue(LocalDate.parse(sdf.format(cal.getTime())));
+            weekBox.setValue(0);
+        });
+}
+catch(java.lang.NullPointerException n)
+{
+    
+}
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {  
         date.setCellValueFactory(new PropertyValueFactory("date"));
         attendance.setCellValueFactory(new PropertyValueFactory("status"));
         
         submissionLabelAndDisableButtonListener();
-
     }
     
     

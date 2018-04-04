@@ -54,8 +54,16 @@ public class ModelManager {
                 dateFromTo.add(attendance);
             }
         }
+        if(dateFromTo.size()==0)
+        {
+            studentTakenLessonsInPeriod= 0+" / "+0;
+            studentPercentageInPeriod=0+" %";
+        }
+        else
+        {
         studentTakenLessonsInPeriod= present+" / "+dateFromTo.size();
         studentPercentageInPeriod=(present*100)/dateFromTo.size()+" %";
+        }
         return dateFromTo;
     }
     
