@@ -46,6 +46,37 @@ public class DalManager {
           }
         return attendanceOfStudent;
 }
+    
+    /*public List<Attendance> getTodayAttendance()
+    {
+        List<Attendance> attendanceOfStudent = new ArrayList();
+        try (Connection con = cm.getConnection())
+        {
+         String query = "SELECT a.studentId, a.status, s.* FROM Attendance a"
+                 + " JOIN Student s ON s.id = a.studentId WHERE s.id = ?";
+         
+         PreparedStatement pstmt
+                    = con.prepareStatement(query);
+            pstmt.setInt(1,id);
+         
+         ResultSet rs = pstmt.executeQuery();
+            while(rs.next())
+            {
+                Attendance a = new Attendance(rs.getInt("studentId"),
+                       rs.getDate("date"),
+                        rs.getString("status"));
+      
+                attendanceOfStudent.add(a);
+            }
+         }
+         catch (SQLException ex) {
+            Logger.getLogger(DalManager.class.getName()).log(
+                    Level.SEVERE, null, ex);
+          }
+        return attendanceOfStudent;
+}
+    */
+    
  
     public List<Attendance> getAllStudentsAttendance()
     {

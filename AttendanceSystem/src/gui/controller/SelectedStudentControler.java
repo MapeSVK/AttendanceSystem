@@ -54,8 +54,7 @@ public class SelectedStudentControler implements Initializable {
     private Student student;
     private ModelManager model;
     
-    private final Image present = new Image("file:images/presentImage.png");
-    private final Image absent = new Image("file:images/absentImage.png");
+    
     
 
     
@@ -78,8 +77,8 @@ public class SelectedStudentControler implements Initializable {
         
         
         getDatesOfSelectedStudent();
-        changeStatusToImage();
-        showChangeAttendanceButton();
+        model.changeStatusToImage(student.getId());
+        model.showChangeAttendanceButton(studentTable);
         studentTable.setSelectionModel(null);
     }
     
@@ -90,57 +89,11 @@ public class SelectedStudentControler implements Initializable {
          
     }
     
-    public void changeStatusToImage() {
-        for (Attendance att : model.getAttandanceOfStudent(student.getId())) {
-            if (att.getStatus().equals("absent")) {
-                att.getAttendanceImage().setImage(absent);
-                
-                
-                
-            }
-            else if(att.getStatus().equals("present")) {
-                
-                att.getAttendanceImage().setImage(present);
-                
-            }
-        }
-    }
     
     
-    public void showChangeAttendanceButton() {
-        studentTable.setRowFactory(tableView -> {
-        final TableRow<Attendance> row = new TableRow<>();
-
-            row.hoverProperty().addListener((observable) -> {
-                final Attendance attendance = row.getItem();
-                row.setStyle("-fx-background-color:white;");
-                
-                for (Attendance att : model.getAttendanceOfOneStudent()) {
-                    
-                    att.getChangeAttendanceButton().getStyleClass().clear();
-                    att.getChangeAttendanceButton().getStyleClass().add("changeAttendanceButton");
-
-                    
-                    if (row.isHover() && attendance == att) {
-                        
-                        att.getChangeAttendanceButton().setVisible(true);
-                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");  
-                        
-                    } 
-                    else {   
-                        att.getChangeAttendanceButton().setVisible(false);              
-                        
-                    }
-                    att.getChangeAttendanceButton().setOnAction((event) -> {
-                        System.out.println(att.getStatus());
-                    });
-                }               
-            });
-       return row;
-        });
-        
-        
-    }
+    
+    
+    
     
     
 //    public void colouredRows() {       

@@ -5,6 +5,9 @@
  */
 package be;
 
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+
 /**
  *
  * @author Mape
@@ -20,6 +23,9 @@ public class Student {
     private String fullName;
     private int classId;  
     private int percentage;
+    Button changeAttendanceButton;
+    ImageView attendanceImage;
+    ImageView photo;
    
     public Student(int id, String firstName, String lastName, String imageLink, String email, int classId) {
         this.id = id;
@@ -29,6 +35,35 @@ public class Student {
         this.email = email;
         this.classId = classId;
         this.fullName=firstName+" "+lastName;
+        this.changeAttendanceButton = new Button("Change");
+        
+        this.attendanceImage = new ImageView();
+        this.photo = new ImageView();
+        
+    }
+
+    public Button getChangeAttendanceButton() {
+        return changeAttendanceButton;
+    }
+
+    public void setChangeAttendanceButton(Button changeAttendanceButton) {
+        this.changeAttendanceButton = changeAttendanceButton;
+    }
+
+    public ImageView getAttendanceImage() {
+        return attendanceImage;
+    }
+
+    public void setAttendanceImage(ImageView attendanceImage) {
+        this.attendanceImage = attendanceImage;
+    }
+
+    public ImageView getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(ImageView photo) {
+        this.photo = photo;
     }
     
     public int getPercentage() {
