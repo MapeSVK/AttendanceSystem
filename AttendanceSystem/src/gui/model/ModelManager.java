@@ -155,7 +155,7 @@ public class ModelManager {
         return manager.changeStudentAttendance(attendance);
     }
     
-<<<<<<< HEAD
+
     
     
     
@@ -273,7 +273,7 @@ public class ModelManager {
     
     
     
-=======
+
     public String getStudentPercentageInPeriod()
     {
         return studentPercentageInPeriod;
@@ -282,5 +282,5 @@ public class ModelManager {
     {
         return studentTakenLessonsInPeriod;
     }
->>>>>>> 19440c9b4bf508245144e6164ec91a66900378a1
+
 }
