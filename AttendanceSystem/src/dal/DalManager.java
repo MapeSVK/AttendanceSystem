@@ -76,7 +76,26 @@ public class DalManager {
         return attendanceOfStudent;
 }
     */
-    
+    public void editStatus(Attendance att) {
+        try (Connection con = cm.getConnection()) {
+            String sql
+                    = "UPDATE Attendance SET "
+                    + "status=? "
+                    + "WHERE studentId=?";
+            PreparedStatement pstmt
+                    = con.prepareStatement(sql);
+            pstmt.setString(1, att.getStatus());           
+            pstmt.setInt(2, att.getStudentId());
+
+            int affected = pstmt.executeUpdate();
+            if (affected<1)
+                throw new SQLException("blabla");
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(ConnectionManager.class.getName()).log(
+                    Level.SEVERE, null, ex);
+        }    
+    }
  
     public List<Attendance> getAllStudentsAttendance()
     {
@@ -253,5 +272,7 @@ public class DalManager {
         
         return fromToAttendance;
     }
+
+    
 }
     

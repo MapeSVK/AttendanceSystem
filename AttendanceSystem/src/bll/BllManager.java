@@ -44,6 +44,10 @@ public class BllManager {
     {
         return manager.changeStudentAttendance(attendance);
     }
+
+    public void editStatus(Attendance att) {
+         manager.editStatus(att);
+    }
     
 
     

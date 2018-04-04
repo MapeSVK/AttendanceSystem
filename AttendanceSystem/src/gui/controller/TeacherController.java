@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -73,7 +74,6 @@ public class TeacherController implements Initializable {
         showStudents();
         changeAttendanceTeacher();
         
-        
         date.setText(currentDate);
         
         classBox.getItems().addAll("CS2017_B");
@@ -86,7 +86,7 @@ public class TeacherController implements Initializable {
     
     private void showStudents()
     {
-     studentsTable.setItems(model.getAllStudentsWithStatus());
+     studentsTable.setItems(model.getSortedStudents());
     }
     
     public void presentFirst() {
@@ -114,7 +114,7 @@ public class TeacherController implements Initializable {
         st.getChangeAttendanceButton().getStyleClass().add("changeAttendanceButton");
         
         
-//        model.showChangeAttendanceButtonTeacher(studentsTable, st);
+
         
         st.getPhoto().setImage(new Image("file:"+st.getImageLink()));
         
@@ -122,9 +122,21 @@ public class TeacherController implements Initializable {
         model.changeStatusToImage(st);
         
         
+
+        
         
         st.getChangeAttendanceButton().setOnAction((event) -> {
-                        System.out.println(st.getStatus());
+                        
+            /* NOT WORKING */
+//                            for (Attendance att : model.getAllStudentsAttendance()) {
+//                                if (att.getStudentId() == st.getId() && st.getStatus().equals("absent")) {
+//                                 
+//                                        att.setStatus("present");
+//                                        model.editStatus(att);
+//                                    
+//                                }
+//                            }
+                            
                     });
         }
     }
@@ -158,6 +170,24 @@ public class TeacherController implements Initializable {
 
         }
     }
+    
+//    private void searchStudent()
+//    {
+//        searchField.textProperty().addListener(e->{
+//            studentsTable.getItems().clear();
+//            try {
+//                for(Student st : model.getAllStudentsWithStatus())
+//                {
+//                    if(st.getFullName().toLowerCase().contains(searchField.getText().toLowerCase()) )                   
+//                            
+//                    {
+//                        //
+//                    }
+//                }
+//            } catch (IOException ex) {
+//            }
+//        });
+//    }
     
     
     
@@ -214,23 +244,7 @@ public class TeacherController implements Initializable {
 
     
     
-    private void searchStudent()
-    {
-        searchField.textProperty().addListener(e->{
-            studentsTable.getItems().clear();
-            try {
-                for(Student student : manager.getStudents())
-                {
-                    if(student.getName().toLowerCase().contains(searchField.getText().toLowerCase())                    
-                            )
-                    {
-                        ifAttendance(student);
-                    }
-                }
-            } catch (IOException ex) {
-            }
-        });
-    }
+    
     private void sort() throws IOException           
     {
         studentsTable.getItems().clear();
