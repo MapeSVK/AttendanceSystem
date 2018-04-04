@@ -7,10 +7,12 @@ import bll.BllManager;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
@@ -30,6 +32,8 @@ public class ModelManager {
     private ObservableList<Attendance> attendanceOfOneStudent = FXCollections.observableArrayList();
     private ObservableList<Student> allStudentsWithStatus = FXCollections.observableArrayList();
     private ObservableList<Attendance> dateFromTo = FXCollections.observableArrayList();
+    SortedList<Student> sortedStudents = new SortedList<>(allStudentsWithStatus, Comparator.comparing(Student::getStatus).reversed());
+
     private String studentPercentageInPeriod;
     private String studentTakenLessonsInPeriod;
     public ObservableList<Attendance> getAttandanceOfStudent(int id)
@@ -184,7 +188,16 @@ public class ModelManager {
                         
                     }
                     att.getChangeAttendanceButton().setOnAction((event) -> {
-                        System.out.println(att.getStatus());
+                        if (att.getStatus().equals("present")) {
+                            att.setStatus("absent");
+                            editStatus(att);
+                            
+                            
+                        }
+                        else if (att.getStatus().equals("absent")){
+                            att.setStatus("present");
+                            editStatus(att);
+                        }
                     });
                 }               
             });
@@ -192,6 +205,10 @@ public class ModelManager {
         });
         
         
+    }
+    
+    public void editStatus(Attendance att) {
+         manager.editStatus(att);
     }
     
     
@@ -266,7 +283,10 @@ public class ModelManager {
     
     
     
-    
+
+    public SortedList<Student> getSortedStudents() {
+        return sortedStudents;
+    }
     
     
     
