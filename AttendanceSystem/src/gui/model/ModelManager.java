@@ -23,7 +23,9 @@ public class ModelManager {
     private ObservableList<Attendance> allAttendance = FXCollections.observableArrayList();
     private ObservableList<Attendance> attendanceOfOneStudent = FXCollections.observableArrayList();
     private ObservableList<Student> allStudentsWithStatus = FXCollections.observableArrayList();
-
+    private ObservableList<Attendance> dateFromTo = FXCollections.observableArrayList();
+    private String studentPercentageInPeriod;
+    private String studentTakenLessonsInPeriod;
     public ObservableList<Attendance> getAttandanceOfStudent(int id)
     {   
         attendanceOfOneStudent.clear();
@@ -31,6 +33,30 @@ public class ModelManager {
         return attendanceOfOneStudent;  
     }
 
+    public ObservableList<Attendance> getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(ObservableList<Attendance> allAtendance, Date from, Date to)
+    {
+        int present = 0;
+        dateFromTo.clear();
+        for(Attendance attendance : allAtendance)
+        {
+            if(!attendance.getDate().before((java.util.Date) from) && !attendance.getDate().after((java.util.Date) to))
+            {
+                if(attendance.getStatus().equals("present"))
+                {
+                    present++;
+                }
+                dateFromTo.add(attendance);
+            }
+        }
+        studentTakenLessonsInPeriod= present+" / "+dateFromTo.size();
+        studentPercentageInPeriod=(present*100)/dateFromTo.size()+" %";
+        return dateFromTo;
+    }
+    
+    public ObservableList<Attendance> returnCurrentDateFromToList()
+    {
+        return dateFromTo;
+    }
     public ObservableList<Attendance> getAttendanceOfOneStudent() {
         return attendanceOfOneStudent;
     }
@@ -69,25 +95,20 @@ public class ModelManager {
     
     private int setStudentPercentage(int StudentId)
     {
-        int absent=0;
+        int notPresent=0;
         int present=0;
-        int notSubmitted=0;
         for(Attendance attendance : getAttandanceOfStudent(StudentId))
         {
-            if(attendance.getStatus().contains("absent"))
-            {
-                absent++;
-            }
-            else if(attendance.getStatus().contains("present"))
+            if(attendance.getStatus().contains("present"))
             {
                 present++;
             }
+            
             else{
-                notSubmitted++;
+                notPresent++;
             }
-        }
-        
-        return (present*100)/(absent+present+notSubmitted);
+        }       
+        return (present*100)/(present+notPresent);
     }
     
     public void getStudentItsCurrentAttendance()
@@ -118,5 +139,14 @@ public class ModelManager {
     public boolean changeStudentAttendance(Attendance attendance)
     {
         return manager.changeStudentAttendance(attendance);
+    }
+    
+    public String getStudentPercentageInPeriod()
+    {
+        return studentPercentageInPeriod;
+    }
+    public String getStudentTakenLessonsInPeriod()
+    {
+        return studentTakenLessonsInPeriod;
     }
 }

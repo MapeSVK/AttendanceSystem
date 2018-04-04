@@ -4,13 +4,11 @@ package gui.controller;
 import gui.model.ModelManager;
 import be.Attendance;
 import be.Student;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,7 +23,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import main.Main;
 
 
 public class SelectedStudentControler implements Initializable {
@@ -160,12 +157,7 @@ public class SelectedStudentControler implements Initializable {
 //            }
 //        });       
 //    } 
-    
-    
-    
 
-    
-    
     @FXML
     private void backButtonClick(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
