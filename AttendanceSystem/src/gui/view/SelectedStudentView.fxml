@@ -15,7 +15,7 @@
         <columns>
           <TableColumn fx:id="dateColumn" maxWidth="234.0" minWidth="234.0" prefWidth="234.0" text="Date" />
             <TableColumn fx:id="changeAttendanceColumn" prefWidth="105.0" />
-          <TableColumn fx:id="attendanceColumn" maxWidth="234.0" minWidth="219.0" prefWidth="234.0" text="Attendance" />
+          <TableColumn fx:id="attendanceColumn" maxWidth="234.0" minWidth="219.0" prefWidth="234.0" text="Status" />
         </columns>
       </TableView>
       <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="33.0" prefWidth="566.0" text="Name" textFill="#4059a9">
@@ -60,11 +60,6 @@
             <Font name="Arial Bold" size="11.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="116.0" layoutY="167.0" prefHeight="17.0" prefWidth="328.0" text="Double-click on date to change attendance" textFill="#cccccc">
-         <font>
-            <Font size="12.0" />
-         </font>
-      </Label>
       <Label layoutX="403.0" layoutY="102.0" text="Percentage:">
          <font>
             <Font name="Arial Bold" size="13.0" />

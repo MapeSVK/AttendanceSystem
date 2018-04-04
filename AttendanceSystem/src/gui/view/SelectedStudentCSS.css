@@ -82,6 +82,7 @@
 
 .table-view .column-header {
     -fx-background-color: transparent;
+    -fx-size: 35px;
 }
 
 
@@ -103,11 +104,13 @@
 
 .changeAttendanceButton {
     -fx-text-fill: #fff;
-    -fx-background-color: green;
+    -fx-background-color: #413839;
     -fx-border-color: #000;
-    
+    -fx-border-radius: 25px;
     -fx-border-width: 1px;
     -fx-border-style: solid;
+    -fx-padding: 7px 15px 7px 15px;
+    -fx-background-radius: 25px;
 }
 
 
