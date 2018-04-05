@@ -22,8 +22,9 @@ public class TodayStudents {
     ImageView attendanceImage;
     ImageView photo;
     private String fullName;
+    private int studentId;
 
-    public TodayStudents(String firstName, String lastName, String status, String imageLink) {
+    public TodayStudents(int studentId, String firstName, String lastName, String status, String imageLink) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.status = status;
@@ -33,6 +34,15 @@ public class TodayStudents {
         this.changeAttendanceButton.setVisible(false);
         this.attendanceImage = new ImageView();
         this.photo = new ImageView();
+        this.studentId=studentId;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
     public Button getChangeAttendanceButton() {

@@ -31,9 +31,6 @@ public class Attendance {
         this.attendanceImage = new ImageView();
         
     }
-    
-    
-
     public ImageView getAttendanceImage() {
         return attendanceImage;
     }

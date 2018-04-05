@@ -24,7 +24,7 @@ public class ModelManager {
     DateFormat dateFormatterFull = new SimpleDateFormat("dd-MM-yyyy");
     private final Image present = new Image("file:images/presentImage.png");
     private final Image absent = new Image("file:images/absentImage.png");
-    
+
     SimpleStringProperty percentageProperty = new SimpleStringProperty("tequila");
     SimpleStringProperty takenLessonsProperty = new SimpleStringProperty("lemon");
 
@@ -46,11 +46,11 @@ public class ModelManager {
 
     public ObservableList<Attendance> getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(ObservableList<Attendance> allAtendance, Date from, Date to) {
         dateFromTo.clear();
-        presentCounter=0;
+        presentCounter = 0;
         for (Attendance attendance : allAtendance) {
             if (!attendance.getDate().before((java.util.Date) from) && !attendance.getDate().after((java.util.Date) to)) {
                 if (attendance.getStatus().equals("present")) {
-                    
+
                     presentCounter++;
                 }
                 dateFromTo.add(attendance);
@@ -60,7 +60,7 @@ public class ModelManager {
             percentageProperty.set("0 %");
             takenLessonsProperty.set("0 / 0");
         } else {
-            absentCounter=dateFromTo.size()-presentCounter;
+            absentCounter = dateFromTo.size() - presentCounter;
             changeProperty();
         }
         return dateFromTo;
@@ -73,24 +73,18 @@ public class ModelManager {
     public ObservableList<Attendance> getAttendanceOfOneStudent() {
         return attendanceOfOneStudent;
     }
-    
-    public void loadTodayStudents()
-    {
+
+    public void loadTodayStudents() {
         allTodayStudents.clear();
         allTodayStudents.addAll(manager.getTodayStudent());
     }
 
-<<<<<<< HEAD
-    public void loadAllStudentsAttendance() {
-=======
     public ObservableList<TodayStudents> getAllTodayStudents() {
         return allTodayStudents;
     }
-    
-    
-    public void loadAllStudentsAttendance()
-    {
->>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
+
+    public void loadAllStudentsAttendance() {
+
         allAttendance.clear();
         allAttendance.addAll(manager.getAllStudentsAttendance());
     }
@@ -157,44 +151,6 @@ public class ModelManager {
         return manager.changeStudentAttendance(attendance);
     }
 
-//    public void showChangeAttendanceButton(TableView tw) {
-//        tw.setRowFactory(tableView -> {
-//            final TableRow<Attendance> row = new TableRow<>();
-//
-//            row.hoverProperty().addListener((observable) -> {
-//                final Attendance attendance = row.getItem();
-//                row.setStyle("-fx-background-color:white;");
-//
-//                for (Attendance att : getAttendanceOfOneStudent()) {
-//
-//                    att.getChangeAttendanceButton().getStyleClass().clear();
-//                    att.getChangeAttendanceButton().getStyleClass().add("changeAttendanceButton");
-//
-//                    if (row.isHover() && attendance == att) {
-//
-//                        att.getChangeAttendanceButton().setVisible(true);
-//                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");
-//
-//                    } else {
-//                        att.getChangeAttendanceButton().setVisible(false);
-//
-//                    }
-//                    att.getChangeAttendanceButton().setOnAction((event) -> {
-//                        if (att.getStatus().equals("present")) {
-//                            changeStudentAttendance(att);
-//
-//                        } else if (att.getStatus().equals("absent")) {
-//                            att.setStatus("present");
-//                            changeStudentAttendance(att);
-//                        }
-//                    });
-//                }
-//            });
-//            return row;
-//        });
-//
-//    }
-
     public void showChangeAttendanceButtonTomek(TableView tw) {
         tw.setRowFactory(tableView -> {
             final TableRow<Attendance> row = new TableRow<>();
@@ -214,83 +170,31 @@ public class ModelManager {
                         row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");
 
                         att.getChangeAttendanceButton().setOnAction((event) -> {
-                        if (att.getStatus().equals("present")) {
-                            changeStudentAttendance(att);
-                             dateFromTo.set(row.getIndex(), new Attendance(att.getStudentId(), att.getDate(), "absent"));
-                             changeStatusToImageTomek(att.getStudentId());
-                             presentCounter--;
-                             absentCounter++;
-                        changeProperty();
-                        } else if (att.getStatus().equals("absent")) {           
-                            changeStudentAttendance(att);
-                            dateFromTo.set(row.getIndex(), new Attendance(att.getStudentId(), att.getDate(), "present"));
-                changeStatusToImageTomek(att.getStudentId());
-                   presentCounter++;
-                             absentCounter--;
-                        changeProperty();
-                            
-                        }
-                    });
+                            if (att.getStatus().equals("present")) {
+                                changeStudentAttendance(att);
+                                dateFromTo.set(row.getIndex(), new Attendance(att.getStudentId(), att.getDate(), "absent"));
+                                changeStatusToImageTomek(att.getStudentId());
+                                presentCounter--;
+                                absentCounter++;
+                                changeProperty();
+                            } else if (att.getStatus().equals("absent")) {
+                                changeStudentAttendance(att);
+                                dateFromTo.set(row.getIndex(), new Attendance(att.getStudentId(), att.getDate(), "present"));
+                                changeStatusToImageTomek(att.getStudentId());
+                                presentCounter++;
+                                absentCounter--;
+                                changeProperty();
+
+                            }
+                        });
                     } else {
                         att.getChangeAttendanceButton().setVisible(false);
 
-                    }  
+                    }
                 }
             });
             return row;
         });
-    }
-<<<<<<< HEAD
-
-//    public void showChangeAttendanceButtonTeacher(TableView tw, Student st) {
-//        tw.setRowFactory(tableView -> {
-//        final TableRow<Student> row = new TableRow<>();
-//
-//            row.hoverProperty().addListener((observable) -> {
-//                final Student student = row.getItem();
-//                row.setStyle("-fx-background-color:white;");
-//                
-//                
-//                    
-//                    st.getChangeAttendanceButton().getStyleClass().clear();
-//                    st.getChangeAttendanceButton().getStyleClass().add("changeAttendanceButton");
-//
-//                    
-//                    if (row.isHover() && student.equals(st)) {
-//                        
-//                        st.getChangeAttendanceButton().setVisible(true);
-//                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");  
-//                        
-//                    } 
-//                    else {   
-//                        st.getChangeAttendanceButton().setVisible(false);              
-//                        
-//                    }
-//                    
-//                             
-//            });
-//       return row;
-//        });
-//        
-//        
-//    }
-=======
-    
-    
-    
-    
->>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
-    public void changeStatusToImage(int id) {
-        for (Attendance att : getAttandanceOfStudent(id)) {
-            if (att.getStatus().equals("absent")) {
-                att.getAttendanceImage().setImage(absent);
-
-            } else if (att.getStatus().equals("present")) {
-
-                att.getAttendanceImage().setImage(present);
-
-            }
-        }
     }
 
     public void changeStatusToImageTomek(int id) {
@@ -305,36 +209,18 @@ public class ModelManager {
             }
         }
     }
-<<<<<<< HEAD
 
-    public void changeStatusToImage(Student st) {
+    public void changeStatusToImage(TodayStudents ts) {
 
-        if (st.getStatus().equals("absent")) {
-            st.getAttendanceImage().setImage(absent);
+        if (ts.getStatus().equals("absent")) {
+            ts.getAttendanceImage().setImage(absent);
 
-        } else if (st.getStatus().equals("present")) {
+        } else if (ts.getStatus().equals("present")) {
 
-            st.getAttendanceImage().setImage(present);
+            ts.getAttendanceImage().setImage(present);
 
         }
 
-=======
-    
-    public void changeStatusToImage(TodayStudents ts) {
-        
-            if (ts.getStatus().equals("absent")) {
-                ts.getAttendanceImage().setImage(absent);
-                
-                
-                
-            }
-            else if(ts.getStatus().equals("present")) {
-                
-                ts.getAttendanceImage().setImage(present);
-                
-            }
-        
->>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
     }
 
     public SortedList<TodayStudents> getSortedStudents() {
@@ -342,7 +228,7 @@ public class ModelManager {
     }
 
     public StringProperty getStudentPercentageInPeriod() {
-        
+
         return percentageProperty;
     }
 
@@ -350,11 +236,9 @@ public class ModelManager {
         return takenLessonsProperty;
     }
 
-    private void changeProperty()
-    {
-        percentageProperty.set((presentCounter*100)/(presentCounter+absentCounter)+" %");
-        takenLessonsProperty.set(presentCounter+" / "+(absentCounter+presentCounter));
+    private void changeProperty() {
+        percentageProperty.set((presentCounter * 100) / (presentCounter + absentCounter) + " %");
+        takenLessonsProperty.set(presentCounter + " / " + (absentCounter + presentCounter));
     }
-  
 
 }

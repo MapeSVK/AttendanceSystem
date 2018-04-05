@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -38,14 +39,7 @@ public class TeacherController implements Initializable {
     @FXML
     private TableColumn<TodayStudents, String> nameColumn;
     @FXML
-<<<<<<< HEAD
-    private TableColumn<Attendance, String> attendanceColumn;
-
-=======
     private TableColumn<TodayStudents, String> attendanceColumn;
-    
-   
->>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
     @FXML
     private Label dateLabel;
     @FXML
@@ -56,57 +50,42 @@ public class TeacherController implements Initializable {
     @FXML
     private TableColumn<TodayStudents, ImageView> photoColumn;
     @FXML
-<<<<<<< HEAD
-    private TableColumn<Student, Button> changeAttendanceColumn;
-
-=======
     private TableColumn<TodayStudents, Button> changeAttendanceColumn;
     
->>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
+
     ModelManager model = new ModelManager();
     @FXML
     private Label date;
     DateFormat dateFormatterFull = new SimpleDateFormat("dd.MM.yyyy");
     String currentDate = dateFormatterFull.format(new Date());
-<<<<<<< HEAD
-=======
+    java.sql.Date sqlCurrentDate = java.sql.Date.valueOf(LocalDate.now());
     @FXML
     private Button showStatisticsButton;
-    
->>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
+    Student student = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         photoColumn.setCellValueFactory(new PropertyValueFactory("photo"));
         nameColumn.setCellValueFactory(new PropertyValueFactory("fullName"));
         attendanceColumn.setCellValueFactory(new PropertyValueFactory("attendanceImage"));
-<<<<<<< HEAD
         changeAttendanceColumn.setCellValueFactory(new PropertyValueFactory("changeAttendanceButton"));
 
         showStudents();
-        changeAttendanceTeacher();
+        
 
-        date.setText(currentDate);
-
-        classBox.getItems().addAll("CS2017_B");
-        classBox.getSelectionModel().selectFirst();
+  
 
     }
 
     private void showStudents() {
         studentsTable.setItems(model.getSortedStudents());
-=======
         changeAttendanceColumn.setCellValueFactory( new PropertyValueFactory("changeAttendanceButton"));
         
         model.loadTodayStudents();
-        showStudents();
+        
         changeAttendanceButton();
         setPhotosAndStatusImages();
-        
-        
-        //changeAttendanceTeacher();
-        
-        
+   
         date.setText(currentDate);        
         classBox.getItems().addAll("CS2017_B");
         classBox.getSelectionModel().selectFirst();    
@@ -120,17 +99,7 @@ public class TeacherController implements Initializable {
        }
    }
    
-    
-    
-    public void showStudents()
-    {
-     studentsTable.setItems(model.getSortedStudents());
->>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
-    }
 
-    public void presentFirst() {
-
-    }
 
     @FXML
     void logOut(ActionEvent event) throws IOException {
@@ -146,32 +115,7 @@ public class TeacherController implements Initializable {
         stage.setTitle("Log Out");
         stage.show();
     }
-<<<<<<< HEAD
 
-    public void changeAttendanceTeacher() {
-        for (Student st : model.getAllStudentsWithStatus()) {
-            st.getChangeAttendanceButton().getStyleClass().clear();
-            st.getChangeAttendanceButton().getStyleClass().add("changeAttendanceButton");
-
-            st.getPhoto().setImage(new Image("file:" + st.getImageLink()));
-
-            model.changeStatusToImage(st);
-
-            st.getChangeAttendanceButton().setOnAction((event) -> {
-
-                /* NOT WORKING */
-//                            for (Attendance att : model.getAllStudentsAttendance()) {
-//                                if (att.getStudentId() == st.getId() && st.getStatus().equals("absent")) {
-//                                 
-//                                        att.setStatus("present");
-//                                        model.editStatus(att);
-//                                    
-//                                }
-//                            }
-            });
-        }
-=======
-    
     public void changeAttendanceButton() {
       
         studentsTable.setRowFactory(tableView -> {
@@ -200,13 +144,15 @@ public class TeacherController implements Initializable {
                     ts.getChangeAttendanceButton().setOnAction((event) -> {
                         if (ts.getStatus().equals("present")) {
                             ts.setStatus("absent");
-                            
-                            
-                            
+                            setPhotosAndStatusImages();
+                            System.out.println(sqlCurrentDate);
+                            model.changeStudentAttendance(new Attendance(ts.getStudentId(), sqlCurrentDate, ts.getStatus()));   
                         }
                         else if (ts.getStatus().equals("absent")){
                             ts.setStatus("present");
-                            
+                            setPhotosAndStatusImages();
+                            Attendance att = new Attendance(ts.getStudentId(), sqlCurrentDate, ts.getStatus());
+                            System.out.println(att.getStudentId()+" "+att.getDate()+" "+att.getStatus());
                         }
                     });
                 }               
@@ -214,21 +160,15 @@ public class TeacherController implements Initializable {
        return row;
         });
         
->>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
+
     }
 
     @FXML
     public void clickStudent(MouseEvent event) throws IOException {
-<<<<<<< HEAD
-        Student selectedStudent = studentsTable.getSelectionModel().getSelectedItem();
-
-        if (event.getClickCount() == 2 && !event.isConsumed() && selectedStudent != null) {
-
-=======
-        
+ 
         TodayStudents selectedStudent = studentsTable.getSelectionModel().getSelectedItem();
      
-        Student student = null;
+        
         for (Student s : model.getAllStudents()) {
             
             
@@ -244,16 +184,14 @@ public class TeacherController implements Initializable {
        if (event.getClickCount() == 2 && !event.isConsumed() && selectedStudent!=null)
        {    
             
->>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
             Parent root;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/SelectedStudentView.fxml"));
             root = loader.load();
             SelectedStudentControler controller = loader.getController();
-<<<<<<< HEAD
-            controller.setStudent(model, selectedStudent);
-=======
-            controller.setStudent(model,student);
->>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
+
+            controller.setStudent(model, student);
+
+     
             Node node = (Node) event.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
             Scene scene = new Scene(root);
@@ -268,39 +206,19 @@ public class TeacherController implements Initializable {
         }
     }
 
-//    private void searchStudent()
-//    {
-//        searchField.textProperty().addListener(e->{
-//            studentsTable.getItems().clear();
-//            try {
-//                for(Student st : model.getAllStudentsWithStatus())
-//                {
-//                    if(st.getFullName().toLowerCase().contains(searchField.getText().toLowerCase()) )                   
-//                            
-//                    {
-//                        //
-//                    }
-//                }
-//            } catch (IOException ex) {
-//            }
-//        });
-//    }
-<<<<<<< HEAD
-    /**
-     * ************* PROTOTYPE METHODS *************
-     */
-=======
-
     @FXML
     private void showStatisticsButtonClick(ActionEvent event) {
     }
     
+    private void getStudentId()
+    {
+       
+    }
     
     
     
 
     /*************** PROTOTYPE METHODS **************/
->>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
     /*
     @Override
     public void initialize(URL location, ResourceBundle resources) {
