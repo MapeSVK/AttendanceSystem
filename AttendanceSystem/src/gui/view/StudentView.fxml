@@ -44,8 +44,9 @@
       <Separator layoutX="254.0" orientation="VERTICAL" prefHeight="336.0" prefWidth="9.0" AnchorPane.leftAnchor="249.0" />
       <TableView fx:id="studentTable" layoutX="253.0" layoutY="56.0" maxHeight="301.0" maxWidth="461.0" minHeight="301.0" minWidth="461.0" prefHeight="301.0" prefWidth="461.0">
         <columns>
-          <TableColumn fx:id="date" maxWidth="227.0" minWidth="227.0" prefWidth="227.0" />
-          <TableColumn fx:id="attendance" maxWidth="233.0" minWidth="233.0" prefWidth="233.0" />
+          <TableColumn fx:id="date" maxWidth="227.0" minWidth="140.0" prefWidth="203.0" text="Date" />
+            <TableColumn fx:id="changeAttendanceColumn" minWidth="0.0" prefWidth="65.0" />
+          <TableColumn fx:id="attendance" maxWidth="192.0" minWidth="192.0" prefWidth="192.0" text="Status" />
         </columns>
          
       </TableView>

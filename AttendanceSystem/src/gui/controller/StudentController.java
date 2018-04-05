@@ -22,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -76,6 +77,22 @@ public class StudentController implements Initializable{
     private JFXDatePicker dateTo;
     @FXML
     private JFXComboBox<Integer> weekBox;
+    @FXML
+    private TableColumn<Attendance, Button> changeAttendanceColumn;
+    
+    ModelManager model = new ModelManager();
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {  
+        date.setCellValueFactory(new PropertyValueFactory("date"));
+        attendance.setCellValueFactory(new PropertyValueFactory("status"));
+        changeAttendanceColumn.setCellValueFactory(new PropertyValueFactory("changeAttendanceButton"));
+                
+        calendarImg.setImage(img_plus);
+        submissionLabelAndDisableButtonListener();
+        
+                    
+    }
 
     public void getStudentId(int studentId) {
         this.studentId = studentId;
@@ -89,6 +106,16 @@ public class StudentController implements Initializable{
        updatePercentageAndLessons();
        fillWeekBox();
        updateWeek();
+       
+       /* Something like this need to be here, but it is not working. So take a look and if it 
+       is not working just create new showChangeAttendanceButton() method also here. 
+       
+       model.changeStatusToImageTomek(studentId);
+        model.showChangeAttendanceButtonTomek(studentTable);
+        studentTable.setSelectionModel(null);
+       */
+       
+       
     }
      
     @FXML
@@ -139,6 +166,10 @@ public class StudentController implements Initializable{
                        updateValue(i);     
                 }
                        fakeAnimation=1;
+                       calendarImg.setImage(img_minus);
+                       
+                      
+                       
                        break;
                            case 1:
                              for(int i=720;i>251;i=i-2)
@@ -147,7 +178,8 @@ public class StudentController implements Initializable{
                        updateValue(i);     
                 }
                              fakeAnimation=0;
-                       break;  
+                             calendarImg.setImage(img_plus);
+                       break;                        
                    }
                        stage.setMinWidth(251);
                        return null;
@@ -249,13 +281,7 @@ catch(java.lang.NullPointerException n)
     
 }
     }
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {  
-        date.setCellValueFactory(new PropertyValueFactory("date"));
-        attendance.setCellValueFactory(new PropertyValueFactory("status"));
-        
-        submissionLabelAndDisableButtonListener();
-    }
+    
     
     
     
