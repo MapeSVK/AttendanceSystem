@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -21,18 +23,6 @@
       <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="33.0" prefWidth="566.0" text="Name" textFill="#4059a9">
          <font>
             <Font name="Arial Bold" size="24.0" />
-         </font></Label>
-      <Label layoutX="222.0" layoutY="102.0" onMouseClicked="#leftM" text="&lt;">
-         <font>
-            <Font name="Arial Bold" size="13.0" />
-         </font></Label>
-      <Label fx:id="month" alignment="CENTER" contentDisplay="CENTER" layoutX="236.0" layoutY="102.0" prefHeight="16.0" prefWidth="91.0" text="February">
-         <font>
-            <Font name="Arial Bold" size="13.0" />
-         </font></Label>
-      <Label layoutX="331.0" layoutY="102.0" onMouseClicked="#rightM" text="&gt;">
-         <font>
-            <Font name="Arial Bold" size="13.0" />
          </font></Label>
       <Label layoutX="389.0" layoutY="76.0" text="Taken lessons :">
          <font>
@@ -65,5 +55,8 @@
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
+      <JFXDatePicker fx:id="dateFrom" layoutX="93.0" layoutY="72.0" />
+      <JFXDatePicker fx:id="dateTo" layoutX="93.0" layoutY="115.0" />
+      <JFXComboBox fx:id="weekBox" layoutX="283.0" layoutY="98.0" />
    </children>
 </AnchorPane>

@@ -218,8 +218,8 @@ public class StudentController implements Initializable{
     
     private void updatePercentageAndLessons()
     {
-        percentage.setText(manager.getStudentPercentageInPeriod());
-        takenL.setText(manager.getStudentTakenLessonsInPeriod());
+        percentage.textProperty().bind(manager.getStudentPercentageInPeriod());
+        takenL.textProperty().bind(manager.getStudentTakenLessonsInPeriod());
     }
     
     private void fillWeekBox()
@@ -241,7 +241,7 @@ try{
             dateFrom.setValue(LocalDate.parse(sdf.format(cal.getTime())));
             cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
             dateTo.setValue(LocalDate.parse(sdf.format(cal.getTime())));
-            weekBox.setValue(0);
+     
         });
 }
 catch(java.lang.NullPointerException n)

@@ -1,11 +1,13 @@
-
 package gui.controller;
 
 import gui.model.ModelManager;
 import be.Attendance;
 import be.Student;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -24,18 +26,15 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-
 public class SelectedStudentControler implements Initializable {
 
     @FXML
     private TableColumn<Attendance, Date> dateColumn;
     @FXML
     private TableColumn<Attendance, String> attendanceColumn;
-    
+
     @FXML
     private Label name;
-    @FXML
-    private Label month;
     @FXML
     private Label percentage;
     @FXML
@@ -46,53 +45,87 @@ public class SelectedStudentControler implements Initializable {
     private TableView<Attendance> studentTable;
     @FXML
     private TableColumn<Attendance, String> changeAttendanceColumn;
-    
-    
+
     private Student student;
     private ModelManager model;
-    
-    
-    
+    @FXML
+    private JFXDatePicker dateFrom;
+    @FXML
+    private JFXDatePicker dateTo;
+    @FXML
+    private JFXComboBox<?> weekBox;
 
-    
-    
+    java.sql.Date currentDate = java.sql.Date.valueOf(LocalDate.now());
+    private Date fromDate;
+    private Date toDate;
+
     @Override
-    public void initialize(URL url, ResourceBundle rb) { 
-        
-        
+    public void initialize(URL url, ResourceBundle rb) {
+
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        attendanceColumn.setCellValueFactory(new PropertyValueFactory<>("attendanceImage"));    
-        changeAttendanceColumn.setCellValueFactory( new PropertyValueFactory<>("changeAttendanceButton"));
-        
-        
-    
-    }    
-    
-    public void setStudent(ModelManager model, Student student){
+        attendanceColumn.setCellValueFactory(new PropertyValueFactory<>("attendanceImage"));
+        changeAttendanceColumn.setCellValueFactory(new PropertyValueFactory<>("changeAttendanceButton"));
+
+    }
+
+    public void setStudent(ModelManager model, Student student) {
         this.model = model;
         this.student = student;
-        
-        
-        getDatesOfSelectedStudent();
-        model.changeStatusToImage(student.getId());
-        model.showChangeAttendanceButton(studentTable);
+
+        setDateFromTo();
+        updatePercentageAndLessons();
+        updateDateFromTo();
+        model.changeStatusToImageTomek(student.getId());
+        model.showChangeAttendanceButtonTomek(studentTable);
         studentTable.setSelectionModel(null);
     }
-    
-    public void getDatesOfSelectedStudent() {
+
+    private void setDateFromTo() {
+        dateFrom.setValue(LocalDate.parse("2018-01-01"));
+        dateTo.setValue(LocalDate.parse(currentDate.toString()));
+        fromDate = java.sql.Date.valueOf(dateFrom.getValue());
+        toDate = java.sql.Date.valueOf(dateTo.getValue());
+        studentTable.setItems(model.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(model.getAttandanceOfStudent(student.getId()), fromDate, toDate));
+    }
+
+    private void updatePercentageAndLessons() {
+        percentage.textProperty().bind(model.getStudentPercentageInPeriod());
+        takenL.textProperty().bind(model.getStudentTakenLessonsInPeriod());
         
-        studentTable.setItems(model.getAttandanceOfStudent(student.getId()));
-        
-         
+    }
+
+    private void updateDateFromTo() {
+        dateFrom.valueProperty().addListener(e -> {
+            fromDate = java.sql.Date.valueOf(dateFrom.getValue());
+            studentTable.setItems(model.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(model.getAttandanceOfStudent(student.getId()), fromDate, toDate));
+            updatePercentageAndLessons();
+            model.changeStatusToImageTomek(student.getId());
+            model.showChangeAttendanceButtonTomek(studentTable);
+        });
+        dateTo.valueProperty().addListener(e -> {
+            toDate = java.sql.Date.valueOf(dateTo.getValue());
+            studentTable.setItems(model.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(model.getAttandanceOfStudent(student.getId()), fromDate, toDate));
+            updatePercentageAndLessons();
+            model.changeStatusToImageTomek(student.getId());
+            model.showChangeAttendanceButtonTomek(studentTable);
+        });
     }
     
-    
-    
-    
-    
-    
-    
-    
+    @FXML
+    private void backButtonClick(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setMinWidth(544);
+        stage.setMaxWidth(544);
+        stage.setMinHeight(600);
+        stage.setMaxHeight(600);
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/TeacherView.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Teacher View");
+        stage.show();
+    }
+
 //    public void colouredRows() {       
 //        studentTable.setRowFactory(tableView -> new TableRow<Attendance>() {
 //            
@@ -112,39 +145,9 @@ public class SelectedStudentControler implements Initializable {
 //        });       
 //    } 
 
-    @FXML
-    private void backButtonClick(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.setMinWidth(544);
-        stage.setMaxWidth(544);
-        stage.setMinHeight(600);
-        stage.setMaxHeight(600);
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/view/TeacherView.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Teacher View");
-        stage.show();
-    }
-
-  
-
-    @FXML
-    private void leftM(MouseEvent event) {
-    }
-
-    @FXML
-    private void rightM(MouseEvent event) {
-    }
-    
-    
-    
-    
-    
-    
-    
- /***************** PROTOTYPE METHODS ******************/
-    
+    /**
+     * *************** PROTOTYPE METHODS *****************
+     */
     /*
     int[] daysInWeek = new int[5];
     String[] skippedDay= new String[5];
@@ -430,7 +433,5 @@ this.studentIde=studentId;
             manager.updateMonth(iLikeToDance, "T"+months[t]);
         }
     }
-    */
-    
-    
+     */
 }
