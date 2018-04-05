@@ -4,10 +4,13 @@ package dal;
 import be.Attendance;
 import be.Student;
 import be.Teacher;
+import be.TodayStudents;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -45,6 +48,39 @@ public class DalManager {
                     Level.SEVERE, null, ex);
           }
         return attendanceOfStudent;
+}
+    
+    public List<TodayStudents> getTodayAttendance()
+    {
+        DateFormat dateFormatterFull = new SimpleDateFormat("yyyy-MM-dd");
+        String currentDate = dateFormatterFull.format(new Date());
+        
+        List<TodayStudents> todayAttendanceList = new ArrayList();
+        try (Connection con = cm.getConnection())
+        {
+         String query = "SELECT a.status, s.firstName, s.lastName, s.imageLink FROM Attendance a"
+                 + " JOIN Student s ON s.id = a.studentId WHERE a.date = ?";
+         
+         PreparedStatement pstmt
+                    = con.prepareStatement(query);
+            pstmt.setString(1,currentDate);
+         
+         ResultSet rs = pstmt.executeQuery();
+            while(rs.next())
+            {
+                TodayStudents ts = new TodayStudents(rs.getString("firstName"),
+                       rs.getString("lastName"),
+                        rs.getString("status"),
+                        rs.getString("imageLink"));
+      
+                todayAttendanceList.add(ts);
+            }
+         }
+         catch (SQLException ex) {
+            Logger.getLogger(DalManager.class.getName()).log(
+                    Level.SEVERE, null, ex);
+          }
+        return todayAttendanceList;
 }
     
     /*public List<Attendance> getTodayAttendance()

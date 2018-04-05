@@ -2,6 +2,7 @@ package gui.model;
 
 import be.Attendance;
 import be.Student;
+import be.TodayStudents;
 import bll.BllManager;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -30,8 +31,9 @@ public class ModelManager {
     private ObservableList<Attendance> allAttendance = FXCollections.observableArrayList();
     private ObservableList<Attendance> attendanceOfOneStudent = FXCollections.observableArrayList();
     private ObservableList<Student> allStudentsWithStatus = FXCollections.observableArrayList();
+    private ObservableList<TodayStudents> allTodayStudents = FXCollections.observableArrayList();
     private ObservableList<Attendance> dateFromTo = FXCollections.observableArrayList();
-    SortedList<Student> sortedStudents = new SortedList<>(allStudentsWithStatus, Comparator.comparing(Student::getStatus).reversed());
+    SortedList<TodayStudents> sortedStudents = new SortedList<>(allTodayStudents, Comparator.comparing(TodayStudents::getStatus).reversed());
 
     private int presentCounter;
     private int absentCounter;
@@ -71,8 +73,24 @@ public class ModelManager {
     public ObservableList<Attendance> getAttendanceOfOneStudent() {
         return attendanceOfOneStudent;
     }
+    
+    public void loadTodayStudents()
+    {
+        allTodayStudents.clear();
+        allTodayStudents.addAll(manager.getTodayStudent());
+    }
 
+<<<<<<< HEAD
     public void loadAllStudentsAttendance() {
+=======
+    public ObservableList<TodayStudents> getAllTodayStudents() {
+        return allTodayStudents;
+    }
+    
+    
+    public void loadAllStudentsAttendance()
+    {
+>>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
         allAttendance.clear();
         allAttendance.addAll(manager.getAllStudentsAttendance());
     }
@@ -222,6 +240,7 @@ public class ModelManager {
             return row;
         });
     }
+<<<<<<< HEAD
 
 //    public void showChangeAttendanceButtonTeacher(TableView tw, Student st) {
 //        tw.setRowFactory(tableView -> {
@@ -255,6 +274,12 @@ public class ModelManager {
 //        
 //        
 //    }
+=======
+    
+    
+    
+    
+>>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
     public void changeStatusToImage(int id) {
         for (Attendance att : getAttandanceOfStudent(id)) {
             if (att.getStatus().equals("absent")) {
@@ -280,6 +305,7 @@ public class ModelManager {
             }
         }
     }
+<<<<<<< HEAD
 
     public void changeStatusToImage(Student st) {
 
@@ -292,9 +318,26 @@ public class ModelManager {
 
         }
 
+=======
+    
+    public void changeStatusToImage(TodayStudents ts) {
+        
+            if (ts.getStatus().equals("absent")) {
+                ts.getAttendanceImage().setImage(absent);
+                
+                
+                
+            }
+            else if(ts.getStatus().equals("present")) {
+                
+                ts.getAttendanceImage().setImage(present);
+                
+            }
+        
+>>>>>>> 6de1c512199304583994def1b57ee9ebbf5f1334
     }
 
-    public SortedList<Student> getSortedStudents() {
+    public SortedList<TodayStudents> getSortedStudents() {
         return sortedStudents;
     }
 

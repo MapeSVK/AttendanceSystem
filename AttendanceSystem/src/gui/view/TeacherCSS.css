@@ -145,6 +145,7 @@
 
 }
 
+
 .table-row-cell:hover {
        -fx-background-color: #4059a929 ;
 
@@ -155,7 +156,15 @@
     -fx-background-color: transparent;
 }
 
-
+.table-row-cell:filled:selected { 
+  -fx-background: -fx-control-inner-background ;
+  -fx-background-color: -fx-table-cell-border-color, -fx-background ;
+  -fx-background-insets: 0, 0 0 1 0 ;
+  
+}
+.table-row-cell:odd:filled:selected {
+  -fx-background: -fx-control-inner-background-alt ;
+}
 
 
 /*Style of each column header's background in the tableView*/
@@ -208,10 +217,8 @@
     -fx-border-radius: 25px;
     -fx-border-width: 1px;
     -fx-border-style: solid;
-    -fx-padding: 3px 7px 3px 7px;
+    -fx-padding: 7px 15px 7px 15px;
     -fx-background-radius: 25px;
-    -fx-font-size: 10px;
-    
 }
 
 
