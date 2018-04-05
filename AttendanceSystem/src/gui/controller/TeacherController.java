@@ -3,6 +3,7 @@ package gui.controller;
 
 import be.Attendance;
 import be.Student;
+import be.TodayStudents;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import gui.model.ModelManager;
@@ -23,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -36,11 +38,11 @@ import javafx.stage.Stage;
 public class TeacherController implements Initializable {
  
     @FXML
-    private TableView<Student> studentsTable;
+    private TableView<TodayStudents> studentsTable;
     @FXML
-    private TableColumn<Student, String> nameColumn;
+    private TableColumn<TodayStudents, String> nameColumn;
     @FXML
-    private TableColumn<Attendance, String> attendanceColumn;
+    private TableColumn<TodayStudents, String> attendanceColumn;
     
    
     @FXML
@@ -51,15 +53,17 @@ public class TeacherController implements Initializable {
     private JFXTextField searchField;
 
     @FXML
-    private TableColumn<Student, ImageView> photoColumn;
+    private TableColumn<TodayStudents, ImageView> photoColumn;
     @FXML
-    private TableColumn<Student, Button> changeAttendanceColumn;
+    private TableColumn<TodayStudents, Button> changeAttendanceColumn;
     
     ModelManager model = new ModelManager();
     @FXML
     private Label date;
     DateFormat dateFormatterFull = new SimpleDateFormat("dd.MM.yyyy");
     String currentDate = dateFormatterFull.format(new Date());
+    @FXML
+    private Button showStatisticsButton;
     
 
     
@@ -70,21 +74,31 @@ public class TeacherController implements Initializable {
         attendanceColumn.setCellValueFactory(new PropertyValueFactory("attendanceImage"));
         changeAttendanceColumn.setCellValueFactory( new PropertyValueFactory("changeAttendanceButton"));
         
-        
+        model.loadTodayStudents();
         showStudents();
-        changeAttendanceTeacher();
+        changeAttendanceButton();
+        setPhotosAndStatusImages();
         
-        date.setText(currentDate);
         
+        //changeAttendanceTeacher();
+        
+        
+        date.setText(currentDate);        
         classBox.getItems().addAll("CS2017_B");
-        classBox.getSelectionModel().selectFirst();
-        
-        
+        classBox.getSelectionModel().selectFirst();    
+        showStatisticsButton.setText("M\nO\nR\nE");
     }
    
+   public void setPhotosAndStatusImages(){
+       for (TodayStudents ts : model.getAllTodayStudents()) {
+           ts.getPhoto().setImage(new Image("file:"+ts.getImageLink()));
+           model.changeStatusToImage(ts);
+       }
+   }
    
     
-    private void showStudents()
+    
+    public void showStudents()
     {
      studentsTable.setItems(model.getSortedStudents());
     }
@@ -108,37 +122,48 @@ public class TeacherController implements Initializable {
         stage.show();
     }
     
-    public void changeAttendanceTeacher() {
-        for (Student st : model.getAllStudentsWithStatus()) {
-        st.getChangeAttendanceButton().getStyleClass().clear();
-        st.getChangeAttendanceButton().getStyleClass().add("changeAttendanceButton");
-        
-        
+    public void changeAttendanceButton() {
+      
+        studentsTable.setRowFactory(tableView -> {
+        final TableRow<TodayStudents> row = new TableRow<>();
 
-        
-        st.getPhoto().setImage(new Image("file:"+st.getImageLink()));
-        
-        
-        model.changeStatusToImage(st);
-        
-        
+            row.hoverProperty().addListener((observable) -> {
+                final TodayStudents todayStudents = row.getItem();
+                row.setStyle("-fx-background-color:white;");
+                
+                for (TodayStudents ts : model.getAllTodayStudents()) {
+                    
+                    ts.getChangeAttendanceButton().getStyleClass().clear();
+                    ts.getChangeAttendanceButton().getStyleClass().add("changeAttendanceButton");
 
-        
-        
-        st.getChangeAttendanceButton().setOnAction((event) -> {
+                    
+                    if (row.isHover() && todayStudents == ts) {
                         
-            /* NOT WORKING */
-//                            for (Attendance att : model.getAllStudentsAttendance()) {
-//                                if (att.getStudentId() == st.getId() && st.getStatus().equals("absent")) {
-//                                 
-//                                        att.setStatus("present");
-//                                        model.editStatus(att);
-//                                    
-//                                }
-//                            }
+                        ts.getChangeAttendanceButton().setVisible(true);
+                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");  
+                        
+                    } 
+                    else {   
+                        ts.getChangeAttendanceButton().setVisible(false);              
+                        
+                    }
+                    ts.getChangeAttendanceButton().setOnAction((event) -> {
+                        if (ts.getStatus().equals("present")) {
+                            ts.setStatus("absent");
                             
+                            
+                            
+                        }
+                        else if (ts.getStatus().equals("absent")){
+                            ts.setStatus("present");
+                            
+                        }
                     });
-        }
+                }               
+            });
+       return row;
+        });
+        
     }
     
     
@@ -146,7 +171,21 @@ public class TeacherController implements Initializable {
     
     @FXML
     public void clickStudent(MouseEvent event) throws IOException {
-        Student selectedStudent = studentsTable.getSelectionModel().getSelectedItem();
+        
+        TodayStudents selectedStudent = studentsTable.getSelectionModel().getSelectedItem();
+     
+        Student student = null;
+        for (Student s : model.getAllStudents()) {
+            
+            
+            if (s.getFullName().equals(selectedStudent.getFullName())) {
+                student = new Student(s.getId(),s.getFirstName(),s.getLastName(),s.getImageLink(),s.getEmail(), s.getClassId());
+                
+            }
+        }
+        
+        
+       
         
        if (event.getClickCount() == 2 && !event.isConsumed() && selectedStudent!=null)
        {    
@@ -155,7 +194,7 @@ public class TeacherController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/SelectedStudentView.fxml"));
             root = loader.load();
             SelectedStudentControler controller = loader.getController();
-            controller.setStudent(model,selectedStudent);
+            controller.setStudent(model,student);
             Node node = (Node) event.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
             Scene scene = new Scene(root);
@@ -188,6 +227,10 @@ public class TeacherController implements Initializable {
 //            }
 //        });
 //    }
+
+    @FXML
+    private void showStatisticsButtonClick(ActionEvent event) {
+    }
     
     
     

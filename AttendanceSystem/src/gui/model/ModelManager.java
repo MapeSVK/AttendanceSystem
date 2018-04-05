@@ -3,6 +3,7 @@ package gui.model;
 
 import be.Attendance;
 import be.Student;
+import be.TodayStudents;
 import bll.BllManager;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -31,8 +32,9 @@ public class ModelManager {
     private ObservableList<Attendance> allAttendance = FXCollections.observableArrayList();
     private ObservableList<Attendance> attendanceOfOneStudent = FXCollections.observableArrayList();
     private ObservableList<Student> allStudentsWithStatus = FXCollections.observableArrayList();
+    private ObservableList<TodayStudents> allTodayStudents = FXCollections.observableArrayList();
     private ObservableList<Attendance> dateFromTo = FXCollections.observableArrayList();
-    SortedList<Student> sortedStudents = new SortedList<>(allStudentsWithStatus, Comparator.comparing(Student::getStatus).reversed());
+    SortedList<TodayStudents> sortedStudents = new SortedList<>(allTodayStudents, Comparator.comparing(TodayStudents::getStatus).reversed());
 
     private String studentPercentageInPeriod;
     private String studentTakenLessonsInPeriod;
@@ -78,7 +80,18 @@ public class ModelManager {
     public ObservableList<Attendance> getAttendanceOfOneStudent() {
         return attendanceOfOneStudent;
     }
+    
+    public void loadTodayStudents()
+    {
+        allTodayStudents.clear();
+        allTodayStudents.addAll(manager.getTodayStudent());
+    }
 
+    public ObservableList<TodayStudents> getAllTodayStudents() {
+        return allTodayStudents;
+    }
+    
+    
     public void loadAllStudentsAttendance()
     {
         allAttendance.clear();
@@ -220,39 +233,6 @@ public class ModelManager {
     }
     
     
-//    public void showChangeAttendanceButtonTeacher(TableView tw, Student st) {
-//        tw.setRowFactory(tableView -> {
-//        final TableRow<Student> row = new TableRow<>();
-//
-//            row.hoverProperty().addListener((observable) -> {
-//                final Student student = row.getItem();
-//                row.setStyle("-fx-background-color:white;");
-//                
-//                
-//                    
-//                    st.getChangeAttendanceButton().getStyleClass().clear();
-//                    st.getChangeAttendanceButton().getStyleClass().add("changeAttendanceButton");
-//
-//                    
-//                    if (row.isHover() && student.equals(st)) {
-//                        
-//                        st.getChangeAttendanceButton().setVisible(true);
-//                        row.setStyle("-fx-background-color:#000;-fx-opacity: 0.7;");  
-//                        
-//                    } 
-//                    else {   
-//                        st.getChangeAttendanceButton().setVisible(false);              
-//                        
-//                    }
-//                    
-//                             
-//            });
-//       return row;
-//        });
-//        
-//        
-//    }
-    
     
     
     public void changeStatusToImage(int id) {
@@ -271,17 +251,17 @@ public class ModelManager {
         }
     }
     
-    public void changeStatusToImage(Student st) {
+    public void changeStatusToImage(TodayStudents ts) {
         
-            if (st.getStatus().equals("absent")) {
-                st.getAttendanceImage().setImage(absent);
+            if (ts.getStatus().equals("absent")) {
+                ts.getAttendanceImage().setImage(absent);
                 
                 
                 
             }
-            else if(st.getStatus().equals("present")) {
+            else if(ts.getStatus().equals("present")) {
                 
-                st.getAttendanceImage().setImage(present);
+                ts.getAttendanceImage().setImage(present);
                 
             }
         
@@ -292,7 +272,7 @@ public class ModelManager {
     
     
 
-    public SortedList<Student> getSortedStudents() {
+    public SortedList<TodayStudents> getSortedStudents() {
         return sortedStudents;
     }
     

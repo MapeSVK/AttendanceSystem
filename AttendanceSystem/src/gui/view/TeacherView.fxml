@@ -14,9 +14,9 @@
       <TableView fx:id="studentsTable" layoutY="144.0" maxHeight="449.0" maxWidth="544.0" minHeight="449.0" minWidth="544.0" onMouseClicked="#clickStudent" prefHeight="449.0" prefWidth="544.0">
         <columns>
             <TableColumn fx:id="photoColumn" prefWidth="86.0" />
-          <TableColumn fx:id="nameColumn" maxWidth="362.0" minWidth="116.0" prefWidth="250.0" text="Name" />
-          <TableColumn fx:id="attendanceColumn" maxWidth="284.0" minWidth="41.0" prefWidth="137.0" text="Status" />
-            <TableColumn fx:id="changeAttendanceColumn" prefWidth="70.0" />
+          <TableColumn fx:id="nameColumn" maxWidth="362.0" minWidth="116.0" prefWidth="222.0" text="Name" />
+            <TableColumn fx:id="changeAttendanceColumn" prefWidth="88.0" />
+          <TableColumn fx:id="attendanceColumn" maxWidth="284.0" minWidth="41.0" prefWidth="147.0" text="Status" />
         </columns>
       </TableView>
       <JFXComboBox fx:id="classBox" layoutX="349.0" layoutY="22.0" prefHeight="27.0" prefWidth="121.0" />
@@ -43,5 +43,6 @@
          </font>
       </Button>
       <Label fx:id="date" layoutX="98.0" layoutY="35.0" prefHeight="17.0" prefWidth="84.0" text="Label" />
+      <Button fx:id="showStatisticsButton" layoutX="515.0" layoutY="-1.0" mnemonicParsing="false" onAction="#showStatisticsButtonClick" prefHeight="146.0" prefWidth="27.0" style="-fx-background-color: #4059a9; -fx-text-fill: #fff;" />
    </children>
 </AnchorPane>
