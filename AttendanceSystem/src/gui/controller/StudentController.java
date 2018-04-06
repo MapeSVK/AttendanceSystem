@@ -124,10 +124,16 @@ public class StudentController implements Initializable {
         if (fakeAnimation == 1) {
             fakeAnimationMethod(stage);
         }
+        stage.minWidthProperty().unbind();
+        stage.maxWidthProperty().unbind();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LogInView.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("log In");
         stage.setScene(scene);
+        stage.setMinWidth(263);
+        stage.setMaxWidth(263);
+        stage.setMinHeight(373);
+        stage.setMaxHeight(373);
         stage.show();
     }
 
