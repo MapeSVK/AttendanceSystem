@@ -60,7 +60,7 @@ public class DalManager {
 
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                TodayStudents ts = new TodayStudents(rs.getInt("studentId"),rs.getString("firstName"),
+                TodayStudents ts = new TodayStudents(rs.getInt("studentId"), rs.getString("firstName"),
                         rs.getString("lastName"),
                         rs.getString("status"),
                         rs.getString("imageLink"));
@@ -250,7 +250,7 @@ public class DalManager {
         return true;
     }
 
-    public boolean changeStudentAttendance(int id,Date date,String att) {
+    public boolean changeStudentAttendance(int id, Date date, String att) {
         String status = "absent";
         if (att.equals("absent") || att.equals("not submitted")) {
             status = "present";
@@ -273,10 +273,9 @@ public class DalManager {
             Logger.getLogger(ConnectionManager.class.getName()).log(
                     Level.SEVERE, null, ex);
         }
-        System.out.println("dupa");
         return true;
     }
-    
+
     public List<Attendance> getDateFromTo(Date from, Date to, int sutdentId) {
         List<Attendance> fromToAttendance = new ArrayList();
 

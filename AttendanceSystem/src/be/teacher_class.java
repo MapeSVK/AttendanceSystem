@@ -10,7 +10,7 @@ package be;
  * @author Mape
  */
 public class teacher_class {
-    
+
     private int teacherId;
     private String classId;
 

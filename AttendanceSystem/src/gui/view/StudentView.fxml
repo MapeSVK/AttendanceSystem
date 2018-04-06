@@ -68,6 +68,6 @@
          </font></Label>
       <JFXDatePicker fx:id="dateFrom" layoutX="254.0" layoutY="-1.0" />
       <JFXDatePicker fx:id="dateTo" layoutX="254.0" layoutY="26.0" />
-      <JFXComboBox fx:id="weekBox" layoutX="428.0" layoutY="20.0" />
+      <JFXComboBox fx:id="weekBox" layoutX="428.0" layoutY="20.0" promptText="Week" />
    </children>
 </AnchorPane>

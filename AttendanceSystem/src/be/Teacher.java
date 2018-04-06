@@ -10,10 +10,10 @@ package be;
  * @author Mape
  */
 public class Teacher {
-    
+
     private int id;
     private String firstName;
-    private String lastName;  
+    private String lastName;
     private String email;
 
     public Teacher(int id, String firstName, String lastName, String email) {
@@ -22,7 +22,7 @@ public class Teacher {
         this.lastName = lastName;
         this.email = email;
     }
-    
+
     public String getEmail() {
         return email;
     }
@@ -59,5 +59,5 @@ public class Teacher {
     public String toString() {
         return "Teacher";
     }
-    
+
 }

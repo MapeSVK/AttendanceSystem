@@ -10,10 +10,10 @@ package be;
  * @author Pepe15224
  */
 public class Users {
-    
-        private String username;
-        private String password;
-        private int id;
+
+    private String username;
+    private String password;
+    private int id;
 
     public Users(String username, String password, int id) {
         this.username = username;

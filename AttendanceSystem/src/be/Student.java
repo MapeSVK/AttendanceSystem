@@ -13,7 +13,7 @@ import javafx.scene.image.ImageView;
  * @author Mape
  */
 public class Student {
-    
+
     private int id;
     private String firstName;
     private String lastName;
@@ -21,12 +21,12 @@ public class Student {
     private String email;
     private String status;
     private String fullName;
-    private int classId;  
+    private int classId;
     private int percentage;
     Button changeAttendanceButton;
     ImageView attendanceImage;
     ImageView photo;
-   
+
     public Student(int id, String firstName, String lastName, String imageLink, String email, int classId) {
         this.id = id;
         this.firstName = firstName;
@@ -34,12 +34,12 @@ public class Student {
         this.imageLink = imageLink;
         this.email = email;
         this.classId = classId;
-        this.fullName=firstName+" "+lastName;
+        this.fullName = firstName + " " + lastName;
         this.changeAttendanceButton = new Button("Change");
-        
+
         this.attendanceImage = new ImageView();
         this.photo = new ImageView();
-        
+
     }
 
     public Button getChangeAttendanceButton() {
@@ -65,7 +65,7 @@ public class Student {
     public void setPhoto(ImageView photo) {
         this.photo = photo;
     }
-    
+
     public int getPercentage() {
         return percentage;
     }
@@ -73,8 +73,8 @@ public class Student {
     public void setPercentage(int percentage) {
         this.percentage = percentage;
     }
-    
-     public String getFullName() {
+
+    public String getFullName() {
         return fullName;
     }
 
@@ -85,7 +85,7 @@ public class Student {
     public void setStatus(String status) {
         this.status = status;
     }
-   
+
     public int getClassId() {
         return classId;
     }
@@ -137,5 +137,5 @@ public class Student {
     @Override
     public String toString() {
         return "Student";
-    }  
+    }
 }

@@ -7,7 +7,9 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -19,20 +21,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class SelectedStudentControler implements Initializable {
-
+    
     @FXML
     private TableColumn<Attendance, Date> dateColumn;
     @FXML
     private TableColumn<Attendance, String> attendanceColumn;
-
+    
     @FXML
     private Label name;
     @FXML
@@ -40,12 +39,12 @@ public class SelectedStudentControler implements Initializable {
     @FXML
     private Label takenL;
     @FXML
-    private Label skuppedDay;
+    private Label skippedDay;
     @FXML
     private TableView<Attendance> studentTable;
     @FXML
     private TableColumn<Attendance, String> changeAttendanceColumn;
-
+    
     private Student student;
     private ModelManager model;
     @FXML
@@ -53,33 +52,35 @@ public class SelectedStudentControler implements Initializable {
     @FXML
     private JFXDatePicker dateTo;
     @FXML
-    private JFXComboBox<?> weekBox;
-
+    private JFXComboBox<Integer> weekBox;
+    
     java.sql.Date currentDate = java.sql.Date.valueOf(LocalDate.now());
     private Date fromDate;
     private Date toDate;
-
+    private Calendar cal = Calendar.getInstance();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
         attendanceColumn.setCellValueFactory(new PropertyValueFactory<>("attendanceImage"));
         changeAttendanceColumn.setCellValueFactory(new PropertyValueFactory<>("changeAttendanceButton"));
-
     }
-
+    
     public void setStudent(ModelManager model, Student student) {
         this.model = model;
         this.student = student;
-
+        
         setDateFromTo();
         updatePercentageAndLessons();
         updateDateFromTo();
+        updateWeek();
         model.changeStatusToImageTomek(student.getId());
         model.showChangeAttendanceButtonTomek(studentTable);
         studentTable.setSelectionModel(null);
+        fillWeekBox();
     }
-
+    
     private void setDateFromTo() {
         dateFrom.setValue(LocalDate.parse("2018-01-01"));
         dateTo.setValue(LocalDate.parse(currentDate.toString()));
@@ -87,13 +88,13 @@ public class SelectedStudentControler implements Initializable {
         toDate = java.sql.Date.valueOf(dateTo.getValue());
         studentTable.setItems(model.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(model.getAttandanceOfStudent(student.getId()), fromDate, toDate));
     }
-
+    
     private void updatePercentageAndLessons() {
         percentage.textProperty().bind(model.getStudentPercentageInPeriod());
         takenL.textProperty().bind(model.getStudentTakenLessonsInPeriod());
-        
+        skippedDay.textProperty().bind(model.getskippedDayProperty());
     }
-
+    
     private void updateDateFromTo() {
         dateFrom.valueProperty().addListener(e -> {
             fromDate = java.sql.Date.valueOf(dateFrom.getValue());
@@ -125,6 +126,26 @@ public class SelectedStudentControler implements Initializable {
         stage.setTitle("Teacher View");
         stage.show();
     }
+    
+    private void fillWeekBox() {
+        cal.setTime(currentDate);
+        for (int i = cal.get(Calendar.WEEK_OF_YEAR); i > 0; i--) {
+            weekBox.getItems().add(i);
+        }
+    }
+    
+    private void updateWeek(){
+       
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            weekBox.valueProperty().addListener(e -> {
+                cal.set(Calendar.WEEK_OF_YEAR, weekBox.getValue());
+                cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+                dateFrom.setValue(LocalDate.parse(sdf.format(cal.getTime())));
+                cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+                dateTo.setValue(LocalDate.parse(sdf.format(cal.getTime())));
+
+            });
+    }
 
 //    public void colouredRows() {       
 //        studentTable.setRowFactory(tableView -> new TableRow<Attendance>() {
@@ -144,7 +165,6 @@ public class SelectedStudentControler implements Initializable {
 //            }
 //        });       
 //    } 
-
     /**
      * *************** PROTOTYPE METHODS *****************
      */

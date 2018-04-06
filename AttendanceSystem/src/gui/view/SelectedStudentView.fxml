@@ -41,7 +41,7 @@
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="skuppedDay" layoutX="482.0" layoutY="128.0" text="skipped day">
+      <Label fx:id="skippedDay" layoutX="482.0" layoutY="128.0" text="skipped day">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Label>
@@ -57,6 +57,6 @@
       </Label>
       <JFXDatePicker fx:id="dateFrom" layoutX="93.0" layoutY="72.0" />
       <JFXDatePicker fx:id="dateTo" layoutX="93.0" layoutY="115.0" />
-      <JFXComboBox fx:id="weekBox" layoutX="283.0" layoutY="98.0" />
+      <JFXComboBox fx:id="weekBox" layoutX="283.0" layoutY="98.0" promptText="Week" />
    </children>
 </AnchorPane>

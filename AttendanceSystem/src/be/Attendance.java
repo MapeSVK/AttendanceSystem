@@ -14,13 +14,12 @@ import javafx.scene.image.ImageView;
  * @author Mape
  */
 public class Attendance {
-    
+
     private int studentId;
     private Date date;
     private String status;
     Button changeAttendanceButton;
     ImageView attendanceImage;
-    
 
     public Attendance(int studentId, Date date, String status) {
         this.studentId = studentId;
@@ -29,8 +28,9 @@ public class Attendance {
         this.changeAttendanceButton = new Button("EDIT");
         this.changeAttendanceButton.setVisible(false);
         this.attendanceImage = new ImageView();
-        
+
     }
+
     public ImageView getAttendanceImage() {
         return attendanceImage;
     }
@@ -61,7 +61,7 @@ public class Attendance {
 
     public void setDate(Date date) {
         this.date = date;
-    } 
+    }
 
     public int getStudentId() {
         return studentId;
@@ -98,5 +98,5 @@ public class Attendance {
                 return cell;
             }
         };
-  */
+     */
 }

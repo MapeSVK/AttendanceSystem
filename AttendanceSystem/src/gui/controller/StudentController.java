@@ -33,9 +33,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-
-
-public class StudentController implements Initializable{
+public class StudentController implements Initializable {
 
     @FXML
     private AnchorPane pane;
@@ -56,17 +54,16 @@ public class StudentController implements Initializable{
     @FXML
     private Label studentName;
     private int studentId;
-    private int fakeAnimation=0;
+    private int fakeAnimation = 0;
     private Date fromDate;
-    private Date ToDate;  
+    private Date ToDate;
     private Calendar cal = Calendar.getInstance();
-    
+
     private final Image img_minus = new Image("file:images/calendar-minus.png");
     private final Image img_plus = new Image("file:images/calendar-plus.png");
 
     ModelManager manager = new ModelManager();
-    
-    
+
     java.sql.Date currentDate = java.sql.Date.valueOf(LocalDate.now());
     Attendance currentAttendance;
     @FXML
@@ -79,51 +76,46 @@ public class StudentController implements Initializable{
     private JFXComboBox<Integer> weekBox;
     @FXML
     private TableColumn<Attendance, Button> changeAttendanceColumn;
-    
+
     ModelManager model = new ModelManager();
-    
+
     @Override
-    public void initialize(URL location, ResourceBundle resources) {  
+    public void initialize(URL location, ResourceBundle resources) {
         date.setCellValueFactory(new PropertyValueFactory("date"));
         attendance.setCellValueFactory(new PropertyValueFactory("status"));
         changeAttendanceColumn.setCellValueFactory(new PropertyValueFactory("changeAttendanceButton"));
-                
+
         calendarImg.setImage(img_plus);
         submissionLabelAndDisableButtonListener();
-        
-                    
     }
 
     public void getStudentId(int studentId) {
         this.studentId = studentId;
-        
-      Student student = (Student) manager.returnStudent(studentId);
-      studentName.setText(student.getFullName());
-       setCurrentAttendanceAndSubmissionLabel();
-       
-       setDateFromTo();
-       updateDateFromTo();
-       updatePercentageAndLessons();
-       fillWeekBox();
-       updateWeek();
-       
-       /* Something like this need to be here, but it is not working. So take a look and if it 
+
+        Student student = (Student) manager.returnStudent(studentId);
+        studentName.setText(student.getFullName());
+        setCurrentAttendanceAndSubmissionLabel();
+
+        setDateFromTo();
+        updateDateFromTo();
+        updatePercentageAndLessons();
+        fillWeekBox();
+        updateWeek();
+
+        /* Something like this need to be here, but it is not working. So take a look and if it 
        is not working just create new showChangeAttendanceButton() method also here. 
        
        model.changeStatusToImageTomek(studentId);
         model.showChangeAttendanceButtonTomek(studentTable);
         studentTable.setSelectionModel(null);
-       */
-       
-       
+         */
     }
-     
+
     @FXML
     public void logOut(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        if(fakeAnimation==1)
-        {
+        if (fakeAnimation == 1) {
             fakeAnimationMethod(stage);
         }
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/LogInView.fxml"));
@@ -137,8 +129,8 @@ public class StudentController implements Initializable{
     private void changeAttendance(ActionEvent event) {
         submissionLabel.setText("present");
         manager.changeStudentAttendance(currentAttendance);
-       
-        manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate);  
+
+        manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate);
         updatePercentageAndLessons();
     }
 
@@ -149,147 +141,117 @@ public class StudentController implements Initializable{
         fakeAnimationMethod(stage);
     }
 
-    private void fakeAnimationMethod(Stage stage)
-    {
+    private void fakeAnimationMethod(Stage stage) {
         Service service = new Service() {
             @Override
             protected Task createTask() {
-               return new Task() {
-                   @Override
-                   protected Object call() throws Exception {
-                       switch(fakeAnimation)
-                       {
-                           case 0:
-                       for(int i=251;i<720;i=i+2)
-                {
-                       Thread.sleep(2);
-                       updateValue(i);     
-                }
-                       fakeAnimation=1;
-                       calendarImg.setImage(img_minus);
-                       
-                      
-                       
-                       break;
-                           case 1:
-                             for(int i=720;i>251;i=i-2)
-                {
-                       Thread.sleep(2);
-                       updateValue(i);     
-                }
-                             fakeAnimation=0;
-                             calendarImg.setImage(img_plus);
-                       break;                        
-                   }
-                       stage.setMinWidth(251);
-                       return null;
-                   }
-               };
+                return new Task() {
+                    @Override
+                    protected Object call() throws Exception {
+                        switch (fakeAnimation) {
+                            case 0:
+                                for (int i = 251; i < 720; i = i + 2) {
+                                    Thread.sleep(2);
+                                    updateValue(i);
+                                }
+                                fakeAnimation = 1;
+                                calendarImg.setImage(img_minus);
+
+                                break;
+                            case 1:
+                                for (int i = 720; i > 251; i = i - 2) {
+                                    Thread.sleep(2);
+                                    updateValue(i);
+                                }
+                                fakeAnimation = 0;
+                                calendarImg.setImage(img_plus);
+                                break;
+                        }
+                        stage.setMinWidth(251);
+                        return null;
+                    }
+                };
             }
         };
         stage.minWidthProperty().bind(service.valueProperty());
         stage.maxWidthProperty().bind(service.valueProperty());
         service.start();
     }
-    
-    private void setCurrentAttendanceAndSubmissionLabel()
-    {
-        for(Attendance allAttendance : manager.getAttandanceOfStudent(studentId))
-       {
-           if(allAttendance.getDate().equals(currentDate))
-           {
-               currentAttendance=allAttendance;
-               submissionLabel.setText(currentAttendance.getStatus());
-           }
-       }
-    }
-    
-    private void submissionLabelAndDisableButtonListener()
-    {
-        submissionLabel.textProperty().addListener(e ->{
-            if(submissionLabel.getText().equals("present"))
-            {
-                submissionLabel.setStyle("-fx-text-fill : green");
-               attendanceButton.setDisable(true);
+
+    private void setCurrentAttendanceAndSubmissionLabel() {
+        for (Attendance allAttendance : manager.getAttandanceOfStudent(studentId)) {
+            if (allAttendance.getDate().equals(currentDate)) {
+                currentAttendance = allAttendance;
+                submissionLabel.setText(currentAttendance.getStatus());
             }
-            else if(submissionLabel.getText().equals("absent"))
-                    {
-                         submissionLabel.setStyle("-fx-text-fill : red");
-                          attendanceButton.setDisable(true);
-                    }
+        }
+    }
+
+    private void submissionLabelAndDisableButtonListener() {
+        submissionLabel.textProperty().addListener(e -> {
+            if (submissionLabel.getText().equals("present")) {
+                submissionLabel.setStyle("-fx-text-fill : green");
+                attendanceButton.setDisable(true);
+            } else if (submissionLabel.getText().equals("absent")) {
+                submissionLabel.setStyle("-fx-text-fill : red");
+                attendanceButton.setDisable(true);
+            }
         });
     }
 
-    private void changeCurrentAttendance()
-    {
+    private void changeCurrentAttendance() {
         manager.changeStudentAttendance(currentAttendance);
     }
-    
-    private void setDateFromTo()
-    {
+
+    private void setDateFromTo() {
         dateFrom.setValue(LocalDate.parse("2018-01-01"));
-       dateTo.setValue(LocalDate.parse(currentDate.toString()));
-       fromDate = Date.valueOf(dateFrom.getValue()); 
-       ToDate = Date.valueOf(dateTo.getValue());
-       studentTable.setItems(manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate));
+        dateTo.setValue(LocalDate.parse(currentDate.toString()));
+        fromDate = Date.valueOf(dateFrom.getValue());
+        ToDate = Date.valueOf(dateTo.getValue());
+        studentTable.setItems(manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate));
     }
-    
-    private void updateDateFromTo()
-    {
-        dateFrom.valueProperty().addListener(e ->{
-           fromDate = Date.valueOf(dateFrom.getValue());   
-           studentTable.setItems(manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate));
-     updatePercentageAndLessons();
+
+    private void updateDateFromTo() {
+        dateFrom.valueProperty().addListener(e -> {
+            fromDate = Date.valueOf(dateFrom.getValue());
+            studentTable.setItems(manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate));
+            updatePercentageAndLessons();
         });
-        dateTo.valueProperty().addListener(e ->{
-            ToDate = Date.valueOf(dateTo.getValue());  
-           studentTable.setItems(manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate));
-           updatePercentageAndLessons();
+        dateTo.valueProperty().addListener(e -> {
+            ToDate = Date.valueOf(dateTo.getValue());
+            studentTable.setItems(manager.getStudentAttendanceAndPercentageAndTakenLessonsInPeriod(manager.getAttandanceOfStudent(studentId), fromDate, ToDate));
+            updatePercentageAndLessons();
         });
     }
-    
-    private void updatePercentageAndLessons()
-    {
+
+    private void updatePercentageAndLessons() {
         percentage.textProperty().bind(manager.getStudentPercentageInPeriod());
         takenL.textProperty().bind(manager.getStudentTakenLessonsInPeriod());
     }
-    
-    private void fillWeekBox()
-    {
+
+    private void fillWeekBox() {
         cal.setTime(currentDate);
-       for(int i=cal.get(Calendar.WEEK_OF_YEAR);i>0;i--)
-       {
-           weekBox.getItems().add(i);
-       }
+        for (int i = cal.get(Calendar.WEEK_OF_YEAR); i > 0; i--) {
+            weekBox.getItems().add(i);
+        }
     }
-    
-    private void updateWeek() throws NullPointerException
-    {
-try{
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        weekBox.valueProperty().addListener(e ->{
-            cal.set(Calendar.WEEK_OF_YEAR, weekBox.getValue());
-            cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-            dateFrom.setValue(LocalDate.parse(sdf.format(cal.getTime())));
-            cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-            dateTo.setValue(LocalDate.parse(sdf.format(cal.getTime())));
-     
-        });
-}
-catch(java.lang.NullPointerException n)
-{
-    
-}
+
+    private void updateWeek(){
+       
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            weekBox.valueProperty().addListener(e -> {
+                cal.set(Calendar.WEEK_OF_YEAR, weekBox.getValue());
+                cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+                dateFrom.setValue(LocalDate.parse(sdf.format(cal.getTime())));
+                cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+                dateTo.setValue(LocalDate.parse(sdf.format(cal.getTime())));
+
+            });
     }
-    
-    
-    
-    
-    
-    
-    
-   /****************** PROTOTYPE METHODS *****************/
-    
+
+    /**
+     * **************** PROTOTYPE METHODS ****************
+     */
     /*private String[] months = new String[12];
     private int t;
     private int present=0;
@@ -642,5 +604,5 @@ catch(java.lang.NullPointerException n)
         }
         manager.updateStudent(studentList,"Students");
     }
-*/
+     */
 }
