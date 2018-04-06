@@ -82,12 +82,12 @@
 
 .table-view .column-header {
     -fx-background-color: transparent;
-    -fx-size: 35px;
+    -fx-size: 25px;
 }
 
 
 .table-row-cell {
-    -fx-cell-size: 45px;
+    -fx-cell-size: 37px;
     -fx-border-style: solid;
     -fx-border-width: 0 0 2px 0;
     -fx-border-color: #4059a9;
@@ -118,4 +118,43 @@
 
 
 
+
+.combo-box > .list-cell {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-text-fill: #4059a9;
+    -fx-padding: 0.25em 0 0.166667em 0.583333em; /* 3 0 2 7 */
+    -fx-cell-size: 1.7500em; /* 21 */
+}
+
+.combo-box-popup > .list-view {
+    -fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-padding: 4 0 4 5;
+    
+    /* No alternate highlighting */
+    -fx-background-color: -fx-control-inner-background;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected, 
+.combo-box-popup  > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover {
+    -fx-background: #4059a9;
+    -fx-background-color: #4059a9;
+    -fx-text-fill: -fx-selection-bar-text;
+}
+
+.combo-box-popup  > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: #4059a9;
+    -fx-text-fill: #fff;
+}
+
+
+
+.week-combobox .cell {
+    -fx-text-fill: #4059a9;
+}
 

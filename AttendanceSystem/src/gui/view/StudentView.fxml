@@ -42,7 +42,7 @@
          </image>
       </ImageView>
       <Separator layoutX="254.0" orientation="VERTICAL" prefHeight="336.0" prefWidth="9.0" AnchorPane.leftAnchor="249.0" />
-      <TableView fx:id="studentTable" layoutX="253.0" layoutY="56.0" maxHeight="301.0" maxWidth="461.0" minHeight="301.0" minWidth="461.0" prefHeight="301.0" prefWidth="461.0">
+      <TableView fx:id="studentTable" layoutX="253.0" layoutY="79.0" maxHeight="301.0" maxWidth="461.0" minHeight="278.0" minWidth="461.0" prefHeight="278.0" prefWidth="461.0">
         <columns>
           <TableColumn fx:id="date" maxWidth="227.0" minWidth="140.0" prefWidth="203.0" text="Date" />
             <TableColumn fx:id="changeAttendanceColumn" minWidth="0.0" prefWidth="65.0" />
@@ -50,24 +50,24 @@
         </columns>
          
       </TableView>
-      <Label layoutX="518.0" layoutY="11.0" text="Taken lessons :">
+      <Label layoutX="561.0" layoutY="15.0" text="Taken lessons :">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></Label>
-      <Label layoutX="537.0" layoutY="32.0" text="Percentage :">
+      <Label layoutX="580.0" layoutY="42.0" text="Percentage :">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></Label>
-      <Label fx:id="takenL" layoutX="623.0" layoutY="11.0">
+      <Label fx:id="takenL" layoutX="670.0" layoutY="15.0">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></Label>
-      <Label fx:id="percentage" layoutX="623.0" layoutY="32.0">
+      <Label fx:id="percentage" layoutX="670.0" layoutY="42.0">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></Label>
-      <JFXDatePicker fx:id="dateFrom" layoutX="254.0" layoutY="-1.0" />
-      <JFXDatePicker fx:id="dateTo" layoutX="254.0" layoutY="26.0" />
-      <JFXComboBox fx:id="weekBox" layoutX="428.0" layoutY="20.0" promptText="Week" />
+      <JFXDatePicker fx:id="dateFrom" defaultColor="#4059a9" layoutX="256.0" layoutY="3.0" />
+      <JFXDatePicker fx:id="dateTo" defaultColor="#4059a9" layoutX="256.0" layoutY="32.0" />
+      <JFXComboBox fx:id="weekBox" layoutX="452.0" layoutY="32.0" prefHeight="25.0" prefWidth="88.0" promptText="Week" styleClass="week-combobox" />
    </children>
 </AnchorPane>

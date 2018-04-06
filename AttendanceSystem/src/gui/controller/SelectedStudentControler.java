@@ -79,6 +79,7 @@ public class SelectedStudentControler implements Initializable {
         model.showChangeAttendanceButtonTomek(studentTable);
         studentTable.setSelectionModel(null);
         fillWeekBox();
+        name.setText(student.getFullName());
     }
     
     private void setDateFromTo() {

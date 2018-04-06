@@ -19,12 +19,12 @@
           <TableColumn fx:id="attendanceColumn" maxWidth="284.0" minWidth="41.0" prefWidth="147.0" text="Status" />
         </columns>
       </TableView>
-      <JFXComboBox fx:id="classBox" layoutX="349.0" layoutY="22.0" prefHeight="27.0" prefWidth="121.0" />
+      <JFXComboBox fx:id="classBox" layoutX="349.0" layoutY="18.0" prefHeight="27.0" prefWidth="121.0" />
       <Label fx:id="dateLabel" layoutX="105.0" layoutY="18.0" prefHeight="17.0" prefWidth="71.0">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></Label>
-      <Label layoutX="56.0" layoutY="35.0" text="Date :">
+      <Label layoutX="62.0" layoutY="35.0" text="Date:">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></Label>
@@ -37,12 +37,15 @@
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <Button layoutX="399.0" layoutY="85.0" mnemonicParsing="false" onAction="#logOut" prefHeight="16.0" prefWidth="71.0" style="-fx-background-color: #808080;" text="Log Out" textFill="WHITE">
+      <Button layoutX="399.0" layoutY="81.0" mnemonicParsing="false" onAction="#logOut" prefHeight="16.0" prefWidth="71.0" style="-fx-background-color: #808080;" text="Log Out" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="11.0" />
          </font>
       </Button>
-      <Label fx:id="date" layoutX="98.0" layoutY="35.0" prefHeight="17.0" prefWidth="84.0" text="Label" />
-      <Button fx:id="showStatisticsButton" layoutX="515.0" layoutY="-1.0" mnemonicParsing="false" onAction="#showStatisticsButtonClick" prefHeight="146.0" prefWidth="27.0" style="-fx-background-color: #4059a9; -fx-text-fill: #fff;" />
+      <Label fx:id="date" layoutX="105.0" layoutY="34.0" prefHeight="17.0" prefWidth="84.0" text="Label">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font></Label>
+      <Button fx:id="showStatisticsButton" layoutX="516.0" layoutY="15.0" mnemonicParsing="false" onAction="#showStatisticsButtonClick" prefHeight="115.0" prefWidth="29.0" style="-fx-background-color: #4059a9; -fx-text-fill: #fff; -fx-border-style: solid; -fx-border-color: #4059a9; -fx-border-radius: 10 0 0 10; -fx-background-radius: 10 0 0 10;" />
    </children>
 </AnchorPane>
