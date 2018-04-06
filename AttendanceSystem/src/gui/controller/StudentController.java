@@ -87,7 +87,12 @@ public class StudentController implements Initializable {
 
         calendarImg.setImage(img_plus);
         submissionLabelAndDisableButtonListener();
+        
+     
+
+        
     }
+    
 
     public void getStudentId(int studentId) {
         this.studentId = studentId;
@@ -101,6 +106,7 @@ public class StudentController implements Initializable {
         updatePercentageAndLessons();
         fillWeekBox();
         updateWeek();
+        studentTable.setSelectionModel(null);
 
         /* Something like this need to be here, but it is not working. So take a look and if it 
        is not working just create new showChangeAttendanceButton() method also here. 
