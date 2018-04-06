@@ -73,8 +73,8 @@ public class LogInController implements Initializable {
             if (StudentId > -1) {
                 StudentController controller = loader.getController();
                 controller.getStudentId(StudentId);
-                stage.setMinWidth(268);
-                stage.setMaxWidth(268);
+                stage.setMinWidth(251);
+                stage.setMaxWidth(251);
                 stage.setMinHeight(380);
                 stage.setMaxHeight(380);
             }
