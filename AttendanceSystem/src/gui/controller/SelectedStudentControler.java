@@ -116,8 +116,8 @@ public class SelectedStudentControler implements Initializable {
     private void backButtonClick(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        stage.setMinWidth(544);
-        stage.setMaxWidth(544);
+        stage.setMinWidth(560);
+        stage.setMaxWidth(560);
         stage.setMinHeight(600);
         stage.setMaxHeight(600);
         Parent root = FXMLLoader.load(getClass().getResource("/gui/view/TeacherView.fxml"));
