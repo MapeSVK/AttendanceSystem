@@ -95,34 +95,5 @@ public class LogInController implements Initializable {
 
     }
 
-    /**
-     * *********** PROTOTYPE METHODS *************
-     */
-    /*
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-       
-        try {
-            if(manager.readUsername().equals("non")){}
-            else
-            {
-                loginField.setText(manager.readUsername());
-                rememberCheck.setSelected(true);
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-
     
-
-   
-
-    
-  
-    
-     */
 }

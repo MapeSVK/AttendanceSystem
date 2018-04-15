@@ -165,7 +165,7 @@ public class ModelManager implements Initializable {
         return manager.changeStudentAttendance(attendance);
     }
 
-    public void showChangeAttendanceButtonTomek(TableView tw) {
+    public void showChangeAttendanceButton(TableView tw) {
         tw.setRowFactory(tableView -> {
             final TableRow<Attendance> row = new TableRow<>();
 
@@ -177,6 +177,8 @@ public class ModelManager implements Initializable {
 
                     att.getChangeAttendanceButton().getStyleClass().clear();
                     att.getChangeAttendanceButton().getStyleClass().add("changeAttendanceButton");
+                    
+                   
 
                     if (row.isHover() && attendance == att) {
 
@@ -187,7 +189,7 @@ public class ModelManager implements Initializable {
                             if (att.getStatus().equals("present")) {
                                 changeStudentAttendance(att);
                                 dateFromTo.set(row.getIndex(), new Attendance(att.getStudentId(), att.getDate(), "absent"));
-                                changeStatusToImageTomek(att.getStudentId());
+                                changeStatusToImageWithId(att.getStudentId());
                                 presentCounter--;
                                 absentCounter++;
                                 changeProperty();
@@ -197,7 +199,7 @@ public class ModelManager implements Initializable {
                             } else if (att.getStatus().equals("absent")) {
                                 changeStudentAttendance(att);
                                 dateFromTo.set(row.getIndex(), new Attendance(att.getStudentId(), att.getDate(), "present"));
-                                changeStatusToImageTomek(att.getStudentId());
+                                changeStatusToImageWithId(att.getStudentId());
                                 presentCounter++;
                                 absentCounter--;
                                 changeProperty();
@@ -216,7 +218,7 @@ public class ModelManager implements Initializable {
         });
     }
 
-    public void changeStatusToImageTomek(int id) {
+    public void changeStatusToImageWithId(int id) {
         for (Attendance att : dateFromTo) {
             if (att.getStatus().equals("absent")) {
                 att.getAttendanceImage().setImage(absent);
